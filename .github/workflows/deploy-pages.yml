@@ -25,6 +25,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Build presentation
+        run: npm run build
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
@@ -33,7 +36,7 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site/
 
       - name: Deploy to GitHub Pages
         id: deployment

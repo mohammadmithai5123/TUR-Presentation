@@ -1,0 +1,222 @@
+[
+  {
+    "id": "taheri-unity-ride",
+    "file": "taheri-unity-ride.html",
+    "notes": ""
+  },
+  {
+    "id": "the-complete-ride",
+    "file": "the-complete-ride.html",
+    "notes": "Animated route follows the supplied map. Al Nadi return retraces the incoming road. Traced preview, not turn-by-turn navigation."
+  },
+  {
+    "id": "the-main-checkpoints",
+    "file": "the-main-checkpoints.html",
+    "notes": "Overview is a route sequence, not a geographical map. No date added because current source does not confirm one."
+  },
+  {
+    "id": "noman-centre",
+    "file": "noman-centre.html",
+    "notes": "Registration appears at Noman Centre in supplied image. Duty draft groups these desks under the starting point."
+  },
+  {
+    "id": "taheri-masjid",
+    "file": "taheri-masjid.html",
+    "notes": "AI architectural illustration based on supplied route image. Stylized location reveal, not a verified architectural survey."
+  },
+  {
+    "id": "taheri-masjid-2",
+    "file": "taheri-masjid-2.html",
+    "notes": "Starting point draft: 28 spot duties plus 5 sub-incharges. Includes PR team 2 guards, sponsors 3 guards, parking 3 guards. PR booth omitted from final visual, not the PR duty."
+  },
+  {
+    "id": "taheri-masjid-to-frere-hall",
+    "file": "taheri-masjid-to-frere-hall.html",
+    "notes": "Schematic route sequence, not a geographic map. Duty assignments follow TUR Duty Draft and user route corrections. Detailed source-image views follow."
+  },
+  {
+    "id": "lucky-star",
+    "file": "lucky-star.html",
+    "notes": ""
+  },
+  {
+    "id": "chullu-kabab",
+    "file": "chullu-kabab.html",
+    "notes": ""
+  },
+  {
+    "id": "mehran-underpass",
+    "file": "mehran-underpass.html",
+    "notes": ""
+  },
+  {
+    "id": "cantt-petrol-pump",
+    "file": "cantt-petrol-pump.html",
+    "notes": ""
+  },
+  {
+    "id": "rehmat-e-shereen",
+    "file": "rehmat-e-shereen.html",
+    "notes": "Route A also assigns an internal-road guard and two bike duties, one in each direction."
+  },
+  {
+    "id": "frere-hall",
+    "file": "frere-hall.html",
+    "notes": "AI architectural illustration based on supplied route image. Stylized location reveal, not a verified architectural survey."
+  },
+  {
+    "id": "frere-hall-2",
+    "file": "frere-hall-2.html",
+    "notes": "Frere Hall total 11 spot duties + 1 sub-incharge. Library gate 1 guard, photo booth 1 guard, refreshments 1 guard. Tools: flags, phones/laptops, garbage bags, gloves and masks."
+  },
+  {
+    "id": "frere-hall-3",
+    "file": "frere-hall-3.html",
+    "notes": "Source image is a proposed mockup and visually shows two refreshment attendants; duty count follows draft, which assigns one."
+  },
+  {
+    "id": "frere-hall-to-jinnah-house",
+    "file": "frere-hall-to-jinnah-house.html",
+    "notes": "Schematic route sequence, not a geographic map. Duty assignments follow TUR Duty Draft and user route corrections. Detailed source-image views follow."
+  },
+  {
+    "id": "jinnah-house",
+    "file": "jinnah-house.html",
+    "notes": "AI architectural illustration based on supplied route image. Stylized location reveal, not a verified architectural survey."
+  },
+  {
+    "id": "jinnah-house-2",
+    "file": "jinnah-house-2.html",
+    "notes": "Total 5 spot duties. Overall spot incharge: 1 AGL."
+  },
+  {
+    "id": "jinnah-house-to-al-nadi",
+    "file": "jinnah-house-to-al-nadi.html",
+    "notes": "Schematic route sequence, not a geographic map. Duty assignments follow TUR Duty Draft and user route corrections. Detailed source-image views follow."
+  },
+  {
+    "id": "byd-showroom",
+    "file": "byd-showroom.html",
+    "notes": ""
+  },
+  {
+    "id": "byd-showroom-2",
+    "file": "byd-showroom-2.html",
+    "notes": ""
+  },
+  {
+    "id": "shaheen-complex",
+    "file": "shaheen-complex.html",
+    "notes": "Outbound passage. The later Shaheen Complex view is the return towards YMCA, not a duplicate stop."
+  },
+  {
+    "id": "shaheen-complex-to-i-i-chundrigar",
+    "file": "shaheen-complex-to-i-i-chundrigar.html",
+    "notes": "Route B total 10 spot duties, including two bike duties. Road naming follows user route context; source page is an image without a separate location caption."
+  },
+  {
+    "id": "nadi-al-burhani-bridge",
+    "file": "nadi-al-burhani-bridge.html",
+    "notes": ""
+  },
+  {
+    "id": "al-nadi-al-burhani",
+    "file": "al-nadi-al-burhani.html",
+    "notes": "AI architectural illustration based on supplied route image. Stylized location reveal, not a verified architectural survey."
+  },
+  {
+    "id": "al-nadi-al-burhani-2",
+    "file": "al-nadi-al-burhani-2.html",
+    "notes": "Checkpoint 3 total 7 spot duties + 1 parking sub-incharge. Overall: 1 VC + 1 GL. Parking position follows explicit user instruction."
+  },
+  {
+    "id": "al-nadi-al-burhani-3",
+    "file": "al-nadi-al-burhani-3.html",
+    "notes": ""
+  },
+  {
+    "id": "al-nadi-to-ymca-ground",
+    "file": "al-nadi-to-ymca-ground.html",
+    "notes": "Schematic route sequence, not a geographic map. Duty assignments follow TUR Duty Draft and user route corrections. Detailed source-image views follow."
+  },
+  {
+    "id": "nadi-bridge-descent",
+    "file": "nadi-bridge-descent.html",
+    "notes": ""
+  },
+  {
+    "id": "shaheen-complex-2",
+    "file": "shaheen-complex-2.html",
+    "notes": "Source mockup shows one flag guide. Draft assigns two at the intersection and one guard on each of two bike duties. Route C total 4."
+  },
+  {
+    "id": "ymca-ground",
+    "file": "ymca-ground.html",
+    "notes": "AI architectural illustration based on supplied route image. Stylized location reveal, not a verified architectural survey."
+  },
+  {
+    "id": "ymca-ground-2",
+    "file": "ymca-ground-2.html",
+    "notes": ""
+  },
+  {
+    "id": "ymca-ground-3",
+    "file": "ymca-ground-3.html",
+    "notes": "16 spot duties including the 2 gate guards shown on the preceding slide. Six inside zones total 14. QR activity start and end stay separate. Phones/laptops at all scanning desks; light sticks at parking."
+  },
+  {
+    "id": "ymca-ground-to-taheri-masjid",
+    "file": "ymca-ground-to-taheri-masjid.html",
+    "notes": "Schematic route sequence, not a geographic map. Duty assignments follow TUR Duty Draft and user route corrections. Detailed source-image views follow."
+  },
+  {
+    "id": "ymca-exit",
+    "file": "ymca-exit.html",
+    "notes": "Route D total 11: Victoria Leather 2, Zainab Market 2, Hotel Paradise 2, Bohri Bazaar 2, A-One Chorangi 2, Shehbaz Tea 1."
+  },
+  {
+    "id": "zainab-market",
+    "file": "zainab-market.html",
+    "notes": "Duty locations retained from draft. No unsupported extra stop or timing added."
+  },
+  {
+    "id": "cooperative-market",
+    "file": "cooperative-market.html",
+    "notes": "Cooperative Market is named by the user and shown in the visual route. Duty draft names Bohri Bazaar but does not assign a separate Cooperative Market count. Do not double count this illustrated flag guide."
+  },
+  {
+    "id": "a-one-bakery",
+    "file": "a-one-bakery.html",
+    "notes": ""
+  },
+  {
+    "id": "taheri-masjid-3",
+    "file": "taheri-masjid-3.html",
+    "notes": "Route follows user-marked reference, not verified navigation. Wide central road is not the turn lane."
+  },
+  {
+    "id": "cycle-return-before-closing",
+    "file": "cycle-return-before-closing.html",
+    "notes": "TUR Duty Draft ending point: 5 spot duties, 1 AGL overall. Uploaded 27-page PDF has no separate cycle-return scene; this editable slide supplies the missing operational handoff."
+  },
+  {
+    "id": "taheri-masjid-4",
+    "file": "taheri-masjid-4.html",
+    "notes": "Cycle return must precede the ceremony. Dedicated return slide inserted immediately before this source page."
+  },
+  {
+    "id": "106-spot-duties",
+    "file": "106-spot-duties.html",
+    "notes": "Source: TUR_Duty_Draft.pdf. This counts assignments, not confirmed unique people. Repeated or reassigned command roles are not consolidated. Confirm roster if operating with 106 people."
+  },
+  {
+    "id": "counts-to-confirm",
+    "file": "counts-to-confirm.html",
+    "notes": "Source images are proposed mockups. Duty numbers in copy follow the draft. Registration placement follows Noman Centre visual. Cooperative Market is a user route point without a separate count in the draft."
+  },
+  {
+    "id": "one-ride-one-community",
+    "file": "one-ride-one-community.html",
+    "notes": "Closing banner after the operational briefing."
+  }
+]
