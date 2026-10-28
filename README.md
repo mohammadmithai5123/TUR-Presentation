@@ -10,6 +10,10 @@ https://mohammadmithai5123.github.io/TUR-Presentation/
 GitHub Actions deploys the site automatically whenever changes are pushed to
 the `main` branch.
 
+After enabling GitHub Pages with the GitHub Actions source, push a commit to
+`main` to start the first deployment. Check the repository's Actions tab for
+the deployment status.
+
 ## Project structure
 
 ```text
