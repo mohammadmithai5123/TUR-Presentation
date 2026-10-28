@@ -7,6 +7,9 @@ browser; no build step or package installation is required.
 
 https://mohammadmithai5123.github.io/TUR-Presentation/
 
+GitHub Actions deploys the site automatically whenever changes are pushed to
+the `main` branch.
+
 ## Project structure
 
 ```text
