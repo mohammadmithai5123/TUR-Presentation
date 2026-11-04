@@ -13,8 +13,7 @@ the deck now has 55 slides, not 29, 31 or 44):
   older copy of this deck's CSS/JS; their slides were ported to one file per slide, their
   images moved to `assets/images/{activities,software,communication}/` as WebP, their
   embedded base64 data removed, and their CSS merged into the end of `styles.css`
-  (one "Merged briefing" block using the shared `--deck-*` tokens). `activities.js` is the
-  Activities deck's script, unchanged, loaded by `page-shell.html` and the export pack.
+  (one "Merged briefing" block using the shared `--deck-*` tokens).
 - **Slide kinds added:** `agenda`/`recap` (four reveal cards), `section-divider`
   (`data-kind="section"`, no reveals, one click moves on), `route screen` (copy left,
   framed screenshot right; `brand` modifier for the Zello logo), and the `activity`
@@ -36,11 +35,29 @@ the deck now has 55 slides, not 29, 31 or 44):
 - **Export size:** the portable HTML inlines each slide's three logos, so logo weight
   is multiplied by the slide count. Logos are now ≤512 px (173 KB per slide) and the
   export is about 38 MB. Keep new slides' repeated images small.
-- **Verification run:** build; 37 runtime checks (order, every reveal step, boundary
-  navigation, a full 194-press walk of all 55 slides, image viewer, layout overflow);
-  39 editor checks (edit every new element type, image replace, add/duplicate/undo/move,
-  save + reload, portable export and re-export); GitHub auto-save with a stubbed API
-  (untouched deck → no commit; one edit → one file). Run with puppeteer-core and Chrome.
+- **Points behave the same everywhere (`assets/js/steps.js`):** it began as the Activities
+  deck's script and now covers every slide whose `.detail` points open one by one. The
+  newest point gets `.current-step` (lighter card), earlier points dim to 68 %, and a
+  counter ("2 / 3 points", or "Press Next to begin") is created at run time on slides with
+  two or more points. The counter is never part of saved slide markup and never appears in
+  the editor. Route-journey slides and the map keep their own controls. All reveals share
+  one transition (`.detail`, ~0.45 s with the same easing as the route photo moves).
+  Gotcha: re-adding an existing class (`classList.add`) still fires a MutationObserver, so
+  `steps.js` only touches classes when the state really changes; otherwise it loops forever.
+- **Font loading:** `@font-face` uses `font-display:block`, and a small inline script in
+  `page-shell.html` keeps `#deck` hidden (`html.fonts-loading`) until Heading and Body are
+  loaded, then fades it in; a 3 s timeout or a load error also reveals it, so the deck can
+  never stay hidden. It is part of the shell, so the portable export has it too.
+- **Wording pass:** "CHECKPOINT 01–04" tags (one word, two digits), "in-charge" spelling in
+  slides and notes, "Al Nadi Al Burhani" everywhere, articles added to terse points, and
+  full instructions on the route slides ("press the Right Arrow key …").
+- **Verification run:** build; 51 runtime checks (order, every reveal step, the pointer
+  behaviour on 12 slide types, boundary navigation, a full 194-press walk of all 55
+  slides, image viewer, layout overflow including the counter, font gate); 41 editor
+  checks (edit every new element type, image replace, add/duplicate/undo/move, save +
+  reload, portable export and re-export); font gate in normal, exported and
+  fonts-blocked cases; GitHub auto-save with a stubbed API (untouched deck → no commit;
+  one edit → one file). Run with puppeteer-core and Chrome.
 
 2026-11-04 optimization and GitHub auto-save update (supersedes older notes below
 where they disagree on images, build and auto-save):

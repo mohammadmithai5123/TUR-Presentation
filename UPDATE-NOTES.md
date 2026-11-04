@@ -18,6 +18,16 @@ recap → closing banner.
 - Screenshots and artwork were converted to WebP; branding logos were reduced to
   512 px so the portable HTML export stays near 40 MB.
 
+## 2026-11-05 — wording, points and font loading
+
+- Wording pass over every slide: "CHECKPOINT 01–04" tags, "in-charge" spelling (slides and
+  notes), "Al Nadi Al Burhani" used consistently, missing articles added, and the route
+  slides now say "press the Right Arrow key to follow the route."
+- Every slide that opens its points one by one now behaves like the Activities slides: the
+  newest point is highlighted, earlier points dim, and a counter shows "2 / 3 points".
+  All reveals use the same timing and easing.
+- Fonts load before the deck appears, so text never flashes in a fallback font.
+
 ## Earlier route update (31 slides)
 
 31 slides, using the original theme, local fonts, controls and animation effects.

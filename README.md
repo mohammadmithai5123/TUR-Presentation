@@ -41,7 +41,7 @@ assets/
                         activities/, software/ and communication/ artwork
   js/
     presentation.js     Navigation, notes, and image magnifier
-    activities.js       Highlights the current Activities step and counts steps
+    steps.js            Highlights the newest point on every slide and shows the points counter
     route-map.js        Animated route and map controls
 scripts/
   build.mjs             Validates and assembles the presentation

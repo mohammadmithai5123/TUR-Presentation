@@ -6,6 +6,18 @@
   <meta name="tur-build" content="__BUILD_ID__">
   <title>Taheri Unity Ride</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    /* Hold the deck back until the local fonts are ready so text never flashes in a fallback face. */
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('fonts-loading');
+      var done = function () { root.classList.remove('fonts-loading'); };
+      var timer = setTimeout(done, 3000);
+      if (!document.fonts || !document.fonts.load) { clearTimeout(timer); return done(); }
+      Promise.all(['700 1em Heading', '400 1em Body', '700 1em Body'].map(function (face) { return document.fonts.load(face); }))
+        .then(function () { clearTimeout(timer); done(); }, function () { clearTimeout(timer); done(); });
+    })();
+  </script>
 </head>
 <body><main id="deck">
   <!-- SLIDES -->
@@ -14,6 +26,6 @@
 <script src="assets/js/editor-bootstrap.js"></script>
 <script src="assets/js/route-map.js"></script>
 <script src="assets/js/presentation.js"></script>
-<script src="assets/js/activities.js"></script>
+<script src="assets/js/steps.js"></script>
 <script src="assets/js/github-sync.js"></script>
 <script src="assets/js/editor.js"></script></body></html>
