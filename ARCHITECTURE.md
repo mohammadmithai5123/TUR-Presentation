@@ -48,6 +48,16 @@ the deck now has 55 slides, not 29, 31 or 44):
   `page-shell.html` keeps `#deck` hidden (`html.fonts-loading`) until Heading and Body are
   loaded, then fades it in; a 3 s timeout or a load error also reveals it, so the deck can
   never stay hidden. It is part of the shell, so the portable export has it too.
+- **Cover (slide 1, class `cover-live`):** staged entrance (title wipe, gold bar, tagline, stats,
+  logo pop), a slow 26 s camera push on the hero picture, a light sweep, and a route ribbon where the
+  deck's bicycle rides Taheri Masjid → four checkpoints → Taheri Masjid while each stop lights up. All
+  text (stats, stop names) is ordinary editable text; stop names are stored in capitals like the rest
+  of the deck (no `text-transform`, which would make the editor save capitals). Base CSS is the
+  finished look and every entrance animation uses `backwards`, so reduced-motion, the editor and
+  screenshots see the final slide; animations wait for `html:not(.fonts-loading)` and replay whenever
+  the cover is shown again. To change the picture, replace `.hero` in Edit Mode (or the file
+  `assets/images/slides/hero.webp`); the scrim and sweep layers have `pointer-events:none`, so the
+  picture stays clickable.
 - **Wording pass:** "CHECKPOINT 01–04" tags (one word, two digits), "in-charge" spelling in
   slides and notes, "Al Nadi Al Burhani" everywhere, articles added to terse points, and
   full instructions on the route slides ("press the Right Arrow key …").

@@ -28,6 +28,13 @@ recap → closing banner.
   All reveals use the same timing and easing.
 - Fonts load before the deck appears, so text never flashes in a fallback font.
 
+## 2026-11-05 — livelier cover
+
+The first slide now builds in step by step (title, gold bar, tagline, "4 checkpoints · 2 activities ·
+1 community", logos), the picture slowly pushes in, and a route ribbon shows the bicycle riding from
+Taheri Masjid through the four checkpoints and back. Everything stays editable; the first Next still
+reveals "ROUTE & OPERATIONS BRIEFING".
+
 ## Earlier route update (31 slides)
 
 31 slides, using the original theme, local fonts, controls and animation effects.
