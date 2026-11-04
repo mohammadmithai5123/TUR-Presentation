@@ -1,2 +1,6 @@
 _site/
 node_modules/
+assets/js/editor-export-assets.js
+editor-export-check.html
+editor-reexport-check.html
+editor-preview.png

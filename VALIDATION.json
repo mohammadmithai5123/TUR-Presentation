@@ -1,0 +1,17 @@
+{
+  "slideCount": 31,
+  "missingImages": [],
+  "errors": [],
+  "overlaps": [],
+  "mapMoves": true,
+  "routeExpanded": true,
+  "routeReturned": true,
+  "caption": "Next: Chullu Kabab  \u2022  Members at this spot: 2",
+  "detailsRevealAndReverse": true,
+  "preserved_files": [
+    "assets/css/styles.css",
+    "assets/js/presentation.js",
+    "src/page-shell.html",
+    "scripts/build.mjs"
+  ]
+}

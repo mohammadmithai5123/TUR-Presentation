@@ -1,0 +1,21 @@
+TAHERI UNITY RIDE — MERGED PRESENTATION
+
+1. Extract this entire ZIP into a folder.
+2. Open index.html in Chrome or Edge. Keep the assets folder beside it.
+3. Right Arrow / Next reveals details, then advances. Back reverses.
+4. Use the slide dropdown to jump. F opens fullscreen; M toggles the lens.
+5. Route thumbnails retain their animated zoom and bicycle movement.
+
+55 slides in four sections, in this order:
+  Route Overview (1-29), Activities (30-39), Taheri Web Application (40-48),
+  Communication Application (49-53), then a recap and the closing banner (54-55).
+Each of the last three sections opens with its own introduction slide.
+The "ONE RIDE. ONE COMMUNITY." slide is now the final slide of the whole deck.
+
+Everything is editable: click Edit Mode in the bottom toolbar, pick a slide, click
+text or a picture, and change it. Edits save in the browser automatically;
+"Download editable HTML" makes a portable copy (about 40 MB) with the editor inside.
+
+Editable source: src/slides/*.html and src/slides.json.
+Rebuild after edits: npm run build (Node.js only; no packages required).
+The built index.html works without Node.js or internet.

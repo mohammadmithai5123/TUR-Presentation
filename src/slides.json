@@ -5,6 +5,11 @@
     "notes": ""
   },
   {
+    "id": "briefing-agenda",
+    "file": "briefing-agenda.html",
+    "notes": "Roadmap of the full briefing: route, activities, web application, communication. The last three each open with their own introduction slide, and the closing banner comes after all four."
+  },
+  {
     "id": "the-complete-ride",
     "file": "the-complete-ride.html",
     "notes": "Animated route follows the supplied map. Al Nadi return retraces the incoming road. Traced preview, not turn-by-turn navigation."
@@ -17,7 +22,7 @@
   {
     "id": "noman-centre",
     "file": "noman-centre.html",
-    "notes": "Registration appears at Noman Centre in supplied image. Duty draft groups these desks under the starting point."
+    "notes": "Approved Noman Centre layout: right-side road barricade, three combined registration/giveaway desks, cycle distribution tent, then formation to the left. Staffing remains 4 registration scouts and 4 giveaway/tagging scouts from the duty draft; no cycle quantity is asserted."
   },
   {
     "id": "taheri-masjid",
@@ -27,37 +32,12 @@
   {
     "id": "taheri-masjid-2",
     "file": "taheri-masjid-2.html",
-    "notes": "Starting point draft: 28 spot duties plus 5 sub-incharges. Includes PR team 2 guards, sponsors 3 guards, parking 3 guards. PR booth omitted from final visual, not the PR duty."
+    "notes": "Starting point draft: 28 spot duties plus 5 sub-incharges. Includes PR team 2 members, sponsors 3 members, parking 3 members. PR booth omitted from final visual, not the PR duty."
   },
   {
     "id": "taheri-masjid-to-frere-hall",
     "file": "taheri-masjid-to-frere-hall.html",
-    "notes": "Schematic route sequence, not a geographic map. Duty assignments follow TUR Duty Draft and user route corrections. Detailed source-image views follow."
-  },
-  {
-    "id": "lucky-star",
-    "file": "lucky-star.html",
-    "notes": ""
-  },
-  {
-    "id": "chullu-kabab",
-    "file": "chullu-kabab.html",
-    "notes": ""
-  },
-  {
-    "id": "mehran-underpass",
-    "file": "mehran-underpass.html",
-    "notes": ""
-  },
-  {
-    "id": "cantt-petrol-pump",
-    "file": "cantt-petrol-pump.html",
-    "notes": ""
-  },
-  {
-    "id": "rehmat-e-shereen",
-    "file": "rehmat-e-shereen.html",
-    "notes": "Route A also assigns an internal-road guard and two bike duties, one in each direction."
+    "notes": "Schematic route sequence, not a geographic map. Location photographs and duties are consolidated in this route section. Route A also assigns an internal-road member and two bike duties, one in each direction."
   },
   {
     "id": "frere-hall",
@@ -67,17 +47,17 @@
   {
     "id": "frere-hall-2",
     "file": "frere-hall-2.html",
-    "notes": "Frere Hall total 11 spot duties + 1 sub-incharge. Library gate 1 guard, photo booth 1 guard, refreshments 1 guard. Tools: flags, phones/laptops, garbage bags, gloves and masks."
+    "notes": "Frere Hall total 11 spot duties + 1 sub-incharge. Library gate 1 member, photo booth 1 member, refreshments 1 member. Tools: flags, phones/laptops, garbage bags, gloves and masks."
   },
   {
     "id": "frere-hall-3",
     "file": "frere-hall-3.html",
-    "notes": "Source image is a proposed mockup and visually shows two refreshment attendants; duty count follows draft, which assigns one."
+    "notes": "Approved courtyard visual replaces the previous mockup. Duty counts follow the original draft, not the number of people pictured. This image is an interior visit/departure scene, not a photograph of an exit gate."
   },
   {
     "id": "frere-hall-to-jinnah-house",
     "file": "frere-hall-to-jinnah-house.html",
-    "notes": "Schematic route sequence, not a geographic map. Duty assignments follow TUR Duty Draft and user route corrections. Detailed source-image views follow."
+    "notes": "Schematic route sequence, not a geographic map. Location photographs and duties are consolidated in this route section."
   },
   {
     "id": "jinnah-house",
@@ -92,32 +72,7 @@
   {
     "id": "jinnah-house-to-al-nadi",
     "file": "jinnah-house-to-al-nadi.html",
-    "notes": "Schematic route sequence, not a geographic map. Duty assignments follow TUR Duty Draft and user route corrections. Detailed source-image views follow."
-  },
-  {
-    "id": "byd-showroom",
-    "file": "byd-showroom.html",
-    "notes": ""
-  },
-  {
-    "id": "byd-showroom-2",
-    "file": "byd-showroom-2.html",
-    "notes": ""
-  },
-  {
-    "id": "shaheen-complex",
-    "file": "shaheen-complex.html",
-    "notes": "Outbound passage. The later Shaheen Complex view is the return towards YMCA, not a duplicate stop."
-  },
-  {
-    "id": "shaheen-complex-to-i-i-chundrigar",
-    "file": "shaheen-complex-to-i-i-chundrigar.html",
-    "notes": "Route B total 10 spot duties, including two bike duties. Road naming follows user route context; source page is an image without a separate location caption."
-  },
-  {
-    "id": "nadi-al-burhani-bridge",
-    "file": "nadi-al-burhani-bridge.html",
-    "notes": ""
+    "notes": "Schematic route sequence, not a geographic map. Route B has 10 spot duties, including two bike duties. Location photographs and directions are consolidated here; road naming follows user route context."
   },
   {
     "id": "al-nadi-al-burhani",
@@ -130,6 +85,11 @@
     "notes": "Checkpoint 3 total 7 spot duties + 1 parking sub-incharge. Overall: 1 VC + 1 GL. Parking position follows explicit user instruction."
   },
   {
+    "id": "al-nadi-cycle-parking",
+    "file": "al-nadi-cycle-parking.html",
+    "notes": "Expanded view of the existing checkpoint parking allocation, not additional staffing. Nadi remains 7 spot duties plus 1 parking sub-incharge; overall 1 VC and 1 GL."
+  },
+  {
     "id": "al-nadi-al-burhani-3",
     "file": "al-nadi-al-burhani-3.html",
     "notes": ""
@@ -137,17 +97,7 @@
   {
     "id": "al-nadi-to-ymca-ground",
     "file": "al-nadi-to-ymca-ground.html",
-    "notes": "Schematic route sequence, not a geographic map. Duty assignments follow TUR Duty Draft and user route corrections. Detailed source-image views follow."
-  },
-  {
-    "id": "nadi-bridge-descent",
-    "file": "nadi-bridge-descent.html",
-    "notes": ""
-  },
-  {
-    "id": "shaheen-complex-2",
-    "file": "shaheen-complex-2.html",
-    "notes": "Source mockup shows one flag guide. Draft assigns two at the intersection and one guard on each of two bike duties. Route C total 4."
+    "notes": "Schematic route sequence, not a geographic map. Location photographs and directions are consolidated here. Route C total 4: two at the intersection and one member on each of two bike duties."
   },
   {
     "id": "ymca-ground",
@@ -160,44 +110,34 @@
     "notes": ""
   },
   {
+    "id": "ymca-cycle-parking",
+    "file": "ymca-cycle-parking.html",
+    "notes": "Dedicated inside-parking scene using the supplied YMCA image. These 2 parking members are part of the existing 16 spot duties, not extra assignments."
+  },
+  {
     "id": "ymca-ground-3",
     "file": "ymca-ground-3.html",
-    "notes": "16 spot duties including the 2 gate guards shown on the preceding slide. Six inside zones total 14. QR activity start and end stay separate. Phones/laptops at all scanning desks; light sticks at parking."
+    "notes": "Activity start and end remain separate, with 2 scouts at each desk; 4 ground members. Together with 2 gate guides, 2 checkpoint scanners, 2 parking members and 2 refreshment members, YMCA remains 16 duties. Supplied pavilion visual is a proposed setup; people shown do not redefine staffing."
+  },
+  {
+    "id": "ymca-refreshments",
+    "file": "ymca-refreshments.html",
+    "notes": "Expanded YMCA pavilion scene. The 2 refreshment members are included in the existing 16 YMCA duties. Approved photograph is shown in full without stretching or inventing architecture."
   },
   {
     "id": "ymca-ground-to-taheri-masjid",
     "file": "ymca-ground-to-taheri-masjid.html",
-    "notes": "Schematic route sequence, not a geographic map. Duty assignments follow TUR Duty Draft and user route corrections. Detailed source-image views follow."
+    "notes": "Schematic route sequence, not a geographic map. Route D total 11: Victoria Leather 2, Zainab Market 2, Hotel Paradise 2, Bohri Bazaar 2, A-One Chorangi 2, Shehbaz Tea 1. Cooperative Market has no separate count in the duty draft; its flag guide is not double-counted. Location photographs and directions are consolidated here. The final approach follows the user-marked reference; the wide central road is not the turn lane."
   },
   {
-    "id": "ymca-exit",
-    "file": "ymca-exit.html",
-    "notes": "Route D total 11: Victoria Leather 2, Zainab Market 2, Hotel Paradise 2, Bohri Bazaar 2, A-One Chorangi 2, Shehbaz Tea 1."
-  },
-  {
-    "id": "zainab-market",
-    "file": "zainab-market.html",
-    "notes": "Duty locations retained from draft. No unsupported extra stop or timing added."
-  },
-  {
-    "id": "cooperative-market",
-    "file": "cooperative-market.html",
-    "notes": "Cooperative Market is named by the user and shown in the visual route. Duty draft names Bohri Bazaar but does not assign a separate Cooperative Market count. Do not double count this illustrated flag guide."
-  },
-  {
-    "id": "a-one-bakery",
-    "file": "a-one-bakery.html",
-    "notes": ""
-  },
-  {
-    "id": "taheri-masjid-3",
-    "file": "taheri-masjid-3.html",
-    "notes": "Route follows user-marked reference, not verified navigation. Wide central road is not the turn lane."
+    "id": "taheri-ending-arch",
+    "file": "taheri-ending-arch.html",
+    "notes": "Approved ending-arch location inserted after the final return route and before cycle return and the closing ceremony. Guides shown belong to the ending operation; no extra duty count is added."
   },
   {
     "id": "cycle-return-before-closing",
     "file": "cycle-return-before-closing.html",
-    "notes": "TUR Duty Draft ending point: 5 spot duties, 1 AGL overall. Uploaded 27-page PDF has no separate cycle-return scene; this editable slide supplies the missing operational handoff."
+    "notes": "Previously requested cycle-return visualization. Ending-point staffing stays 5 spot duties with 1 AGL overall. Bicycles are handed over outside; participants enter the small door and walk upstairs."
   },
   {
     "id": "taheri-masjid-4",
@@ -205,14 +145,129 @@
     "notes": "Cycle return must precede the ceremony. Dedicated return slide inserted immediately before this source page."
   },
   {
-    "id": "106-spot-duties",
-    "file": "106-spot-duties.html",
-    "notes": "Source: TUR_Duty_Draft.pdf. This counts assignments, not confirmed unique people. Repeated or reassigned command roles are not consolidated. Confirm roster if operating with 106 people."
+    "id": "section-activities",
+    "file": "section-activities.html",
+    "notes": "Section transition: Activities. Garbage collection at Frere Hall and the treasure hunt at YMCA Ground follow."
   },
   {
-    "id": "counts-to-confirm",
-    "file": "counts-to-confirm.html",
-    "notes": "Source images are proposed mockups. Duty numbers in copy follow the draft. Registration placement follows Noman Centre visual. Cooperative Market is a user route point without a separate count in the draft."
+    "id": "activities-intro",
+    "file": "activities-intro.html",
+    "notes": "Activities follow the approved route briefing. Generated artwork represents proposed activities, not documentary photographs."
+  },
+  {
+    "id": "cleaning-reveal",
+    "file": "cleaning-reveal.html",
+    "notes": ""
+  },
+  {
+    "id": "cleaning-start",
+    "file": "cleaning-start.html",
+    "notes": "Two minutes is guidance. No strict cutoff, weight unit, tare rule or winner count is asserted."
+  },
+  {
+    "id": "cleaning-finish",
+    "file": "cleaning-finish.html",
+    "notes": "Weigh before confirming completion. Ranking is by collected weight, not fastest time."
+  },
+  {
+    "id": "treasure-reveal",
+    "file": "treasure-reveal.html",
+    "notes": "Number 150 is an example station. Number 7 is an example participant badge."
+  },
+  {
+    "id": "treasure-start",
+    "file": "treasure-start.html",
+    "notes": "Latest user instruction supersedes old handoff: open envelope then scan QR inside, then solve. Arrival checkpoint scan remains separate. Actual QR mapping is pending."
+  },
+  {
+    "id": "treasure-example",
+    "file": "treasure-example.html",
+    "notes": "75 × 2 = 150 is a demonstration only, not an assigned event clue. Original user-supplied poster and badge artwork retained. The station answer and participant number are separate identifiers."
+  },
+  {
+    "id": "treasure-finish",
+    "file": "treasure-finish.html",
+    "notes": "Badge must match assigned participant. Finish QR is supplied with the badge, not the large station poster. Rank verified completions by finish minus start time. No real QR payloads included."
+  },
+  {
+    "id": "activity-giveaways",
+    "file": "activity-giveaways.html",
+    "notes": "Pending: treasure winner count 5 or 10, cleaning winner count, measurement unit and tare procedure, tie rules, actual clue/station/badge assignments and QR mapping. Apps and operational scanners deferred."
+  },
+  {
+    "id": "section-web-application",
+    "file": "section-web-application.html",
+    "notes": "Section transition: Taheri Web Application. The software overview and its feature screens follow."
+  },
+  {
+    "id": "software-overview",
+    "file": "software-overview.html",
+    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
+  },
+  {
+    "id": "software-participants",
+    "file": "software-participants.html",
+    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
+  },
+  {
+    "id": "software-qr-card",
+    "file": "software-qr-card.html",
+    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
+  },
+  {
+    "id": "software-checkpoints",
+    "file": "software-checkpoints.html",
+    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
+  },
+  {
+    "id": "software-activity-tracking",
+    "file": "software-activity-tracking.html",
+    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
+  },
+  {
+    "id": "software-weight-results",
+    "file": "software-weight-results.html",
+    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
+  },
+  {
+    "id": "software-treasure-results",
+    "file": "software-treasure-results.html",
+    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
+  },
+  {
+    "id": "software-dashboard",
+    "file": "software-dashboard.html",
+    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
+  },
+  {
+    "id": "section-communication",
+    "file": "section-communication.html",
+    "notes": "Section transition: Communication Application. The Zello overview and how it will be used follow."
+  },
+  {
+    "id": "communication-overview",
+    "file": "communication-overview.html",
+    "notes": "Official downloads: https://zello.com/downloads/ . Event use is based on the organiser’s plan."
+  },
+  {
+    "id": "communication-channels",
+    "file": "communication-channels.html",
+    "notes": "The organiser reports event groups have been created. Final channel names and membership were not supplied. The screenshot is the user-provided example channel, not a verified TUR channel."
+  },
+  {
+    "id": "communication-ptt",
+    "file": "communication-ptt.html",
+    "notes": "Hold-to-talk mode. Zello also supports toggle mode. Official reference: https://support.zello.com/zc/toggle-mode ."
+  },
+  {
+    "id": "communication-internet",
+    "file": "communication-internet.html",
+    "notes": "Official connection requirements: https://support.zello.com/zc/connection-requirements . Cellular or Wi-Fi internet required; connectivity depends on local network coverage."
+  },
+  {
+    "id": "briefing-recap",
+    "file": "briefing-recap.html",
+    "notes": "Summary slide that ties the four sections together. It restates what the section slides already say; no new operational facts are introduced."
   },
   {
     "id": "one-ride-one-community",

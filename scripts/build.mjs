@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -67,27 +67,33 @@ for (const file of availableSlides) {
   }
 }
 
-const page = shell.replace("<!-- SLIDES -->", slideMarkup.join("\n\n"));
-await writeFile(path.join(root, "index.html"), page, "utf8");
-await mkdir(outputDir, { recursive: true });
-await writeFile(path.join(outputDir, "index.html"), page, "utf8");
-await cp(path.join(root, "assets"), path.join(outputDir, "assets"), {
-  recursive: true,
-  force: true,
-});
+const buildId = new Date().toISOString();
+const page = shell
+  .replace("<!-- SLIDES -->", () => slideMarkup.join("\n\n"))
+  .replace("__BUILD_ID__", buildId);
 
+// Validate every asset reference BEFORE writing any output.
 for (const reference of page.matchAll(/(?:src|href)="(assets\/[^"#?]+)"/g)) {
   await assertFile(path.join(root, reference[1]), `HTML reference ${reference[1]}`);
 }
-
-const css = await readFile(path.join(root, "assets", "css", "styles.css"), "utf8");
-for (const reference of css.matchAll(/url\(["']?([^"')]+)["']?\)/g)) {
+const stylesheet = await readFile(path.join(root, "assets", "css", "styles.css"), "utf8");
+for (const reference of stylesheet.matchAll(/url\(["']?([^"')]+)["']?\)/g)) {
   if (/^(?:data:|https?:|#)/i.test(reference[1])) continue;
   await assertFile(
     path.resolve(root, "assets", "css", reference[1]),
     `CSS reference ${reference[1]}`,
   );
 }
+
+await writeFile(path.join(root, "index.html"), page, "utf8");
+await rm(outputDir, { recursive: true, force: true }); // no stale files in the deployment
+await mkdir(outputDir, { recursive: true });
+await writeFile(path.join(outputDir, "index.html"), page, "utf8");
+await buildEditorExportPack();
+await cp(path.join(root, "assets"), path.join(outputDir, "assets"), {
+  recursive: true,
+  force: true,
+});
 
 console.log(`Built ${manifest.length} slides into index.html and _site/.`);
 
@@ -105,4 +111,23 @@ async function assertFile(filePath, description) {
   } catch (error) {
     throw new Error(`Missing ${description}: ${filePath}`, { cause: error });
   }
+}
+
+async function buildEditorExportPack() {
+  const files = {};
+  const mime = { '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.svg':'image/svg+xml', '.gif':'image/gif', '.webp':'image/webp', '.ttf':'font/ttf' };
+  let css = await readFile(path.join(root,'assets/css/styles.css'),'utf8');
+  const required = new Set([...page.matchAll(/(?:src|href)="(assets\/[^"#?]+)"/g)].map(match => match[1]).filter(ref => mime[path.extname(ref)]));
+  for (const match of css.matchAll(/url\(["']?([^"')]+)["']?\)/g)) {
+    const ref = path.posix.normalize(`assets/css/${match[1]}`);
+    if (mime[path.extname(ref)]) required.add(ref);
+  }
+  for (const ref of required) files[ref] = `data:${mime[path.extname(ref)]};base64,${(await readFile(path.join(root,ref))).toString('base64')}`;
+  css = css.replace(/url\(["']?([^"')]+)["']?\)/g,(match,ref) => {
+    const key = path.posix.normalize(`assets/css/${ref}`);
+    return files[key] ? `url("${files[key]}")` : match;
+  });
+  const scripts = {};
+  for (const name of ['editor-bootstrap.js','route-map.js','presentation.js','activities.js','github-sync.js','editor.js']) scripts[name] = await readFile(path.join(root,'assets/js',name),'utf8');
+  await writeFile(path.join(root,'assets/js/editor-export-assets.js'), `window.turExportAssets=${JSON.stringify({shell,css,files,scripts}).replaceAll('<','\\u003c')};\n`);
 }
