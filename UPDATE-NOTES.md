@@ -41,6 +41,13 @@ A browser that had once used Edit Mode → Save & present kept its own copy of t
 showed later published changes. Now an unedited copy defers to the published deck, and a copy with
 edits shows a small bar: "Use published version" or "Keep my copy".
 
+## 2026-11-05 — animated ending, tidier controls
+
+- The last slide now mirrors the cover: the cyclist finishes the route, confetti bursts at the finish with a
+  "RIDE COMPLETE" badge, embers rise over the sunset and "Thank you, riders and volunteers." glows softly.
+- The bottom toolbar is smaller and hides itself when the mouse is still; move the mouse to bring it back.
+  The Notes button is gone (press N to show or hide speaker notes).
+
 ## Earlier route update (31 slides)
 
 31 slides, using the original theme, local fonts, controls and animation effects.

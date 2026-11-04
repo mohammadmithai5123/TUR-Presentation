@@ -3,7 +3,8 @@ TAHERI UNITY RIDE — MERGED PRESENTATION
 1. Extract this entire ZIP into a folder.
 2. Open index.html in Chrome or Edge. Keep the assets folder beside it.
 3. Right Arrow / Next reveals details, then advances. Back reverses.
-4. Use the slide dropdown to jump. F opens fullscreen; M toggles the lens.
+4. Move the mouse to show the bottom toolbar (it hides itself); use the slide dropdown to jump.
+   F opens fullscreen; M toggles the lens; N shows or hides the speaker notes.
 5. Route thumbnails retain their animated zoom and bicycle movement.
 
 55 slides in four sections, in this order:

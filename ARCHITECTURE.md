@@ -66,6 +66,18 @@ the deck now has 55 slides, not 29, 31 or 44):
   or "Keep my copy". Before this, anyone who had pressed "Save & present" kept seeing the old deck
   forever (it looked like "my change is not live"). Tested with throw-away site folders and browser
   profiles: legacy save, unedited save, edited save, both button choices.
+- **Closing slide (last slide, class `closing-live`):** the cover's bookend. Same stats row and route
+  ribbon (it reuses the `.cover-*` pieces on purpose), but the cyclist now finishes the ride: stops light
+  up one by one, a confetti burst (30 pieces, fixed layout) and a "RIDE COMPLETE" badge fire at the finish,
+  embers rise over the sunset and the thank-you line glows softly. Same rules as the cover: base CSS is the
+  finished look, entrance animations use `backwards`, they wait for fonts and replay on return. Content
+  kept as it was: "ONE RIDE. ONE COMMUNITY.", "Thank you, riders and volunteers.", the closing-ceremony line
+  and the logos.
+- **Toolbar (`#controls`):** compact (about 41 px high) and it hides itself. `presentation.js` adds `.idle`
+  a few seconds after the last pointer movement; pointer movement or keyboard focus (`:focus-visible`)
+  brings it back, and it stays while the pointer is over it. Presenting with the keyboard never makes it
+  pop up. The Notes button was removed (the shortcut `N` still toggles the notes panel); keep
+  `presentation.js` free of references to `#note`.
 - **Wording pass:** "CHECKPOINT 01–04" tags (one word, two digits), "in-charge" spelling in
   slides and notes, "Al Nadi Al Burhani" everywhere, articles added to terse points, and
   full instructions on the route slides ("press the Right Arrow key …").
@@ -209,8 +221,8 @@ count of revealed `.detail` elements.
   reveal before moving to the previous slide with all its details revealed.
 - Clicking the deck advances. Magnifiable images and the interactive map stop
   click propagation.
-- Buttons provide Back, Next / Reveal, slide selection, Show details, Fullscreen,
-  Lens on/off and Notes.
+- Buttons provide Back, Next / Reveal, slide selection, Show details, Fullscreen
+  and Lens on/off (plus Edit Mode). There is no Notes button; speaker notes toggle with N.
 - Keyboard shortcuts: Space, Right, Enter or PageDown advance; Left or PageUp go
   back; Home and End select the first/last slide; F toggles fullscreen; M toggles
   the lens. Navigation shortcuts are skipped when a button or select has focus.

@@ -266,7 +266,22 @@ document.querySelector("#next").onclick = next;
 document.querySelector("#prev").onclick = prev;
 document.querySelector("#full").onclick = full;
 document.querySelector("#all").onclick = () => show(index, total());
-document.querySelector("#note").onclick = () => document.querySelector("#notes").classList.toggle("on");
+// The toolbar stays out of the slides: it appears when the pointer moves (or a control is focused with the
+// keyboard) and fades away a few seconds later. Speaker notes are toggled with the N key.
+const controls = document.querySelector("#controls");
+let controlsTimer;
+const controlsHeld = () => { try { return controls.matches(":hover, :has(:focus-visible)"); } catch { return controls.matches(":hover, :focus-within"); } };
+const showControls = () => {
+  controls.classList.remove("idle");
+  clearTimeout(controlsTimer);
+  controlsTimer = setTimeout(function hide() {
+    if (controlsHeld()) controlsTimer = setTimeout(hide, 1200);
+    else controls.classList.add("idle");
+  }, 2800);
+};
+["pointermove", "pointerdown", "touchstart"].forEach((type) => document.addEventListener(type, showControls, { passive: true }));
+controls.addEventListener("focusin", showControls);
+showControls();
 jump.onchange = () => {
   if (!show(+jump.value)) jump.value = index;
 };
@@ -305,6 +320,7 @@ document.addEventListener("keydown", (event) => {
     prev();
   }
   if (event.key.toLowerCase() === "f") full();
+  if (event.key.toLowerCase() === "n") document.querySelector("#notes").classList.toggle("on");
   if (event.key === "Home") show(0);
   if (event.key === "End") show(slides.length - 1);
 });
