@@ -1220,3 +1220,9 @@ html:not(.fonts-loading) .cover-live.active .cover-stop:nth-of-type(7)::after { 
 @keyframes cv-dot { from { opacity:0; transform:translateX(-50%) scale(0); } to { opacity:1; transform:translateX(-50%) scale(1); } }
 @keyframes cv-fade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
 @keyframes cv-ping { 0% { opacity:.9; transform:translateX(-50%) scale(1); } 70%, 100% { opacity:0; transform:translateX(-50%) scale(3.2); } }
+
+/* Shown only when a copy saved in this browser hides a newer published deck (see editor-bootstrap.js). */
+#saved-copy-banner { position:fixed; top:10px; left:50%; transform:translateX(-50%); z-index:60; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px; max-width:min(92vw,430px); padding:8px 12px; border:1px solid #e9bb72; border-radius:12px; background:#0b1d17f7; color:#fff8e9; font:13px/1.35 Body,Arial,sans-serif; text-align:center; box-shadow:0 8px 28px #000a; }
+#saved-copy-banner button { padding:6px 11px; background:#203e30; color:#fff8e9; border:1px solid #617b61; border-radius:7px; font:700 13px Body,Arial,sans-serif; cursor:pointer; }
+#saved-copy-banner button[data-action="use-published"] { background:#e9bb72; color:#13251b; border-color:#e9bb72; }
+@media print { #saved-copy-banner { display:none; } }

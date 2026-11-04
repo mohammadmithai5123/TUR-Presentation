@@ -33,7 +33,8 @@ window.deckEditorReady = (async () => {
   // meta.synced: this copy is already committed to GitHub. Once a newer deployed build
   // exists, the deployed deck is authoritative and the browser copy is discarded.
   async function save(html, meta = {}) {
-    const value = { html, synced: !!meta.synced, buildId };
+    // base = the published markup this copy was made from, so a later load can tell "edited" from "just saved".
+    const value = { html, synced: !!meta.synced, buildId, base: original };
     try {
       await writeSaved(value);
       try { localStorage.removeItem(key); } catch {}
@@ -50,7 +51,48 @@ window.deckEditorReady = (async () => {
     try { localStorage.removeItem(key); } catch {}
   }
   const valid = value => typeof value === 'string' && value.includes('class="slide');
+  const norm = html => String(html || '').replace(/>\s+</g, '><').trim();
+  const discardSaved = async () => {
+    try { await writeSaved(null); } catch {}
+    try { localStorage.removeItem(key); } catch {}
+  };
+  // A copy saved in this browser normally wins over the published deck. That is right for real edits, but it also
+  // froze the deck for anyone who only pressed "Save & present" and then never saw later published changes.
+  let hiddenChanges = false;
+  if (saved && valid(saved.html)) {
+    if (saved.base !== undefined && norm(saved.html) === norm(saved.base)) {
+      saved = null; // saved without any edit: the published deck is the truth
+      await discardSaved();
+    } else {
+      // Older saves have no base; for those, a different build id is the only hint that the published deck moved on.
+      hiddenChanges = saved.base !== undefined ? norm(saved.base) !== norm(original) : saved.buildId !== buildId;
+    }
+  }
   const markup = valid(saved?.html) ? saved.html : embedded?.textContent;
   if (valid(markup)) deck.innerHTML = markup;
   window.deckEditor = { key, original, html: deck.innerHTML, save, buildId };
+
+  const keepKey = `tur-keep-copy:${key}:${buildId}`;
+  let keptAlready = false;
+  try { keptAlready = localStorage.getItem(keepKey) === '1'; } catch {}
+  if (hiddenChanges && !keptAlready) {
+    const bar = document.createElement('div');
+    bar.id = 'saved-copy-banner';
+    bar.setAttribute('role', 'status');
+    bar.innerHTML = '<span>You are viewing a copy saved in this browser. Newer published changes are hidden.</span>' +
+      '<button type="button" data-action="use-published">Use published version</button>' +
+      '<button type="button" data-action="keep">Keep my copy</button>';
+    document.body.append(bar);
+    bar.addEventListener('click', async event => {
+      const action = event.target.closest('button')?.dataset.action;
+      if (action === 'keep') {
+        try { localStorage.setItem(keepKey, '1'); } catch {}
+        bar.remove();
+      } else if (action === 'use-published') {
+        if (!confirm('This removes the copy saved in this browser, including any edits made in it. Show the published version?')) return;
+        await discardSaved();
+        location.reload();
+      }
+    });
+  }
 })();

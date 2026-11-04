@@ -35,6 +35,12 @@ The first slide now builds in step by step (title, gold bar, tagline, "4 checkpo
 Taheri Masjid through the four checkpoints and back. Everything stays editable; the first Next still
 reveals "ROUTE & OPERATIONS BRIEFING".
 
+## 2026-11-05 — "I still see the old text" fix
+
+A browser that had once used Edit Mode → Save & present kept its own copy of the deck and never
+showed later published changes. Now an unedited copy defers to the published deck, and a copy with
+edits shows a small bar: "Use published version" or "Keep my copy".
+
 ## Earlier route update (31 slides)
 
 31 slides, using the original theme, local fonts, controls and animation effects.

@@ -58,6 +58,14 @@ the deck now has 55 slides, not 29, 31 or 44):
   the cover is shown again. To change the picture, replace `.hero` in Edit Mode (or the file
   `assets/images/slides/hero.webp`); the scrim and sweep layers have `pointer-events:none`, so the
   picture stays clickable.
+- **Browser-saved copies never silently hide a new publish:** `editor-bootstrap.js` records the
+  published markup (`base`) next to every saved copy. On load, a copy that equals its `base`
+  (saved with no edits, e.g. "Save & present" on an untouched deck) is dropped so the published
+  deck shows. A copy with real edits is kept, but if the published deck has changed since (base
+  differs, or for older saves the build id differs) a small banner offers "Use published version"
+  or "Keep my copy". Before this, anyone who had pressed "Save & present" kept seeing the old deck
+  forever (it looked like "my change is not live"). Tested with throw-away site folders and browser
+  profiles: legacy save, unedited save, edited save, both button choices.
 - **Wording pass:** "CHECKPOINT 01–04" tags (one word, two digits), "in-charge" spelling in
   slides and notes, "Al Nadi Al Burhani" everywhere, articles added to terse points, and
   full instructions on the route slides ("press the Right Arrow key …").
