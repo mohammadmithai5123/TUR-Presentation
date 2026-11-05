@@ -38,9 +38,11 @@ option.textContent = `${slideIndex + 1}  ${readableSlideTitle(slide)}`;
   if (counter) counter.textContent = `${String(slideIndex + 1).padStart(2, "0")}/${slides.length}`;
 });
 
+// Only route-journey slides still step through their own stops. Every other slide shows all of its
+// points together as soon as it opens, so Next simply moves on to the next slide.
 function total(slideIndex = index) {
   const slide = slides[slideIndex];
-  return routeStates.get(slide)?.stops.length ?? slide.querySelectorAll(".detail").length;
+  return routeStates.get(slide)?.stops.length ?? 0;
 }
 
 function readableSlideTitle(slide) {
@@ -202,11 +204,12 @@ function show(slideIndex, requestedReveal = 0) {
   reveal = Math.max(0, Math.min(total(), requestedReveal));
 
   slides.forEach((slide, slidePosition) => {
-    slide.classList.toggle("active", slidePosition === index);
-    if (slidePosition !== index) return;
-    slide.querySelectorAll(".detail").forEach((detail, detailIndex) => {
-      detail.classList.toggle("shown", detailIndex < reveal);
-    });
+    const active = slidePosition === index;
+    slide.classList.toggle("active", active);
+    const points = slide.querySelectorAll(".detail");
+    if (!active) { points.forEach((point) => point.classList.remove("shown")); return; } // so they cascade in again next time
+    // All points appear together in a short cascade (--i orders it); see ".detail" in styles.css.
+    points.forEach((point, pointIndex) => { point.style.setProperty("--i", pointIndex); point.classList.add("shown"); });
   });
 
   if (route) {
@@ -217,7 +220,6 @@ function show(slideIndex, requestedReveal = 0) {
 
   window.rideMap?.activate(slides[index].dataset.kind === "map");
   jump.value = index;
-  document.querySelector("#all").hidden = Boolean(route);
   document.querySelector("#notes").textContent = slides[index].dataset.note || "";
   location.hash = index + 1;
   return true;
@@ -265,7 +267,6 @@ function full() {
 document.querySelector("#next").onclick = next;
 document.querySelector("#prev").onclick = prev;
 document.querySelector("#full").onclick = full;
-document.querySelector("#all").onclick = () => show(index, total());
 // The toolbar stays out of the slides: it appears when the pointer moves (or a control is focused with the
 // keyboard) and fades away a few seconds later. Speaker notes are toggled with the N key.
 const controls = document.querySelector("#controls");
@@ -425,7 +426,7 @@ document.querySelectorAll('.route-image,.route-popup img,.monument-art,.overview
 
 // Activities artwork opens in the same full-image viewer as route photos. No lens here:
 // these images are cropped or masked, so the lens mapping would not line up.
-document.querySelectorAll('.process-image,.original-poster,.original-badge').forEach(image => {
+document.querySelectorAll('.process-image,.original-poster,.original-badge,.giveaway-photo img').forEach(image => {
   const revealed = () => { const step = image.closest('.detail'); return !step || step.classList.contains('shown'); };
   const open = event => {
     event.stopPropagation();

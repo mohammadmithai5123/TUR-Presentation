@@ -5,7 +5,7 @@ requirement; there are no third-party packages.
 
 ## Updated archive
 
-This project contains the merged 55-slide presentation. Extract it and open
+This project contains the merged 57-slide presentation. Extract it and open
 `index.html` to view it. See `OPEN-FIRST.txt` and `UPDATE-NOTES.md` for the
 changes. The hosted website below has not been updated by editing this archive.
 
@@ -14,13 +14,14 @@ changes. The hosted website below has not been updated by editing this archive.
 | Section | Slides | What it holds |
 |---|---|---|
 | Route Overview | 1–29 | Cover, agenda, animated route map and every checkpoint, ending with the closing ceremony at Taheri Masjid. |
-| 02 Activities | 30–39 | Divider, overview, garbage collection, treasure hunt and giveaway criteria. |
+| 02 Activities | 30–39 | Divider, overview, cleaning activity, treasure hunt and giveaway criteria. |
 | 03 Taheri Web Application | 40–48 | Divider, software overview and the eight feature screens. |
 | 04 Communication Application | 49–53 | Divider, Zello overview, groups and channels, push-to-talk, internet requirement. |
-| Close | 54–55 | Recap slide, then the "ONE RIDE. ONE COMMUNITY." closing banner. |
+| 05 Giveaways | 54–55 | Divider, then one slide showing the jacket, the bag and the subscription key card every participant receives. |
+| Close | 56–57 | Recap slide, then the "ONE RIDE. ONE COMMUNITY." closing banner. |
 
 Each new section opens with its own divider slide. The footer of every slide in
-sections 02–04 shows the four sections with the current one highlighted. Slide
+sections 02–05 shows the five sections with the current one highlighted. Slide
 numbers are generated at load time, so reordering never needs manual renumbering.
 
 ## Original live site
@@ -41,7 +42,6 @@ assets/
                         activities/, software/ and communication/ artwork
   js/
     presentation.js     Navigation, notes, and image magnifier
-    steps.js            Highlights the newest point on every slide and shows the points counter
     route-map.js        Animated route and map controls
 scripts/
   build.mjs             Validates and assembles the presentation

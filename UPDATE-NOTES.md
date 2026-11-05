@@ -48,6 +48,17 @@ edits shows a small bar: "Use published version" or "Keep my copy".
 - The bottom toolbar is smaller and hides itself when the mouse is still; move the mouse to bring it back.
   The Notes button is gone (press N to show or hide speaker notes).
 
+## 2026-11-05 — fewer clicks, clearer wording, Giveaways
+
+- Every slide now shows all of its points together as soon as it opens (a short, even cascade), so one
+  Next press always moves to the next slide. The Show details button and the points counter are gone.
+  Only the five route journeys still step through their locations.
+- Route-slide wording tightened and made formal; the Frere Hall activity is called "Cleaning activity"
+  on every slide instead of "Garbage collection".
+- New section 05 "Giveaways": an introduction slide and one slide showing the jacket, the bag (with the
+  event logo) and the subscription key card. The key on the sample card is masked on purpose.
+  The agenda and recap now list five parts.
+
 ## Earlier route update (31 slides)
 
 31 slides, using the original theme, local fonts, controls and animation effects.

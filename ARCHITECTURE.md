@@ -1,7 +1,7 @@
 # Taheri Unity Ride — Architecture and Project Memory
 
 2026-11-05 merge update (newest; supersedes older notes below where they disagree —
-the deck now has 55 slides, not 29, 31 or 44):
+the deck now has 57 slides, not 29, 31, 44 or 55):
 
 - **Order:** Route Overview (slides 1–29: cover, `briefing-agenda`, the original route
   slides up to `taheri-masjid-4`) → `section-activities` + 9 Activities slides →
@@ -35,15 +35,24 @@ the deck now has 55 slides, not 29, 31 or 44):
 - **Export size:** the portable HTML inlines each slide's three logos, so logo weight
   is multiplied by the slide count. Logos are now ≤512 px (173 KB per slide) and the
   export is about 38 MB. Keep new slides' repeated images small.
-- **Points behave the same everywhere (`assets/js/steps.js`):** it began as the Activities
-  deck's script and now covers every slide whose `.detail` points open one by one. The
-  newest point gets `.current-step` (lighter card), earlier points dim to 68 %, and a
-  counter ("2 / 3 points", or "Press Next to begin") is created at run time on slides with
-  two or more points. The counter is never part of saved slide markup and never appears in
-  the editor. Route-journey slides and the map keep their own controls. All reveals share
-  one transition (`.detail`, ~0.45 s with the same easing as the route photo moves).
-  Gotcha: re-adding an existing class (`classList.add`) still fires a MutationObserver, so
-  `steps.js` only touches classes when the state really changes; otherwise it loops forever.
+- **All points appear together (no click-by-click):** `show()` in `presentation.js` adds `.shown`
+  to every `.detail` of the slide that opens (and removes it from the others, so the cascade plays
+  again next time) and sets `--i` per point. One shared animation (`point-in`, 0.55 s, 0.14 s apart,
+  in `styles.css`) makes them cascade in; with reduced motion, in the editor and in print they are
+  simply visible. `total()` is 0 except for route-journey slides, so one Next press moves to the
+  next slide; only the five `interactive-route` slides still step through their locations. The
+  "Show details" button, `steps.js`, the "2 / 3 points" counter and the current/dimmed highlighting
+  were removed on purpose: this replaces the earlier per-point pointer behaviour. The cover and
+  closing subtitles (`.cover-detail`) join their staged entrance instead of waiting for a click.
+- **Giveaways (section 05, slides 54–55):** `section-giveaways` (divider) and `giveaway-items`
+  (three cards: Jacket, Bag, Subscription key). Pictures live in `assets/images/giveaways/` and are
+  prepared from organiser-supplied images: the jacket is cropped to the product photo, the bag's
+  placeholder "YOUR LOGO HERE" is replaced by the event logo (an obvious mock-up, noted in the
+  slide notes), and the key on the sample Vouch365 card is pixelated so that a working key is never
+  published. Dividers now read "SECTION 0X / 05", the footers list five sections, and the agenda
+  and recap use five cards (`.agenda-grid.five`).
+- **Naming:** the Frere Hall activity is called "Cleaning activity" everywhere (the slide that
+  was "The cleaning activity" is now "Start of the cleaning activity" so titles stay unique).
 - **Font loading:** `@font-face` uses `font-display:block`, and a small inline script in
   `page-shell.html` keeps `#deck` hidden (`html.fonts-loading`) until Heading and Body are
   loaded, then fades it in; a 3 s timeout or a load error also reveals it, so the deck can
@@ -81,9 +90,10 @@ the deck now has 55 slides, not 29, 31 or 44):
 - **Wording pass:** "CHECKPOINT 01–04" tags (one word, two digits), "in-charge" spelling in
   slides and notes, "Al Nadi Al Burhani" everywhere, articles added to terse points, and
   full instructions on the route slides ("press the Right Arrow key …").
-- **Verification run:** build; 51 runtime checks (order, every reveal step, the pointer
-  behaviour on 12 slide types, boundary navigation, a full 194-press walk of all 55
-  slides, image viewer, layout overflow including the counter, font gate); 41 editor
+- **Verification run:** build; 27 behaviour checks (order and five sections, all points shown on opening
+  for 25 multi-point slides, one Next per slide, Back across boundaries, route journeys and map
+  still working, the renames and new wording, the Giveaways slide, layout overflow, a full walk of
+  all 57 slides); 49 editor
   checks (edit every new element type, image replace, add/duplicate/undo/move, save +
   reload, portable export and re-export); font gate in normal, exported and
   fonts-blocked cases; GitHub auto-save with a stubbed API (untouched deck → no commit;
@@ -221,8 +231,7 @@ count of revealed `.detail` elements.
   reveal before moving to the previous slide with all its details revealed.
 - Clicking the deck advances. Magnifiable images and the interactive map stop
   click propagation.
-- Buttons provide Back, Next / Reveal, slide selection, Show details, Fullscreen
-  and Lens on/off (plus Edit Mode). There is no Notes button; speaker notes toggle with N.
+- Buttons provide Back, Next, slide selection, Fullscreen and Lens on/off (plus Edit Mode). There is no Notes button; speaker notes toggle with N.
 - Keyboard shortcuts: Space, Right, Enter or PageDown advance; Left or PageUp go
   back; Home and End select the first/last slide; F toggles fullscreen; M toggles
   the lens. Navigation shortcuts are skipped when a button or select has focus.
@@ -230,9 +239,7 @@ count of revealed `.detail` elements.
   touch pointers do not activate it.
 
 Slide kinds include cover, overview, monument, journey, route, text, map and
-closing. Journey slides use hidden `.detail` node descriptions to count reveal
-steps and show one matching `.route-popup` at a time. Consequently, Show details
-on a journey selects its last popup rather than showing every popup together.
+closing. Only the route-journey slides still count steps (one per location).
 
 The runtime assumes the shell controls and slide headings exist. Preserve control
 IDs when editing the shell. Scripts load at the end of the body; `route-map.js`

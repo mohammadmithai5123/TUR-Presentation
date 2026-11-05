@@ -128,6 +128,6 @@ async function buildEditorExportPack() {
     return files[key] ? `url("${files[key]}")` : match;
   });
   const scripts = {};
-  for (const name of ['editor-bootstrap.js','route-map.js','presentation.js','steps.js','github-sync.js','editor.js']) scripts[name] = await readFile(path.join(root,'assets/js',name),'utf8');
+  for (const name of ['editor-bootstrap.js','route-map.js','presentation.js','github-sync.js','editor.js']) scripts[name] = await readFile(path.join(root,'assets/js',name),'utf8');
   await writeFile(path.join(root,'assets/js/editor-export-assets.js'), `window.turExportAssets=${JSON.stringify({shell,css,files,scripts}).replaceAll('<','\\u003c')};\n`);
 }

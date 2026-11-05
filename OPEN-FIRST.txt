@@ -2,15 +2,15 @@ TAHERI UNITY RIDE — MERGED PRESENTATION
 
 1. Extract this entire ZIP into a folder.
 2. Open index.html in Chrome or Edge. Keep the assets folder beside it.
-3. Right Arrow / Next reveals details, then advances. Back reverses.
+3. Right Arrow / Next moves to the next slide; all points on a slide appear together. Back reverses.
 4. Move the mouse to show the bottom toolbar (it hides itself); use the slide dropdown to jump.
    F opens fullscreen; M toggles the lens; N shows or hides the speaker notes.
 5. Route thumbnails retain their animated zoom and bicycle movement.
 
-55 slides in four sections, in this order:
+57 slides in five sections, in this order:
   Route Overview (1-29), Activities (30-39), Taheri Web Application (40-48),
-  Communication Application (49-53), then a recap and the closing banner (54-55).
-Each of the last three sections opens with its own introduction slide.
+  Communication Application (49-53), Giveaways (54-55), then a recap and the closing banner (56-57).
+Each of the last four sections opens with its own introduction slide.
 The "ONE RIDE. ONE COMMUNITY." slide is now the final slide of the whole deck.
 
 Everything is editable: click Edit Mode in the bottom toolbar, pick a slide, click

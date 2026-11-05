@@ -7,7 +7,7 @@
   {
     "id": "briefing-agenda",
     "file": "briefing-agenda.html",
-    "notes": "Roadmap of the full briefing: route, activities, web application, communication. The last three each open with their own introduction slide, and the closing banner comes after all four."
+    "notes": "Roadmap of the full briefing: route, activities, web application, communication, giveaways. The last four each open with their own introduction slide, and the closing banner comes after all five."
   },
   {
     "id": "the-complete-ride",
@@ -147,7 +147,7 @@
   {
     "id": "section-activities",
     "file": "section-activities.html",
-    "notes": "Section transition: Activities. Garbage collection at Frere Hall and the treasure hunt at YMCA Ground follow."
+    "notes": "Section transition: Activities. The cleaning activity at Frere Hall and the treasure hunt at YMCA Ground follow."
   },
   {
     "id": "activities-intro",
@@ -265,9 +265,19 @@
     "notes": "Official connection requirements: https://support.zello.com/zc/connection-requirements . Cellular or Wi-Fi internet required; connectivity depends on local network coverage."
   },
   {
+    "id": "section-giveaways",
+    "file": "section-giveaways.html",
+    "notes": "Section transition: Giveaways. The items every participant receives follow."
+  },
+  {
+    "id": "giveaway-items",
+    "file": "giveaway-items.html",
+    "notes": "Item pictures are illustrative: product photos supplied by the organiser. On the bag the event logo replaces the supplier’s placeholder logo (mock-up), and the key on the sample subscription card is masked on purpose."
+  },
+  {
     "id": "briefing-recap",
     "file": "briefing-recap.html",
-    "notes": "Summary slide that ties the four sections together. It restates what the section slides already say; no new operational facts are introduced."
+    "notes": "Summary slide that ties the five sections together. It restates what the section slides already say; no new operational facts are introduced."
   },
   {
     "id": "one-ride-one-community",
