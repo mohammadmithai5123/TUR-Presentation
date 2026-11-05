@@ -7,7 +7,7 @@
   {
     "id": "briefing-agenda",
     "file": "briefing-agenda.html",
-    "notes": "Roadmap of the full briefing: route, activities, web application, communication, giveaways. The last four each open with their own introduction slide, and the closing banner comes after all five."
+    "notes": "Roadmap of the full briefing: route, activities, web application, communication, giveaways, sponsors. The last five each open with their own introduction slide, and the closing banner comes after all six."
   },
   {
     "id": "the-complete-ride",
@@ -270,9 +270,19 @@
     "notes": "Item pictures are illustrative: product photos supplied by the organiser. On the bag the event logo replaces the supplier’s placeholder logo (mock-up), and the key on the sample subscription card is masked on purpose."
   },
   {
+    "id": "section-sponsors",
+    "file": "section-sponsors.html",
+    "notes": "Section transition: Valuable Sponsors. The sponsor logos follow."
+  },
+  {
+    "id": "sponsors-wall",
+    "file": "sponsors-wall.html",
+    "notes": "Sponsor logos supplied by the organiser, shown together in the order received. The order is not a ranking. To change one, select its logo in Edit Mode and use Replace image."
+  },
+  {
     "id": "briefing-recap",
     "file": "briefing-recap.html",
-    "notes": "Summary slide that ties the five sections together. It restates what the section slides already say; no new operational facts are introduced."
+    "notes": "Summary slide that ties the six sections together. It restates what the section slides already say; no new operational facts are introduced."
   },
   {
     "id": "one-ride-one-community",

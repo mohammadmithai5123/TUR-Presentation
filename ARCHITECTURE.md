@@ -1,9 +1,9 @@
 # Taheri Unity Ride — Architecture and Project Memory
 
 2026-11-05 merge update (newest; supersedes older notes below where they disagree —
-the deck now has 57 slides, not 29, 31, 44 or 55):
+the deck now has 58 slides (it was 59 until the owner deleted `ymca-refreshments` in the browser editor):
 
-- **Order:** Route Overview (slides 1–29: cover, `briefing-agenda`, the original route
+- **Order:** Route Overview (slides 1–28: cover, `briefing-agenda`, the original route
   slides up to `taheri-masjid-4`) → `section-activities` + 9 Activities slides →
   `section-web-application` + 8 `software-*` slides → `section-communication` + 4
   `communication-*` slides → `briefing-recap` → `one-ride-one-community` (the former
@@ -44,13 +44,22 @@ the deck now has 57 slides, not 29, 31, 44 or 55):
   "Show details" button, `steps.js`, the "2 / 3 points" counter and the current/dimmed highlighting
   were removed on purpose: this replaces the earlier per-point pointer behaviour. The cover and
   closing subtitles (`.cover-detail`) join their staged entrance instead of waiting for a click.
-- **Giveaways (section 05, slides 54–55):** `section-giveaways` (divider) and `giveaway-items`
+- **Giveaways (section 05, slides 53–54):** `section-giveaways` (divider) and `giveaway-items`
   (three cards: Jacket, Bag, Subscription key). Pictures live in `assets/images/giveaways/` and are
   prepared from organiser-supplied images: the jacket is cropped to the product photo, the bag's
   placeholder "YOUR LOGO HERE" is replaced by the event logo (an obvious mock-up, noted in the
   slide notes), and the key on the sample Vouch365 card is pixelated so that a working key is never
-  published. Dividers now read "SECTION 0X / 05", the footers list five sections, and the agenda
-  and recap use five cards (`.agenda-grid.five`).
+  published. Dividers read "SECTION 0X / 06", the footers list six sections (…Giveaways, Sponsors), and the
+  agenda and recap use six cards in two rows of three (`.agenda-grid.six`).
+- **Valuable Sponsors (section 06, slides 55–56):** `section-sponsors` (divider) and `sponsors-wall`: 13 logos on
+  equal plaques in rows of 4, 5 and 4, inside a gold frame on a dark VIP background. The plaques are plain elements
+  (class `sponsor-plaque`), NOT `.detail` points, so nothing waits for a click: they cascade in together within
+  about a second (`sp-in`), then float slightly and a gloss sweeps over them (`sp-float`, `sp-gloss`; both are off
+  with reduced motion). Logos live in `assets/images/sponsors/*.webp`, trimmed of empty margins and capped at 760 px.
+  Each plaque takes the logo's own backdrop through `--plaque` (black for VIP Petroleum, blue for Shibaam, dark grey
+  for Vouch365 whose text is white, white for the rest) and `img.cover` fills the plaque when the logo is a full
+  coloured picture. The order is the order supplied, not a ranking. To change a logo: Edit Mode, select it, Replace
+  image; to add a sponsor, duplicate a plaque in the slide's source file and keep the rows balanced.
 - **Naming:** the Frere Hall activity is called "Cleaning activity" everywhere (the slide that
   was "The cleaning activity" is now "Start of the cleaning activity" so titles stay unique).
 - **Font loading:** `@font-face` uses `font-display:block`, and a small inline script in
@@ -108,13 +117,26 @@ the deck now has 57 slides, not 29, 31, 44 or 55):
   tokens are stripped of whitespace and quotes. Test lesson: the fake GitHub in the suites must be as strict as
   the real one (it now rejects trailing slashes and non-Latin-1 header values), and one check talks to the real
   GitHub with a fake token and expects "Token was rejected".
+- **The deck is now edited in the browser (2026-11-05, after the GitHub link was connected):** the owner's
+  editor saves arrive on `main` as commits named "Update slides from the browser editor" (about 100 so far),
+  rewriting a lot of slide text (staffing lines, Activities steps, agenda wording), formatting, and deleting
+  `ymca-refreshments`. **GitHub is therefore the source of truth for slide content. Always fetch and build on
+  `origin/main` before changing slides; never push over it** (a plain push is rejected, and force-pushing would
+  erase their work). Page-wide changes (footers, section tags, a new section) are applied by script on top of
+  the current slides, and the check `verify-preserved` proves every existing slide's content is unchanged.
+  Slide files are one long line each, so Git cannot merge two edits to the same slide.
+- **Text auto-fit:** the owner's rewritten text is longer than the original layout expected and could run over
+  the footer. `fitSlideText()` in `presentation.js` shrinks the text block of the open slide (CSS `zoom`, never
+  below 60 %, recalculated every time, also in the editor preview) until it ends above the footer. The zoom is
+  runtime only: the editor strips it from saved markup (`cleanSlides`), so it never reaches GitHub. Entrance
+  animations are paused while measuring (`.fit-measure`).
 - **Wording pass:** "CHECKPOINT 01–04" tags (one word, two digits), "in-charge" spelling in
   slides and notes, "Al Nadi Al Burhani" everywhere, articles added to terse points, and
   full instructions on the route slides ("press the Right Arrow key …").
 - **Verification run:** build; 27 behaviour checks (order and five sections, all points shown on opening
   for 25 multi-point slides, one Next per slide, Back across boundaries, route journeys and map
   still working, the renames and new wording, the Giveaways slide, layout overflow, a full walk of
-  all 57 slides); 49 editor
+  all 58 slides); 54 editor
   checks (edit every new element type, image replace, add/duplicate/undo/move, save +
   reload, portable export and re-export); font gate in normal, exported and
   fonts-blocked cases; GitHub auto-save with a stubbed API (untouched deck → no commit;

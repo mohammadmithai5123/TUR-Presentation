@@ -211,6 +211,7 @@ function show(slideIndex, requestedReveal = 0) {
     // All points appear together in a short cascade (--i orders it); see ".detail" in styles.css.
     points.forEach((point, pointIndex) => { point.style.setProperty("--i", pointIndex); point.classList.add("shown"); });
   });
+  fitSlideText(slides[index]);
 
   if (route) {
     resetRoute(route);
@@ -242,6 +243,27 @@ function next() {
 }
 
 window.presentationIsBusy = () => Boolean(routeStates.get(slides[index])?.busy);
+
+// Text can be longer than the layout expects (it is edited in the browser). Shrink the text block of the open slide,
+// a little at a time, until it ends above the footer. It uses CSS zoom on the block, is recalculated every time and
+// is never saved: the editor strips it from saved markup.
+const FIT_BLOCKS = ':scope > .copy, :scope > .text-copy, :scope > .activity-steps, :scope > .agenda-grid, :scope > .results, :scope > .intro-list, :scope > .giveaway-grid';
+function fitSlideText(slide) {
+  const footer = slide?.querySelector(':scope > footer');
+  if (!footer || !slide.isConnected) return;
+  slide.classList.add('fit-measure'); // pauses entrance animations so transforms cannot skew the measurement
+  try {
+    for (const block of slide.querySelectorAll(FIT_BLOCKS)) {
+      block.style.removeProperty('zoom');
+      const room = () => footer.getBoundingClientRect().top - slide.getBoundingClientRect().width * 0.006;
+      const tooTall = () => block.getBoundingClientRect().bottom > room() || block.scrollHeight > block.clientHeight + 2;
+      let zoom = 1;
+      while (zoom > 0.6 && tooTall()) { zoom = Math.max(0.6, Math.round((zoom - 0.03) * 100) / 100); block.style.zoom = zoom; }
+      if (zoom === 1 && !block.getAttribute('style')) block.removeAttribute('style');
+    }
+  } finally { slide.classList.remove('fit-measure'); }
+}
+window.fitSlideText = fitSlideText;
 
 function prev() {
   if (document.querySelector('#deck-editor')?.open) return;
@@ -327,6 +349,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 show(Math.max(0, (+location.hash.slice(1) || 1) - 1));
+document.fonts?.ready.then(() => fitSlideText(slides[index])); // text measures differently once the fonts are in
 
 const lens = document.getElementById("lens");
 let lensEnabled = true;

@@ -7,10 +7,10 @@ TAHERI UNITY RIDE — MERGED PRESENTATION
    F opens fullscreen; M toggles the lens; N shows or hides the speaker notes.
 5. Route thumbnails retain their animated zoom and bicycle movement.
 
-57 slides in five sections, in this order:
-  Route Overview (1-29), Activities (30-39), Taheri Web Application (40-48),
-  Communication Application (49-53), Giveaways (54-55), then a recap and the closing banner (56-57).
-Each of the last four sections opens with its own introduction slide.
+58 slides in six sections, in this order:
+  Route Overview (1-28), Activities (29-38), Taheri Web Application (39-47),
+  Communication Application (48-52), Giveaways (53-54), Valuable Sponsors (55-56), then a recap and the closing banner (57-58).
+Each of the last five sections opens with its own introduction slide.
 The "ONE RIDE. ONE COMMUNITY." slide is now the final slide of the whole deck.
 
 Edits can publish themselves: in Edit Mode, open the GitHub panel once, paste a token (Contents:

@@ -140,6 +140,7 @@
     const preview = $('preview');
     preview.replaceChildren(model[current]);
     model[current].classList.add('active');
+    window.fitSlideText?.(model[current]);
     const photo = model[current].querySelector(':scope > .route-image');
     if (photo) {
       const classify = () => model.find(slide => slide.contains(photo))?.classList.toggle('panorama-slide',photo.naturalWidth / photo.naturalHeight >= 1.85);
@@ -206,8 +207,9 @@
     if (!selected) return; checkpoint();
     selected.replaceChildren(...$('text').value.split('\n').flatMap((line,i) => i ? [document.createElement('br'),document.createTextNode(line)] : [document.createTextNode(line)]));
     listSlides();
+    window.fitSlideText?.(model[current]);
   };
-  $('font').oninput = () => { if (selected) { checkpoint(); selected.style.fontSize = `${$('font').value}cqw`; $('font-value').textContent = $('font').value; } };
+  $('font').oninput = () => { if (selected) { checkpoint(); selected.style.fontSize = `${$('font').value}cqw`; $('font-value').textContent = $('font').value; window.fitSlideText?.(model[current]); } };
   $('color').oninput = () => { if (selected) { checkpoint(); selected.style.color = $('color').value; } };
   $('alt').oninput = () => { if (selected) { checkpoint(); selected.alt = $('alt').value; } };
   $('fit').onchange = () => { if (selected) { checkpoint(); selected.style.objectFit = $('fit').value; } };
@@ -283,6 +285,7 @@
     return model.map((source,i) => {
       const slide = source.cloneNode(true);
       slide.classList.remove('active', 'panorama-slide'); // runtime state, recomputed on load
+      slide.querySelectorAll('[style*="zoom"]').forEach(node => { node.style.removeProperty('zoom'); if (!node.getAttribute('style')) node.removeAttribute('style'); }); // auto-fit is runtime only
       slide.querySelectorAll('.editor-selected-element').forEach(node => node.classList.remove('editor-selected-element'));
       slide.querySelectorAll('footer b').forEach(node => node.textContent = `${String(i+1).padStart(2,'0')}/${model.length}`);
       return slide;

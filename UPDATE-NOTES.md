@@ -74,6 +74,17 @@ Connecting always failed in a real browser because of a stray "/" in the request
 says "Token was rejected", and other problems (token with odd characters, GitHub blocked by a VPN or firewall,
 really offline) each get their own clear message.
 
+## 2026-11-05 — Valuable Sponsors
+
+- New section 06 after Giveaways: an introduction slide and one slide with all 13 sponsor logos together on equal plaques
+  in a gold frame, with a quick, uniform entrance (no clicking) and a slow gloss. 58 slides in total (the browser-editor edits made by the deck owner are kept).
+- The agenda and recap now list six parts; footers show six sections and dividers read "SECTION 0X / 06".
+
+## 2026-11-05 — text fits automatically
+
+The deck owner's new, longer wording could run over the footer (for example on the YMCA Ground activity slide). The text of
+the open slide now shrinks just enough to stay above the footer. Nothing is changed in the saved text.
+
 ## Earlier route update (31 slides)
 
 31 slides, using the original theme, local fonts, controls and animation effects.
