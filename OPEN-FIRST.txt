@@ -13,6 +13,10 @@ TAHERI UNITY RIDE — MERGED PRESENTATION
 Each of the last four sections opens with its own introduction slide.
 The "ONE RIDE. ONE COMMUNITY." slide is now the final slide of the whole deck.
 
+Edits can publish themselves: in Edit Mode, open the GitHub panel once, paste a token (Contents:
+Read and write, this repository only), and every later edit is committed and goes live by itself.
+See README.md, "Edits go live automatically".
+
 Everything is editable: click Edit Mode in the bottom toolbar, pick a slide, click
 text or a picture, and change it. Edits save in the browser automatically;
 "Download editable HTML" makes a portable copy (about 40 MB) with the editor inside.

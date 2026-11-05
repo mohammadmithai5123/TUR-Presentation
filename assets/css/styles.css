@@ -1323,3 +1323,5 @@ html:not(.fonts-loading) .closing-live.active .cover-detail.shown { animation:cv
 .giveaway-card h2 { margin:0 0 .5cqw; font-size:2cqw; line-height:1.2; color:var(--deck-ink); }
 .giveaway-card p { margin:0; font-size:1.4cqw; line-height:1.4; color:var(--deck-muted); }
 .giveaway-note { position:absolute; left:3.4%; bottom:9.5%; margin:0; font-size:1cqw; color:var(--deck-muted); }
+.editor-gh-help { margin:0 0 12px; font-size:12.5px; line-height:1.55; color:#bad3c5; }
+.editor-gh-help a { color:#ffd48e; font-weight:700; }

@@ -13,7 +13,10 @@ permissions:
 
 concurrency:
   group: github-pages
-  cancel-in-progress: true
+  # Never cancel a deployment that is already running: with auto-save, commits arrive quickly, and
+  # cancelling a Pages deploy half-way leaves it "in progress" and blocks every later one.
+  # Queued runs are collapsed to the newest by GitHub itself.
+  cancel-in-progress: false
 
 jobs:
   deploy:

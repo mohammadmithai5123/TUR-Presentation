@@ -87,6 +87,19 @@ the deck now has 57 slides, not 29, 31, 44 or 55):
   brings it back, and it stays while the pointer is over it. Presenting with the keyboard never makes it
   pop up. The Notes button was removed (the shortcut `N` still toggles the notes panel); keep
   `presentation.js` free of references to `#note`.
+- **Permanent GitHub link (2026-11-05):** the folder is a git repository (`origin` =
+  mohammadmithai5123/TUR-Presentation, `main`; `.vscode/` is excluded locally in `.git/info/exclude`).
+  In the editor, `DEFAULT_REPO` in `github-sync.js` pre-fills the repository on every origin (live site,
+  local file, downloaded copy); the only per-browser secret is the fine-grained token, stored in
+  localStorage and never in the project (a token committed to a public repo would be revoked by
+  GitHub and exposed). Opening Edit Mode calls `checkGithub()`: first run opens the GitHub panel with
+  one-time instructions and a "Create a token" link; later runs silently re-verify the token, report
+  "connected", or say clearly when GitHub rejects it (expired) or the device is offline; it also asks
+  the browser to keep the storage (`navigator.storage.persist()`). Safety: `commitOnce()` refuses to
+  save when GitHub's `src/slides.json` lists a slide that this copy never saw (stale copy), because
+  that would delete it; the error is `permanent` so it is not retried. The Pages workflow now has
+  `cancel-in-progress: false`: frequent auto-save commits must not cancel a deploy that is already
+  running (that leaves Pages "in progress" and blocks later deploys, as happened once).
 - **Wording pass:** "CHECKPOINT 01–04" tags (one word, two digits), "in-charge" spelling in
   slides and notes, "Al Nadi Al Burhani" everywhere, articles added to terse points, and
   full instructions on the route slides ("press the Right Arrow key …").

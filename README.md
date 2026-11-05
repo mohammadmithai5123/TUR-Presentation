@@ -24,6 +24,26 @@ Each new section opens with its own divider slide. The footer of every slide in
 sections 02–05 shows the five sections with the current one highlighted. Slide
 numbers are generated at load time, so reordering never needs manual renumbering.
 
+## Edits go live automatically (GitHub link)
+
+This folder is a git repository linked to https://github.com/mohammadmithai5123/TUR-Presentation
+(branch `main`), so `git add -A`, `git commit` and `git push` publish it; every push redeploys the
+site in about a minute.
+
+Edits made in the browser can do the same without git. Do this **once per browser**:
+
+1. Open the site, click **Edit Mode** (the GitHub panel opens by itself the first time).
+2. Press **Create a token**, make a fine-grained token for this repository only with
+   **Contents: Read and write** (choose the longest expiry), copy it.
+3. Paste it into **Access token** and press **Connect & turn on**.
+
+After that this browser remembers it. Each edit is saved in the browser, then committed to GitHub
+about 3 seconds later, and the site updates in about a minute. When Edit Mode opens, it re-checks
+the token and says so if it was rejected or has expired. The token is never stored in the project or
+on GitHub, only in that browser; without it, edits stay local to that browser. If a copy is older
+than the published deck, saving is refused (so newer slides are never deleted); reload the live site
+with Ctrl+Shift+R and edit there.
+
 ## Original live site
 
 https://mohammadmithai5123.github.io/TUR-Presentation/

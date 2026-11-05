@@ -59,6 +59,15 @@ edits shows a small bar: "Use published version" or "Keep my copy".
   event logo) and the subscription key card. The key on the sample card is masked on purpose.
   The agenda and recap now list five parts.
 
+## 2026-11-05 — GitHub link made permanent
+
+- The project folder is now linked to the GitHub repository, so commits and pushes can be made straight from it.
+- Edit Mode is pre-linked to the repository. Paste a token once per browser (see README, "Edits go live
+  automatically") and every later edit commits itself and goes live; each time Edit Mode opens it re-checks the
+  token and says if it has expired.
+- Saving from an old copy can no longer delete newer slides: it is refused with a clear message instead.
+- The deploy workflow no longer cancels a deployment in progress, so rapid auto-save commits cannot block Pages.
+
 ## Earlier route update (31 slides)
 
 31 slides, using the original theme, local fonts, controls and animation effects.

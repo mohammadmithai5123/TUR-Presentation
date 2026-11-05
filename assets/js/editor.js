@@ -16,6 +16,7 @@
         <hr><button id="editor-save" class="editor-primary">Save &amp; present</button><button id="editor-export">Download editable HTML</button>
         <small>Changes save automatically in this browser. Download creates a portable file with images, fonts and the editor included.</small>
         <hr><details id="editor-github" class="editor-github"><summary>GitHub auto-save: <b id="editor-github-state">off</b></summary>
+          <p class="editor-gh-help"><b>One-time setup.</b> <a id="editor-gh-token-link" href="https://github.com/settings/personal-access-tokens/new?name=TUR-Presentation-editor&amp;description=Auto-save%20from%20the%20presentation%20editor&amp;target_name=mohammadmithai5123&amp;expires_in=365&amp;contents=write" target="_blank" rel="noopener">Create a token</a> for this repository only, with <i>Contents: Read and write</i>, paste it below and press Connect. This browser then remembers it, and every edit is committed and published automatically.</p>
           <label>Repository<input id="editor-gh-repo" type="text" placeholder="owner/repository" autocomplete="off" spellcheck="false"></label>
           <label>Branch<input id="editor-gh-branch" type="text" autocomplete="off" spellcheck="false"></label>
           <label>Access token<input id="editor-gh-token" type="password" placeholder="github_pat_…" autocomplete="off"></label>
@@ -63,6 +64,29 @@
     $('gh-repo').value = cfg.repo; $('gh-branch').value = cfg.branch;
     $('gh-token').value = cfg.token ? '••••••••••••' : '';
     $('gh-off').disabled = !githubOn(); $('gh-now').disabled = !githubOn();
+  }
+  // Ask the browser not to clear this site's storage (token and saved edits) when it is short of space.
+  const keepStorage = () => { try { navigator.storage?.persist?.(); } catch {} };
+  // Every time the editor opens: first time -> show how to connect; later -> quietly re-check the saved token,
+  // and say clearly if GitHub rejects it (for example after it expired) instead of failing at the next save.
+  async function checkGithub() {
+    const cfg = sync.config();
+    if (!sync.ready(cfg)) {
+      $('github').open = true;
+      $('status').textContent = 'Connect GitHub once (see the GitHub panel on the left): after that every edit is committed and goes live automatically.';
+      return;
+    }
+    keepStorage();
+    try {
+      const name = await sync.verify({ ...cfg, enabled: true });
+      if (!cfg.enabled) sync.setConfig({ enabled: true });
+      showGithubState();
+      $('status').textContent = `GitHub connected (${name}). Every edit is committed and goes live automatically.`;
+    } catch (error) {
+      if (error.status === 0) { $('status').textContent = 'GitHub is connected, but this device is offline. Edits are kept here and upload when you are back online.'; return; }
+      $('github').open = true;
+      $('status').textContent = `GitHub: ${error.message} Create a new token in the GitHub panel to keep auto-save running.`;
+    }
   }
   function scheduleAutosave() { clearTimeout(saveTimer); saveTimer = setTimeout(persist, 1200); }
   async function persist() {
@@ -137,6 +161,7 @@
     showGithubState();
     dialog.showModal();
     render();
+    void checkGithub();
   };
   let closing = false;
   async function closeEditor(event) {
@@ -276,7 +301,7 @@
     $('status').textContent = 'Checking GitHub access…';
     try {
       const name = await sync.verify({ ...cfg, enabled: true });
-      sync.setConfig({ ...cfg, enabled: true }); showGithubState();
+      sync.setConfig({ ...cfg, enabled: true }); showGithubState(); keepStorage();
       $('status').textContent = `Connected to ${name}. Edits now save to GitHub automatically.`;
       if (!await persist()) return;
       await pushToGitHub();

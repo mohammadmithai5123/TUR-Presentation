@@ -6,9 +6,12 @@ window.githubSync = (() => {
   const KEY = 'tur-github-sync-v1';
   const API = 'https://api.github.com';
 
+  // This presentation's own repository. It is only a name (never a secret), so downloaded copies and
+  // local files are linked to it too; the access token is the one thing each browser must be given once.
+  const DEFAULT_REPO = 'mohammadmithai5123/TUR-Presentation';
   function defaults() {
     const host = location.hostname.match(/^(.+)\.github\.io$/i);
-    if (!host) return { repo: '', branch: 'main' };
+    if (!host) return { repo: DEFAULT_REPO, branch: 'main' };
     const first = location.pathname.split('/').filter(Boolean)[0];
     const repo = first && !/\.html?$/i.test(first) ? first : `${host[1]}.github.io`;
     return { repo: `${host[1]}/${repo}`, branch: 'main' };
@@ -81,7 +84,7 @@ window.githubSync = (() => {
     if (!ready(cfg)) throw new Error('GitHub is not connected.');
     for (let attempt = 0; ; attempt++) {
       try { return await commitOnce(cfg, slides, original, message); }
-      catch (error) { if (attempt === 0 && (error.status === 409 || error.status === 422)) continue; throw error; }
+      catch (error) { if (attempt === 0 && !error.permanent && (error.status === 409 || error.status === 422)) continue; throw error; }
     }
   }
 
@@ -92,6 +95,11 @@ window.githubSync = (() => {
     const manifest = JSON.parse(await gh(cfg, `contents/src/slides.json?ref=${branch}`, { raw: true }));
     const old = new Map(manifest.map(entry => [entry.id, entry]));
     const before = new Map(original.map(el => [el.id, plain(el)]));
+    // Safety: a slide that exists on GitHub but that this copy has never seen means GitHub changed after this
+    // copy was opened (or this is an old downloaded copy). Saving now would delete that slide, so stop instead.
+    const known = new Set([...original.map(el => el.id), ...slides.map(el => el.id)]);
+    const unknown = manifest.filter(entry => !known.has(entry.id)).map(entry => entry.id);
+    if (unknown.length) throw Object.assign(new Error(`The published deck has newer slides this copy does not have (${unknown.slice(0, 3).join(', ')}${unknown.length > 3 ? ', …' : ''}). Nothing was changed. Open the live site, press Ctrl+Shift+R, and edit there.`), { status: 409, permanent: true });
     const tree = [], nextManifest = [], uploaded = new Set();
 
     for (const el of slides) {
