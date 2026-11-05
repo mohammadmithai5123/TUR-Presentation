@@ -100,6 +100,14 @@ the deck now has 57 slides, not 29, 31, 44 or 55):
   that would delete it; the error is `permanent` so it is not retried. The Pages workflow now has
   `cancel-in-progress: false`: frequent auto-save commits must not cancel a deploy that is already
   running (that leaves Pages "in progress" and blocks later deploys, as happened once).
+- **"GitHub: No internet connection." bug (fixed 2026-11-05):** `gh()` built `.../repos/owner/repo/` for the
+  repository check. GitHub answers that URL with 404 and no CORS headers, so the browser blocked the request
+  and the code reported "No internet connection" for everyone, whatever the token. The URL has no trailing slash
+  now. `explainFailure()` also tells the real reasons apart: token with illegal characters (space, line break,
+  "•", "…"), genuinely offline, `api.github.com` unreachable (VPN, firewall, ad-blocker) or refused. Pasted
+  tokens are stripped of whitespace and quotes. Test lesson: the fake GitHub in the suites must be as strict as
+  the real one (it now rejects trailing slashes and non-Latin-1 header values), and one check talks to the real
+  GitHub with a fake token and expects "Token was rejected".
 - **Wording pass:** "CHECKPOINT 01–04" tags (one word, two digits), "in-charge" spelling in
   slides and notes, "Al Nadi Al Burhani" everywhere, articles added to terse points, and
   full instructions on the route slides ("press the Right Arrow key …").

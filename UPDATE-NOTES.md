@@ -68,6 +68,12 @@ edits shows a small bar: "Use published version" or "Keep my copy".
 - Saving from an old copy can no longer delete newer slides: it is refused with a clear message instead.
 - The deploy workflow no longer cancels a deployment in progress, so rapid auto-save commits cannot block Pages.
 
+## 2026-11-05 — fix: "GitHub: No internet connection." when connecting
+
+Connecting always failed in a real browser because of a stray "/" in the request address. Fixed; a wrong token now
+says "Token was rejected", and other problems (token with odd characters, GitHub blocked by a VPN or firewall,
+really offline) each get their own clear message.
+
 ## Earlier route update (31 slides)
 
 31 slides, using the original theme, local fonts, controls and animation effects.

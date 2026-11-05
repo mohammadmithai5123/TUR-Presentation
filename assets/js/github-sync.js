@@ -28,10 +28,21 @@ window.githubSync = (() => {
   }
   const ready = cfg => /^[\w.-]+\/[\w.-]+$/.test(cfg.repo) && !!cfg.token && !!cfg.branch;
 
+  // When fetch() itself throws, say what is really wrong instead of always blaming the internet.
+  async function explainFailure(cfg, error) {
+    if (/[^\x21-\x7E]/.test(cfg.token)) return Object.assign(new Error('The token contains characters that are not allowed (a space, a line break, "•" or "…"). Copy it again from GitHub: only the text that starts with github_pat_.'), { status: 0, badToken: true });
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) return Object.assign(new Error('No internet connection.'), { status: 0, unreachable: true });
+    try { await fetch(`${API}/zen`, { cache: 'no-store' }); }
+    catch { return Object.assign(new Error('api.github.com cannot be reached from this browser. A VPN, firewall, antivirus or ad-blocker may be blocking it: turn it off for this site or try another network.'), { status: 0, unreachable: true }); }
+    return Object.assign(new Error(`GitHub refused this request (${error?.message || 'network error'}). Check the repository name and the token.`), { status: 0 });
+  }
+
   async function gh(cfg, path, { method = 'GET', body, raw = false } = {}) {
     let res;
     try {
-      res = await fetch(`${API}/repos/${cfg.repo}/${path}`, {
+      // No trailing slash for the repository itself: GitHub answers ".../repo/" with 404 and no CORS headers,
+      // so the browser blocks the request ("Failed to fetch") even though the internet is fine.
+      res = await fetch(`${API}/repos/${cfg.repo}${path ? '/' + path : ''}`, {
         method,
         cache: 'no-store',
         headers: {
@@ -42,8 +53,8 @@ window.githubSync = (() => {
         },
         body: body ? JSON.stringify(body) : undefined,
       });
-    } catch {
-      throw Object.assign(new Error('No internet connection.'), { status: 0 });
+    } catch (error) {
+      throw await explainFailure(cfg, error);
     }
     if (!res.ok) {
       const reasons = {

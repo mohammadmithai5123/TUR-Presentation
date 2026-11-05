@@ -83,7 +83,7 @@
       showGithubState();
       $('status').textContent = `GitHub connected (${name}). Every edit is committed and goes live automatically.`;
     } catch (error) {
-      if (error.status === 0) { $('status').textContent = 'GitHub is connected, but this device is offline. Edits are kept here and upload when you are back online.'; return; }
+      if (error.unreachable) { $('status').textContent = `GitHub is connected, but cannot be reached right now: ${error.message} Edits are kept here and upload when it can.`; return; }
       $('github').open = true;
       $('status').textContent = `GitHub: ${error.message} Create a new token in the GitHub panel to keep auto-save running.`;
     }
@@ -295,7 +295,8 @@
     finally { $('save').disabled = false; }
   };
   $('gh-connect').onclick = async () => {
-    const typed = $('gh-token').value.trim();
+    // A token never contains spaces or line breaks; copy-paste often adds them, so drop them (and quotes).
+    const typed = $('gh-token').value.replace(/\s+/g, '').replace(/^["'`]+|["'`]+$/g, '');
     const token = typed.startsWith('•') ? sync.config().token : typed;
     const cfg = { repo: $('gh-repo').value.trim(), branch: $('gh-branch').value.trim() || 'main', token };
     $('status').textContent = 'Checking GitHub access…';
