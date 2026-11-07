@@ -13,13 +13,16 @@
   const editorOpen = () => Boolean(document.querySelector('#deck-editor')?.open);
   const activeId = () => deck.querySelector(':scope > .slide.active')?.id || null;
 
-  const audio = new Audio(asset.getAttribute('src'));
+  const audio = new Audio();
   audio.preload = 'auto'; audio.volume = 0.9;
+  const ensureSource = () => { if (!audio.getAttribute('src')) audio.src = asset.getAttribute('src'); };   // nothing is downloaded while sounds are off
+  if (!disabled()) ensureSource();
   let current = activeId(), timer = 0;                            // opening the deck on this slide does not play (browsers block it anyway)
 
   const stop = () => { clearTimeout(timer); timer = 0; try { audio.pause(); audio.currentTime = 0; } catch {} };
   function schedule() {
     if (disabled() || document.hidden || editorOpen()) return;
+    ensureSource();
     timer = setTimeout(() => {
       timer = 0;
       if (activeId() !== SLIDE_ID || document.hidden || editorOpen()) return;

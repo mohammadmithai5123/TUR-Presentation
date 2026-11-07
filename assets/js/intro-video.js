@@ -19,10 +19,12 @@
   const editorOpen = () => Boolean(document.querySelector('#deck-editor')?.open);
 
   // One detached player, preloaded while the title slide is on screen, so slide 2 can start at once.
+  // Its source is only set when the intro is enabled, so a switched-off intro downloads nothing.
   const player = document.createElement('video');
-  player.src = SRC; player.preload = 'auto'; player.playsInline = true; player.volume = 0.7;
+  player.preload = 'auto'; player.playsInline = true; player.volume = 0.7;
   player.setAttribute('playsinline', ''); player.setAttribute('aria-hidden', 'true');
-  if (!disabled()) { try { player.load(); } catch {} }
+  const ensureSource = () => { if (!player.getAttribute('src')) player.src = SRC; };
+  if (!disabled()) ensureSource();
 
   let last = slidesNow().find((s) => s.classList.contains('active')) || null;
   let run = null;
@@ -64,6 +66,7 @@
   function start(slide) {
     if (disabled() || reduce.matches || document.hidden || editorOpen()) return;
     if (run) finish();
+    ensureSource();
     const overlay = document.createElement('div');
     overlay.className = 'intro-overlay'; overlay.setAttribute('aria-hidden', 'true');
     const hint = document.createElement('p'); hint.className = 'intro-skip'; hint.textContent = 'Click or press Space to skip';
