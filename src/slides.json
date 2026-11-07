@@ -145,6 +145,11 @@
     "notes": "Section transition: Activities. The cleaning activity at Frere Hall and the treasure hunt at YMCA Ground follow."
   },
   {
+    "id": "activities-intro",
+    "file": "activities-intro.html",
+    "notes": "Activities follow the approved route briefing. Generated artwork represents proposed activities, not documentary photographs."
+  },
+  {
     "id": "cleaning-reveal",
     "file": "cleaning-reveal.html",
     "notes": ""
@@ -268,11 +273,6 @@
     "id": "sponsors-wall",
     "file": "sponsors-wall.html",
     "notes": "Sponsor logos supplied by the organiser, shown together in the order received. The order is not a ranking. To change one, select its logo in Edit Mode and use Replace image."
-  },
-  {
-    "id": "briefing-recap",
-    "file": "briefing-recap.html",
-    "notes": "Summary slide that ties the six sections together. It restates what the section slides already say; no new operational facts are introduced."
   },
   {
     "id": "one-ride-one-community",
