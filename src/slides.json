@@ -185,11 +185,6 @@
     "notes": "Badge must match assigned participant. Finish QR is supplied with the badge, not the large station poster. Rank verified completions by finish minus start time. No real QR payloads included."
   },
   {
-    "id": "activity-giveaways",
-    "file": "activity-giveaways.html",
-    "notes": "Pending: treasure winner count 5 or 10, cleaning winner count, measurement unit and tare procedure, tie rules, actual clue/station/badge assignments and QR mapping. Apps and operational scanners deferred."
-  },
-  {
     "id": "section-web-application",
     "file": "section-web-application.html",
     "notes": "Section transition: Taheri Web Application. The software overview and its feature screens follow."
