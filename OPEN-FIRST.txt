@@ -13,7 +13,7 @@ TAHERI UNITY RIDE — MERGED PRESENTATION
   Route Overview (1-28), Activities (29-38), Taheri Web Application (39-47),
   Communication Application (48-52), Giveaways (53-54), Valuable Sponsors (55-56), then a recap and the closing banner (57-58).
 Each of the last five sections opens with its own introduction slide.
-The "ONE RIDE. ONE COMMUNITY." slide is now the final slide of the whole deck.
+The "ONE RIDE. ONE TEAM. ONE COMMUNITY." team-celebration slide is the final slide of the whole deck.
 
 Edits can publish themselves: in Edit Mode, open the GitHub panel once, paste a token (Contents:
 Read and write, this repository only), and every later edit is committed and goes live by itself.

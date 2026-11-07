@@ -224,6 +224,7 @@ assets/
     route/              Bicycle SVG
     slides/             Cover and rally backgrounds
     title/              Title screen: background, cyclist body, head, two irises
+    closing/            Closing slide: background and team celebration picture
     stops/              27 numbered route/detail photographs
 scripts/build.mjs       Dependency-free assembly and validation
 .github/workflows/      GitHub Pages build and deployment workflow

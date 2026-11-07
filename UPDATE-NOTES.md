@@ -85,6 +85,21 @@ really offline) each get their own clear message.
 The deck owner's new, longer wording could run over the footer (for example on the YMCA Ground activity slide). The text of
 the open slide now shrinks just enough to stay above the footer. Nothing is changed in the saved text.
 
+## 2026-11-07 — new closing slide (team celebration)
+
+The last slide ("Thank you") now uses the supplied closing poster: dark teal and gold background, the group of six riders and
+one volunteer celebrating, and the wording ONE RIDE. / ONE TEAM. / ONE COMMUNITY., "Together, we make it happen.", "Thank you,
+riders and volunteers.", the 4 / 2 / 1 stats, the three original logos and the organiser and ceremony lines.
+- It uses the deck's own fonts (Heading and Body), not the poster's Arial.
+- Entrance: the team rises into place and the three lines appear one after another (about 2 seconds), then a short confetti burst
+  on the right. It is plain CSS (28 small pieces, gone after about 7 seconds), with no script, so nothing keeps running. With
+  "reduce motion" the finished slide shows at once without confetti. The editor preview always shows the finished slide.
+- Removed to keep the deck light: the old closing's route ribbon, rising embers, "RIDE COMPLETE" badge, confetti burst and their
+  CSS (about 160 lines). The pack's victory-cue sound (1.7 MB) and pointer parallax were left out; they can be added later.
+- The team picture has a soft studio halo (not a clean cut-out), so it is blended with a mask and a dark gradient. Editing the
+  heading in the editor turns its three lines into plain text (the gold second line is lost); edit the other texts freely.
+- Pictures: assets/images/closing/background.webp (27 KB) and team-celebration.webp (388 KB), converted from the PNGs in the pack.
+
 ## 2026-11-07 — interactive opening title screen
 
 Slide 1 is now a designed opening screen: dark-teal and gold background, the heading "TAHERI UNITY RIDE", the three stats,

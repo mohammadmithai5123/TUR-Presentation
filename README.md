@@ -19,7 +19,7 @@ changes. The hosted website below has not been updated by editing this archive.
 | 04 Communication Application | 48–52 | Divider, Zello overview, groups and channels, push-to-talk, internet requirement. |
 | 05 Giveaways | 53–54 | Divider, then one slide showing the jacket, the bag and the subscription key card every participant receives. |
 | 06 Valuable Sponsors | 55–56 | Divider, then one VIP-style wall with all 13 sponsor logos shown together. |
-| Close | 57–58 | Recap slide, then the "ONE RIDE. ONE COMMUNITY." closing banner. |
+| Close | 57–58 | Recap slide, then the "ONE RIDE. ONE TEAM. ONE COMMUNITY." team-celebration closing slide. |
 
 Each new section opens with its own divider slide. The footer of every slide in
 sections 02–06 shows the six sections with the current one highlighted. Slide
