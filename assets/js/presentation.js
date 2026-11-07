@@ -460,7 +460,7 @@ document.querySelectorAll('.route-image,.route-popup img,.monument-art,.overview
 
 // Activities artwork opens in the same full-image viewer as route photos. No lens here:
 // these images are cropped or masked, so the lens mapping would not line up.
-document.querySelectorAll('.process-image,.original-poster,.original-badge,.giveaway-photo img,.sw-shot').forEach(image => {
+document.querySelectorAll('.process-image,.original-poster,.original-badge,.giveaway-photo img,.sw-shot,.zoomable').forEach(image => {
   const revealed = () => { const step = image.closest('.detail'); return !step || step.classList.contains('shown'); };
   const open = event => {
     event.stopPropagation();

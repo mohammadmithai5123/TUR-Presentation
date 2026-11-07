@@ -40,7 +40,7 @@ the deck now has 58 slides (it was 59 until the owner deleted `ymca-refreshments
   again next time) and sets `--i` per point. One shared animation (`point-in`, 0.55 s, 0.14 s apart,
   in `styles.css`) makes them cascade in; with reduced motion, in the editor and in print they are
   simply visible. `total()` is 0 except for route-journey slides, so one Next press moves to the
-  next slide; only the five `interactive-route` slides still step through their locations. The
+  next slide. (The five route journeys used to step through their locations with the `interactive-route` code; they are now static flow charts, see `.flow-route` in `styles.css`, and that code is unused.) The
   "Show details" button, `steps.js`, the "2 / 3 points" counter and the current/dimmed highlighting
   were removed on purpose: this replaces the earlier per-point pointer behaviour. The cover and
   closing subtitles (`.cover-detail`) join their staged entrance instead of waiting for a click.

@@ -85,6 +85,21 @@ really offline) each get their own clear message.
 The deck owner's new, longer wording could run over the footer (for example on the YMCA Ground activity slide). The text of
 the open slide now shrinks just enough to stay above the footer. Nothing is changed in the saved text.
 
+## 2026-11-07 — route, Al Nadi, YMCA and Zello slides combined (50 → 45 slides)
+
+- **The five route journeys (slides 8, 12, 15, 19, 23) are now flow charts.** Instead of opening one photo at a time with a zoom,
+  every photo of the journey is on the slide at once, in a card with its **spot number and name written on the photo** (and the
+  member count where the source gives one), joined by **arrows** in travel order. A START → END strip on top names the two
+  checkpoints and shows the bicycle riding along the line. Journeys with five or six spots use two rows with a connecting line.
+  Click a photo (or press Enter on it) to see the whole picture. The old "Route overview" button, the sliding bicycle and the
+  step-by-step Next are gone: one Next press moves to the next slide.
+- **Al Nadi (slides 17 + 18) is one slide:** both pictures (entry gate and outside cycle parking) side by side, with the wording of
+  the former slide 17 only. **YMCA (23 + 24) is one slide:** both pictures, each with its own heading and the three points of
+  its former slide. Speaker notes of the combined slides were merged.
+- **Zello (four slides) is one slide:** the example phone screen, the logo and four cards: overview, groups & channels,
+  push-to-talk, internet connection (all twelve former points). Speaker notes (download and support links) were merged.
+- Footer counters now read NN/45. The old interactive-route code is still in `presentation.js` but no slide uses it any more.
+
 ## 2026-11-07 — Web Application slides combined (8 → 2)
 
 The eight software slides (overview, participants, QR card, checkpoint scanning, activity tracking, cleaning results, treasure-hunt

@@ -7,11 +7,11 @@ TAHERI UNITY RIDE — MERGED PRESENTATION
 3. Right Arrow / Next moves to the next slide; all points on a slide appear together. Back reverses.
 4. Move the mouse to show the bottom toolbar (it hides itself); use the slide dropdown to jump.
    F opens fullscreen; M toggles the lens; N shows or hides the speaker notes.
-5. Route thumbnails retain their animated zoom and bicycle movement.
+5. The route journeys show every spot at once as a flow chart; click a photo to see it whole.
 
-50 slides in six sections, in this order:
-  Route Overview (1-28), Activities (29-37), Taheri Web Application (38-40),
-  Communication Application (41-45), Giveaways (46-47), Valuable Sponsors (48-49), then the closing slide (50).
+45 slides in six sections, in this order:
+  Route Overview (1-26), Activities (27-35), Taheri Web Application (36-38),
+  Communication Application (39-40), Giveaways (41-42), Valuable Sponsors (43-44), then the closing slide (45).
 Each of the last five sections opens with its own introduction slide.
 The "ONE RIDE. ONE TEAM. ONE COMMUNITY." team-celebration slide is the final slide of the whole deck.
 

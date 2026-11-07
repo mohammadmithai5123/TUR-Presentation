@@ -82,12 +82,7 @@
   {
     "id": "al-nadi-al-burhani-2",
     "file": "al-nadi-al-burhani-2.html",
-    "notes": "Checkpoint 3 total 7 spot duties + 1 parking sub-in-charge. Overall: 1 VC + 1 GL. Parking position follows explicit user instruction."
-  },
-  {
-    "id": "al-nadi-cycle-parking",
-    "file": "al-nadi-cycle-parking.html",
-    "notes": "Expanded view of the existing checkpoint parking allocation, not additional staffing. Nadi remains 7 spot duties plus 1 parking sub-in-charge; overall 1 VC and 1 GL."
+    "notes": "Checkpoint 3 total 7 spot duties + 1 parking sub-in-charge. Overall: 1 VC + 1 GL. Parking position follows explicit user instruction. Expanded view of the existing checkpoint parking allocation, not additional staffing. Nadi remains 7 spot duties plus 1 parking sub-in-charge; overall 1 VC and 1 GL."
   },
   {
     "id": "al-nadi-al-burhani-3",
@@ -110,14 +105,9 @@
     "notes": ""
   },
   {
-    "id": "ymca-cycle-parking",
-    "file": "ymca-cycle-parking.html",
-    "notes": "Dedicated inside-parking scene using the supplied YMCA image. These 2 parking members are part of the existing 16 spot duties, not extra assignments."
-  },
-  {
     "id": "ymca-ground-3",
     "file": "ymca-ground-3.html",
-    "notes": "Activity start and end remain separate, with 2 scouts at each desk; 4 ground members. Together with 2 gate guides, 2 checkpoint scanners, 2 parking members and 2 refreshment members, YMCA remains 16 duties. Supplied pavilion visual is a proposed setup; people shown do not redefine staffing."
+    "notes": "Dedicated inside-parking scene using the supplied YMCA image. These 2 parking members are part of the existing 16 spot duties, not extra assignments. Activity start and end remain separate, with 2 scouts at each desk; 4 ground members. Together with 2 gate guides, 2 checkpoint scanners, 2 parking members and 2 refreshment members, YMCA remains 16 duties. Supplied pavilion visual is a proposed setup; people shown do not redefine staffing."
   },
   {
     "id": "ymca-ground-to-taheri-masjid",
@@ -205,24 +195,9 @@
     "notes": "Section transition: Communication Application. The Zello overview and how it will be used follow."
   },
   {
-    "id": "communication-overview",
-    "file": "communication-overview.html",
-    "notes": "Official downloads: https://zello.com/downloads/ . Event use is based on the organiser’s plan."
-  },
-  {
-    "id": "communication-channels",
-    "file": "communication-channels.html",
-    "notes": "The organiser reports event groups have been created. Final channel names and membership were not supplied. The screenshot is the user-provided example channel, not a verified TUR channel."
-  },
-  {
-    "id": "communication-ptt",
-    "file": "communication-ptt.html",
-    "notes": "Hold-to-talk mode. Zello also supports toggle mode. Official reference: https://support.zello.com/zc/toggle-mode ."
-  },
-  {
-    "id": "communication-internet",
-    "file": "communication-internet.html",
-    "notes": "Official connection requirements: https://support.zello.com/zc/connection-requirements . Cellular or Wi-Fi internet required; connectivity depends on local network coverage."
+    "id": "communication-zello",
+    "file": "communication-zello.html",
+    "notes": "Official downloads: https://zello.com/downloads/ . Event use is based on the organiser’s plan. The organiser reports event groups have been created. Final channel names and membership were not supplied. The screenshot is the user-provided example channel, not a verified TUR channel. Hold-to-talk mode. Zello also supports toggle mode. Official reference: https://support.zello.com/zc/toggle-mode . Official connection requirements: https://support.zello.com/zc/connection-requirements . Cellular or Wi-Fi internet required; connectivity depends on local network coverage."
   },
   {
     "id": "section-giveaways",
