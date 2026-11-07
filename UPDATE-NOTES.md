@@ -85,6 +85,15 @@ really offline) each get their own clear message.
 The deck owner's new, longer wording could run over the footer (for example on the YMCA Ground activity slide). The text of
 the open slide now shrinks just enough to stay above the footer. Nothing is changed in the saved text.
 
+## 2026-11-08 — route flow charts: photos clean, arrows redrawn
+
+On the five route journey slides the photos are now shown **whole, in their own proportions, with nothing written on them** (no
+caption text, no dark shading). The spot number ("SPOT 1"), the name and the member count sit **under each photo**. The arrows
+were redrawn as clean SVG arrows, exactly centred on the photos between neighbours, and routes with five or six spots use a
+rounded elbow arrow that runs from spot 3 down into spot 4. Photo sizes are worked out per slide (in `char`-free generator terms:
+the largest photos that fit the stage), so photos of different shapes (for example the wide Jinnah House panorama) keep their
+shape. Clicking a photo still opens the whole picture. The deck is 44 slides (the owner also removed the Activities overview slide).
+
 ## 2026-11-07 — route, Al Nadi, YMCA and Zello slides combined (50 → 45 slides)
 
 - **The five route journeys (slides 8, 12, 15, 19, 23) are now flow charts.** Instead of opening one photo at a time with a zoom,
