@@ -34,6 +34,12 @@ any normal Next plays a one-second exit and opens slide 2; Back/Home returns to 
 label and pictures are edited in Edit Mode like any other slide. See `UPDATE-NOTES.md` (2026-11-07) for the limits of the 2.5D
 approach and what artwork would be needed for full facial animation.
 
+## Slide 2 intro
+
+Arriving on slide 2 from the title slide plays a 9.6 s cinematic intro (`assets/video/second-slide-intro.mp4`, code in
+`assets/js/intro-video.js`). Click, Space, Enter or Right Arrow skip it; it is skipped with reduced motion, and `?intro=off` on the address
+turns it off. Details in `UPDATE-NOTES.md` (2026-11-08).
+
 ## Edits go live automatically (GitHub link)
 
 This folder is a git repository linked to https://github.com/mohammadmithai5123/TUR-Presentation
@@ -73,6 +79,7 @@ assets/
   js/
     presentation.js     Navigation, notes, and image magnifier
     title-screen.js     Opening title screen: cyclist rig, Start/exit behaviour
+    intro-video.js      Cinematic intro that plays on slide 2 when arriving from slide 1
     route-map.js        Animated route and map controls
 scripts/
   build.mjs             Validates and assembles the presentation

@@ -1496,3 +1496,19 @@ html:not(.fonts-loading) .zello-slide.active .zl-card:nth-child(4) { animation-d
 @media (prefers-reduced-motion:reduce) { .flow-route *, .flow-route, .pair-slide *, .pair-slide, .zello-slide *, .zello-slide { animation:none !important; } }
 #editor-preview .flow-route *, #editor-preview .pair-slide *, #editor-preview .zello-slide * { animation:none !important; }
 #editor-preview .zoomable { cursor:pointer; }
+
+/* ==========================================================================
+   Slide 2 cinematic intro (assets/js/intro-video.js). The overlay sits on slide 2 only while the video plays; the slide's own
+   content waits underneath (hidden, entrance animations held) and enters as the overlay cross-fades away in the last 0.6 s.
+   The overlay stays below the toolbar (z-index 5), so every control keeps working while it plays.
+   ========================================================================== */
+.intro-overlay { position:absolute; inset:0; z-index:4; background:#03141b; opacity:1; transition:opacity .6s ease; cursor:pointer; }
+.intro-overlay.fast { transition-duration:.3s; }
+.intro-overlay.fading { opacity:0; pointer-events:none; }
+.intro-overlay > video { display:block; width:100%; height:100%; object-fit:contain; background:#03141b; pointer-events:none; }
+.intro-skip { position:absolute; right:2.4%; bottom:3.2%; margin:0; font-size:1.05cqw; letter-spacing:.14em; text-transform:uppercase; color:#ebd9a8; opacity:.5; text-shadow:0 1px 6px #000; pointer-events:none; }
+.slide.intro-playing > :not(.intro-overlay) { visibility:hidden !important; animation:none !important; }
+#intro-video { display:none; }
+#editor-preview .intro-overlay { display:none; }
+#editor-preview .slide.intro-playing > :not(.intro-overlay) { visibility:visible !important; }
+@media print { .intro-overlay { display:none; } .slide.intro-playing > * { visibility:visible !important; } }

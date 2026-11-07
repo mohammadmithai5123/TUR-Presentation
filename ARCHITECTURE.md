@@ -216,6 +216,7 @@ assets/
   js/presentation.js    Navigation, detail reveals, notes, fullscreen, magnifier
   js/route-map.js       SVG route animation, playback, speed and seek controls
   js/title-screen.js    Opening title screen: cyclist rig, pointer tracking, Start/exit
+  js/intro-video.js     Slide 2 cinematic intro (overlay + video), see "Slide 2 intro" below
   fonts/                Local heading and body fonts
   images/
     branding/           Division, event and Sehat logos
@@ -225,6 +226,7 @@ assets/
     slides/             Cover and rally backgrounds
     title/              Title screen: background, cyclist body, head, two irises
     closing/            Closing slide: background and team celebration picture
+  video/                second-slide-intro.mp4 (the slide 2 intro, 1280x720, 9.6 s, with sound)
     stops/              27 numbered route/detail photographs
 scripts/build.mjs       Dependency-free assembly and validation
 .github/workflows/      GitHub Pages build and deployment workflow
@@ -283,6 +285,17 @@ count of revealed `.detail` elements.
   the lens. Navigation shortcuts are skipped when a button or select has focus.
 - The mouse/pointer lens magnifies contained route and landmark images by 2x;
   touch pointers do not activate it.
+
+### Slide 2 intro
+
+`intro-video.js` (loaded after `title-screen.js`) watches which slide is open. When slide 2 (the second `.slide` in the deck) becomes
+active straight after slide 1, it adds `.intro-overlay` (with one detached, preloaded `<video>` and a skip hint) to that slide and
+`.intro-playing` to the slide, which hides the slide's own content and holds its entrance animations. In the last 0.6 s (read from
+`video.currentTime` in a `requestAnimationFrame` loop) it removes `.intro-playing` (the content's animations start) and fades the overlay
+out; then the overlay is removed and the video detached. Capture-phase key handling makes Space/Enter/Right Arrow/Page Down skip it
+instead of advancing; a click on the overlay skips it. Any other slide change, a hidden tab or the editor opening stops it at once.
+The overlay's z-index (4) is below the toolbar (5). The hidden `#intro-video` element in the page shell only names the file: the export
+pack inlines it, and the script reads its `src`. `editor.js` strips `.intro-overlay` and `.intro-playing` when saving.
 
 ### Opening title screen
 

@@ -85,6 +85,25 @@ really offline) each get their own clear message.
 The deck owner's new, longer wording could run over the footer (for example on the YMCA Ground activity slide). The text of
 the open slide now shrinks just enough to stay above the footer. Nothing is changed in the saved text.
 
+## 2026-11-08 — cinematic intro on slide 2
+
+A 9.6-second animation (golden slit, the original round logo revealed, the logo moving left, the male cyclist speeding across with a
+golden trail, a clean right-hand space) plays **once each time the viewer arrives on slide 2 from slide 1** (Start button, Enter,
+arrows, a click, or the slide list). It is the supplied `Second_Slide_Cinematic_Intro_HD.mp4` (1280×720, with its original sound
+effects, 1.3 MB) in `assets/video/second-slide-intro.mp4`; nothing was redrawn or replaced.
+- **Behaviour:** the video sits over slide 2 on the 16:9 stage (nothing cropped or stretched). Slide 2's own content waits underneath and
+  enters with its normal animation as the video cross-fades away in the last 0.6 s. Click, Space, Enter or Right Arrow skip it (sound stops
+  at once); Back, the slide list, Home/End, a hidden tab or opening the editor stop it immediately. The toolbar stays usable throughout.
+- **Only slide 2:** coming back from slide 3, opening `#2` directly or reloading show slide 2 normally; slides 1, 3 and the rest are
+  unchanged (their files are byte-for-byte identical). Coming from slide 1 again plays it again.
+- **Safe fallbacks:** "reduce motion" skips it; if the video cannot load within 2 s the slide just appears; if the browser refuses sound
+  it plays silently. `?intro=off` on the address (or `window.turIntroDisabled = true`) switches it off. The downloaded portable copy carries
+  the video inside the file.
+- **Files:** `assets/js/intro-video.js`, `assets/video/second-slide-intro.mp4`, a CSS block at the end of `styles.css`, a hidden
+  `<video id="intro-video">` in `src/page-shell.html` (it only names the file so the export can inline it), `scripts/build.mjs` (export
+  pack), and two small lines in `assets/js/editor.js` (never save the overlay; keep the video in re-exports).
+- Not used: the preview GIF (about 10 MB) and the other reference images in the package.
+
 ## 2026-11-08 — route flow charts: photos clean, arrows redrawn
 
 On the five route journey slides the photos are now shown **whole, in their own proportions, with nothing written on them** (no
