@@ -183,7 +183,7 @@
   $('slides').onchange = () => { current = +$('slides').value; render(); };
   $('preview').onclick = event => {
     event.preventDefault(); event.stopPropagation();
-    const target = event.target.closest('img,h1,h2,h3,p,small,em,.tag,.sub,.tagline,.cover-detail,.route-stop-name,.step-number,.image-note,.qr-note,.results span,footer span');
+    const target = event.target.closest('img,h1,h2,h3,p,small,em,.tag,.sub,.tagline,.cover-detail,.route-stop-name,.step-number,.image-note,.qr-note,.results span,.start-btn,footer span');
     if (!target) return;
     clearSelection(); selected = target;
     target.classList.add('editor-selected-element');

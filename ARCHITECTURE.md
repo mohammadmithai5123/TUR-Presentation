@@ -215,6 +215,7 @@ assets/
   css/styles.css        Layout, typography, theme, reveals, map and lens styling
   js/presentation.js    Navigation, detail reveals, notes, fullscreen, magnifier
   js/route-map.js       SVG route animation, playback, speed and seek controls
+  js/title-screen.js    Opening title screen: cyclist rig, pointer tracking, Start/exit
   fonts/                Local heading and body fonts
   images/
     branding/           Division, event and Sehat logos
@@ -222,6 +223,7 @@ assets/
     maps/               Raster route basemap
     route/              Bicycle SVG
     slides/             Cover and rally backgrounds
+    title/              Title screen: background, cyclist body, head, two irises
     stops/              27 numbered route/detail photographs
 scripts/build.mjs       Dependency-free assembly and validation
 .github/workflows/      GitHub Pages build and deployment workflow
@@ -280,6 +282,29 @@ count of revealed `.detail` elements.
   the lens. Navigation shortcuts are skipped when a button or select has focus.
 - The mouse/pointer lens magnifies contained route and landmark images by 2x;
   touch pointers do not activate it.
+
+### Opening title screen
+
+Slide 1 (`.slide.title-screen`) is driven by `assets/js/title-screen.js`, which loads after `presentation.js`.
+
+- The cyclist is a layered 2.5D rig inside `.ts-figure`: `.ts-body` (picture), `.ts-head` (picture behind the body, joined at the
+  collar with a hidden skin "skirt"), two `.ts-eye` windows (clip-path polygons following the eye openings) holding `.ts-iris`
+  pictures, and two `.ts-lid` layers scaled by `--lid`. Sizes are in source-picture units (`--u`, one source pixel).
+- The script writes only CSS custom properties on `.ts-figure`: `--ex --ey` (iris), `--hx --hy` (head shift), `--hrz --hry --hrx`
+  (head roll, yaw, pitch), `--lid` (eyelid closure), `--breath`. Limits live in `LIMIT` (about 12° yaw, 6° pitch, 3.8 px iris travel).
+  The loop (requestAnimationFrame, exponential smoothing) runs only while the slide is active and the tab is visible; with
+  `prefers-reduced-motion` nothing runs and the figure keeps its neutral pose. `hover: none` devices use an idle wander.
+- Leaving: `next()` in `presentation.js` checks for `.title-screen` and calls `window.titleScreen.leave()`, which adds `.leaving`
+  (CSS exit), nods, disables the button and resolves after about 1 s (0 s with reduced motion), then the deck shows the next slide.
+  Because Start, Enter, arrows and clicks all end in `next()`, there is exactly one transition and repeated input is ignored
+  (`prev()` is also blocked while leaving). The Start button calls `window.deckNext`.
+- Small and portrait screens: `body.title-portrait` (set by the script while the title is open) turns `#deck` into a full-viewport
+  container with a stacked layout; other slides keep the 16:9 stage.
+- Long edited text: heading, tag, tagline, subtitle and the Start label are multiplied by `--ts-fit-*` variables set on `<html>`
+  (outside the deck, so never saved). Floor 40 %.
+- Editing: all texts, the Start button (`.start-btn`) and every picture are selectable in the editor. The script is included in the
+  portable export (`scripts/build.mjs` export list).
+- Not done: true 3D head rotation, mouth/brow animation, upper-body follow beyond a 2 px shift. These need layered artwork or a model.
 
 Slide kinds include cover, overview, monument, journey, route, text, map and
 closing. Only the route-journey slides still count steps (one per location).

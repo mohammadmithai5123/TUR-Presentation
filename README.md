@@ -13,7 +13,7 @@ changes. The hosted website below has not been updated by editing this archive.
 
 | Section | Slides | What it holds |
 |---|---|---|
-| Route Overview | 1–28 | Cover, agenda, animated route map and every checkpoint, ending with the closing ceremony at Taheri Masjid. |
+| Route Overview | 1–28 | Interactive title screen, agenda, animated route map and every checkpoint, ending with the closing ceremony at Taheri Masjid. |
 | 02 Activities | 29–38 | Divider, overview, cleaning activity, treasure hunt and giveaway criteria. |
 | 03 Taheri Web Application | 39–47 | Divider, software overview and the eight feature screens. |
 | 04 Communication Application | 48–52 | Divider, Zello overview, groups and channels, push-to-talk, internet requirement. |
@@ -24,6 +24,15 @@ changes. The hosted website below has not been updated by editing this archive.
 Each new section opens with its own divider slide. The footer of every slide in
 sections 02–06 shows the six sections with the current one highlighted. Slide
 numbers are generated at load time, so reordering never needs manual renumbering.
+
+## Opening title screen
+
+Slide 1 is an interactive title screen (`src/slides/taheri-unity-ride.html`, behaviour in `assets/js/title-screen.js`). The cyclist
+follows the mouse with his eyes and head, breathes and blinks, and nods when you hover **START PRESENTATION**. Start, Enter or
+any normal Next plays a one-second exit and opens slide 2; Back/Home returns to the title. It is built from separate pictures in
+`assets/images/title/` (body, head, two irises, background); with reduced motion it stays still. Heading, subtitle, stats, button
+label and pictures are edited in Edit Mode like any other slide. See `UPDATE-NOTES.md` (2026-11-07) for the limits of the 2.5D
+approach and what artwork would be needed for full facial animation.
 
 ## Edits go live automatically (GitHub link)
 
@@ -63,6 +72,7 @@ assets/
                         activities/, software/ and communication/ artwork
   js/
     presentation.js     Navigation, notes, and image magnifier
+    title-screen.js     Opening title screen: cyclist rig, Start/exit behaviour
     route-map.js        Animated route and map controls
 scripts/
   build.mjs             Validates and assembles the presentation

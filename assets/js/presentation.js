@@ -226,8 +226,17 @@ function show(slideIndex, requestedReveal = 0) {
   return true;
 }
 
+let titleLeaving = false;
 function next() {
   if (document.querySelector('#deck-editor')?.open) return;
+  const here = slides[index];
+  if (here.classList.contains('title-screen') && window.titleScreen?.leave) {
+    // Start button, Enter, arrow keys and clicks all arrive here: play the exit once, then open the next slide.
+    if (titleLeaving) return;
+    titleLeaving = true;
+    window.titleScreen.leave().finally(() => { titleLeaving = false; if (slides[index] === here) show(index + 1); });
+    return;
+  }
   const route = routeStates.get(slides[index]);
   if (route) {
     if (route.busy) return;
@@ -243,6 +252,7 @@ function next() {
 }
 
 window.presentationIsBusy = () => Boolean(routeStates.get(slides[index])?.busy);
+window.deckNext = next;
 
 // Text can be longer than the layout expects (it is edited in the browser). Shrink the text block of the open slide,
 // a little at a time, until it ends above the footer. It uses CSS zoom on the block, is recalculated every time and
@@ -267,6 +277,7 @@ window.fitSlideText = fitSlideText;
 
 function prev() {
   if (document.querySelector('#deck-editor')?.open) return;
+  if (titleLeaving) return;
   const route = routeStates.get(slides[index]);
   if (route) {
     if (route.busy) return;

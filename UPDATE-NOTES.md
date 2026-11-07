@@ -85,6 +85,38 @@ really offline) each get their own clear message.
 The deck owner's new, longer wording could run over the footer (for example on the YMCA Ground activity slide). The text of
 the open slide now shrinks just enough to stay above the footer. Nothing is changed in the saved text.
 
+## 2026-11-07 — interactive opening title screen
+
+Slide 1 is now a designed opening screen: dark-teal and gold background, the heading "TAHERI UNITY RIDE", the three stats,
+a **START PRESENTATION** button, the three original event logos at the bottom left and the cyclist standing beside his bike.
+
+What it does
+- The cyclist's **eyes follow the mouse pointer**, his **head turns** up to about 12° sideways and 6° up/down, and he shifts a
+  couple of pixels with it. His feet and the bike never move. Movement is eased, and he goes back to a neutral pose when the
+  pointer leaves the window. He breathes slowly, blinks now and then (sometimes twice), and nods with relaxed eyes when the
+  pointer reaches the Start button.
+- Touch screens and devices without a mouse get a slow idle gaze instead, so the character still feels alive.
+- Everything enters in about two seconds. **Start** (click, or Enter / Space / Right Arrow / a click on the slide) plays one
+  acknowledgement (the cyclist nods) and a one-second exit, then opens slide 2 through the normal Next. Extra clicks while it
+  plays are ignored. Back or Home returns to a fresh title with the entrance replayed.
+- Animation runs only while this slide is open (it stops on every other slide and in a hidden tab). With "reduce motion" on,
+  the cyclist stays in his neutral pose, everything is visible at once and Start works immediately.
+- Phones and portrait screens get their own stacked layout (heading and stats on top, cyclist in the middle, a full-width Start
+  button and the logos at the bottom). Text that becomes longer after editing is shrunk automatically to fit (never saved).
+
+How it is built (honest description)
+- The character is a small **2.5D rig of separate pictures**: body, head (behind the body, joined at the collar), two irises
+  clipped to the eye openings, and two eyelid layers. A script writes a few CSS variables; there is no video and no WebGL.
+- The head "turn" is a perspective tilt of one flat picture, so it is an approximation, not a true 3D head. The eyes are small in
+  the artwork, so the iris movement is subtle by design. The "friendly" hover is a nod with half-closed eyelids, not a redrawn face.
+- Heading, tag, tagline, subtitle, stats, Start button, logos and every character picture are separate elements; the editor can
+  edit all text and select/replace the pictures.
+
+Assets used (all local, about 0.2 MB): assets/images/title/background.webp, body.webp, head.webp, iris-l.webp, iris-r.webp.
+Still needed for a **full** facial animation (head turning in real 3D, mouth, eyebrows, expressions): a layered source file or
+separately painted layers from the artist (head without hair/helmet, eyelids, mouth shapes, eyebrows, sclera behind the irises),
+or a rigged 3D model of the character.
+
 ## Earlier route update (31 slides)
 
 31 slides, using the original theme, local fonts, controls and animation effects.

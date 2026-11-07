@@ -1362,3 +1362,111 @@ html:not(.fonts-loading) .slide.sponsors.active .sponsor-frame { animation:sp-fr
 
 /* Used only while the text auto-fit measures a slide. */
 .slide.fit-measure * { animation:none !important; transition:none !important; transform:none !important; }
+
+/* ==========================================================================
+   Title screen (slide 1). Positions follow the supplied 1672x941 reference (px / 16.72 = cqw).
+   Every part is its own element, so it stays editable and animates on its own.
+   The character is a small 2.5D rig: body, head (behind the body, joined at the collar), irises clipped to the
+   eye openings, and eyelids. title-screen.js drives it through custom properties; with no JS (editor preview,
+   reduced motion) all of them are unset and the figure is simply its neutral pose.
+   ========================================================================== */
+.slide.title-screen { background:#03181b; }
+.title-screen > .ts-bg { z-index:0; object-fit:cover; object-position:50% 50%; }
+.title-screen > :not(.ts-bg) { z-index:2; }
+
+.title-screen > .tag { left:6%; top:8.3%; font-size:calc(max(1.54cqw,9px) * var(--ts-fit-tag,1)); white-space:nowrap; letter-spacing:.2em; color:#e9bb72; text-shadow:0 1px 8px #0008; }
+.title-screen > h1 { left:6.93%; top:15%; max-width:56%; font-size:calc(6.8cqw * var(--ts-fit-h1,1)); line-height:.93; letter-spacing:-.005em; color:#f6efdd; text-shadow:0 .25cqw 1.4cqw #0006; }
+.ts-bar { position:absolute; left:7.35%; top:40.2%; width:8.9cqw; height:.54cqw; border-radius:99px; background:linear-gradient(90deg,#e9bb72,#c9ef75); }
+.title-screen > .tagline { left:7.35%; top:42.7%; font-size:calc(max(2.64cqw,12px) * var(--ts-fit-tagline,1)); white-space:nowrap; color:#e9bb72; font-weight:400; letter-spacing:0; }
+.ts-subtitle { position:absolute; left:7.35%; top:50.2%; margin:0; font-size:calc(max(1.5cqw,9px) * var(--ts-fit-sub,1)); white-space:nowrap; font-weight:700; letter-spacing:.015em; color:#fff6e4; text-shadow:0 1px 6px #0007; }
+.ts-stats { position:absolute; left:7.35%; top:55.8%; display:flex; align-items:flex-start; }
+.ts-stats > div { padding:0 3cqw; border-left:1px solid #ffffff2e; }
+.ts-stats > div:first-child { padding-left:0; padding-right:2.8cqw; border-left:0; }
+.ts-stats > div:last-child { padding-right:0; padding-left:3.1cqw; }
+.ts-stat-number { margin:0; font-family:Heading,sans-serif; font-size:3.65cqw; line-height:1; color:#e9bb72; text-shadow:0 2px 12px #0007; }
+.ts-stat-label { margin:.1cqw 0 0; font-size:max(1.17cqw,9px); line-height:1.2; font-weight:700; letter-spacing:.045em; color:#fff6e4; text-shadow:0 1px 6px #0008; }
+
+.ts-start { position:absolute; left:7.35%; top:69.9%; box-sizing:border-box; width:27.75cqw; height:max(4.2cqw,44px); margin:0; padding:0 1cqw; display:flex; align-items:center; justify-content:center;
+  border:0; border-radius:99px; cursor:pointer; font-family:Body,Arial,sans-serif; font-size:calc(max(1.67cqw,11px) * var(--ts-fit-start,1)); white-space:nowrap; font-weight:700; letter-spacing:.045em; color:#0c2b2b;
+  background:linear-gradient(100deg,#ebc783 0%,#d9a857 58%,#c68e3c 100%); box-shadow:inset 0 1px 0 #fff7, inset 0 -2px 0 #9a6a2a55, 0 .7cqw 1.9cqw #0008, 0 0 2.2cqw #e9bb7226;
+  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease; }
+.ts-start:hover { transform:translateY(-.15cqw); filter:brightness(1.07); box-shadow:inset 0 1px 0 #fff8, inset 0 -2px 0 #9a6a2a55, 0 .9cqw 2.2cqw #000a, 0 0 3cqw #e9bb7240; }
+.ts-start:active { transform:translateY(0) scale(.985); }
+.ts-start:focus-visible { outline:3px solid #fff3c9; outline-offset:3px; }
+.ts-start[disabled] { cursor:default; filter:none; }
+
+.title-screen > .logos { left:6%; right:auto; top:83%; width:auto; height:auto; padding:0; gap:1.55cqw; justify-content:flex-start; }
+.title-screen > .logos .logo-medallion { width:5.9cqw; height:5.9cqw; }
+
+/* ---- character ---- */
+.ts-figure { --fw:37.1; --fwl:calc(var(--fw) * 1cqw); --u:calc(var(--fwl) / 923); position:absolute; left:50.6%; top:2%; width:var(--fwl); aspect-ratio:923 / 1328; pointer-events:none; }
+.ts-figure img { display:block; user-select:none; -webkit-user-drag:none; }
+.ts-glow { position:absolute; left:-18%; right:-18%; top:-3%; height:62%; background:radial-gradient(ellipse at 56% 38%,#2fb8a935 0,#1f8f8318 38%,transparent 70%); filter:blur(.6cqw); }
+.ts-shadow { position:absolute; left:1%; right:-1%; top:96.4%; height:5.4%; border-radius:50%; background:radial-gradient(ellipse at 50% 50%,#000d 0,#000a 38%,#0004 62%,transparent 78%); filter:blur(.35cqw); }
+.ts-rig { position:absolute; inset:0; transform-origin:50% 100%; scale:calc(1 + var(--breath,0) * .0045); }
+.ts-body { position:absolute; inset:0; width:100%; height:100%; z-index:2; }
+.ts-head { position:absolute; z-index:1; transform:translate(calc(var(--hx,0) * var(--u)),calc(var(--hy,0) * var(--u))) perspective(calc(1500 * var(--u))) rotateX(calc(var(--hrx,0) * 1deg)) rotateY(calc(var(--hry,0) * 1deg)) rotate(calc(var(--hrz,0) * 1deg)); }
+.ts-figure.live .ts-head { will-change:transform; }
+.ts-head-img { position:absolute; inset:0; width:100%; height:100%; }
+.ts-eye, .ts-lid { position:absolute; overflow:hidden; }
+.ts-iris { position:absolute; translate:calc(var(--ex,0) * var(--u)) calc(var(--ey,0) * var(--u)); }
+.ts-lid i { position:absolute; inset:0; background:linear-gradient(to bottom,var(--lid-top) 0,var(--lid-bottom) 84%,#3a1f13 84%); transform-origin:50% 0; transform:scaleY(var(--lid,0)); }
+
+/* ---- entrance (about 2 s). Base styles above are the finished look; `backwards` makes these start from the hidden state. ---- */
+html:not(.fonts-loading) .title-screen.active > .ts-bg { animation:ts-fade .9s ease backwards; }
+html:not(.fonts-loading) .title-screen.active > .tag { animation:ts-rise .6s cubic-bezier(.22,.7,.25,1) .25s backwards; }
+html:not(.fonts-loading) .title-screen.active > h1 { animation:ts-rise .85s cubic-bezier(.22,.7,.25,1) .4s backwards; }
+html:not(.fonts-loading) .title-screen.active > .ts-bar { animation:ts-grow .6s cubic-bezier(.22,.7,.25,1) .9s backwards; transform-origin:left; }
+html:not(.fonts-loading) .title-screen.active > .tagline { animation:ts-rise .65s cubic-bezier(.22,.7,.25,1) .98s backwards; }
+html:not(.fonts-loading) .title-screen.active > .ts-subtitle { animation:ts-rise .55s cubic-bezier(.22,.7,.25,1) 1.08s backwards; }
+html:not(.fonts-loading) .title-screen.active .ts-stats > div { animation:ts-rise .55s cubic-bezier(.22,.7,.25,1) calc(1.18s + var(--i,0) * .09s) backwards; }
+html:not(.fonts-loading) .title-screen.active > .ts-start { animation:ts-rise .6s cubic-bezier(.22,.7,.25,1) 1.4s backwards; }
+html:not(.fonts-loading) .title-screen.active .logos .logo-medallion { animation:ts-pop .55s cubic-bezier(.2,1.3,.4,1) calc(1.5s + var(--i,0) * .09s) backwards; }
+html:not(.fonts-loading) .title-screen.active > .ts-figure { animation:ts-figure-in 1.05s cubic-bezier(.2,.8,.2,1) .5s backwards; }
+.ts-stats > div:nth-child(1), .logos .logo-medallion:nth-child(1) { --i:0; } .ts-stats > div:nth-child(2), .logos .logo-medallion:nth-child(2) { --i:1; } .ts-stats > div:nth-child(3), .logos .logo-medallion:nth-child(3) { --i:2; }
+@keyframes ts-fade { from { opacity:0; } to { opacity:1; } }
+@keyframes ts-rise { from { opacity:0; transform:translateY(1.4cqw); } to { opacity:1; transform:none; } }
+@keyframes ts-grow { from { opacity:0; transform:scaleX(0); } to { opacity:1; transform:none; } }
+@keyframes ts-pop { from { opacity:0; transform:scale(.6); } to { opacity:1; transform:none; } }
+@keyframes ts-figure-in { from { opacity:0; transform:translateX(4.5cqw) scale(.985); } to { opacity:1; transform:none; } }
+
+/* ---- exit (about 1 s): text slides out, the rider rolls away, the slide fades into the next one ---- */
+html:not(.fonts-loading) .title-screen.active.leaving { animation:ts-slide-out .35s ease-in .65s forwards; }
+html:not(.fonts-loading) .title-screen.active.leaving > .tag,
+html:not(.fonts-loading) .title-screen.active.leaving > h1,
+html:not(.fonts-loading) .title-screen.active.leaving > .ts-bar,
+html:not(.fonts-loading) .title-screen.active.leaving > .tagline,
+html:not(.fonts-loading) .title-screen.active.leaving > .ts-subtitle,
+html:not(.fonts-loading) .title-screen.active.leaving > .ts-stats,
+html:not(.fonts-loading) .title-screen.active.leaving > .ts-start,
+html:not(.fonts-loading) .title-screen.active.leaving > .logos { animation:ts-out .5s cubic-bezier(.5,0,.8,.4) forwards; }
+html:not(.fonts-loading) .title-screen.active.leaving > h1 { animation-delay:.05s; }
+html:not(.fonts-loading) .title-screen.active.leaving > .ts-stats, html:not(.fonts-loading) .title-screen.active.leaving > .ts-subtitle { animation-delay:.1s; }
+html:not(.fonts-loading) .title-screen.active.leaving > .ts-start, html:not(.fonts-loading) .title-screen.active.leaving > .logos { animation-delay:.15s; }
+html:not(.fonts-loading) .title-screen.active.leaving > .ts-figure { animation:ts-figure-out .85s cubic-bezier(.5,0,.8,.4) .12s forwards; }
+@keyframes ts-out { to { opacity:0; transform:translateX(-3cqw); } }
+@keyframes ts-figure-out { to { opacity:0; transform:translateX(6cqw); } }
+@keyframes ts-slide-out { to { opacity:0; } }
+.title-screen.leaving .ts-start { pointer-events:none; }
+
+/* ---- small and portrait screens: the title screen gets its own stacked layout (the other slides keep the 16:9 stage) ---- */
+body.title-portrait #deck { width:100vw; height:100dvh; aspect-ratio:auto; container-type:size; }
+body.title-portrait .title-screen > .ts-bg { object-position:66% 50%; }
+body.title-portrait .title-screen > .tag { left:6cqw; right:6cqw; top:3.4cqh; font-size:calc(max(2.9cqw,9px) * var(--ts-fit-tag,1)); line-height:1.4; letter-spacing:.16em; }
+body.title-portrait .title-screen > h1 { left:6cqw; top:6.6cqh; max-width:none; font-size:calc(12.2cqw * var(--ts-fit-h1,1)); line-height:.95; }
+body.title-portrait .ts-bar { left:6cqw; top:24.6cqh; width:22cqw; height:.9cqw; }
+body.title-portrait .title-screen > .tagline { left:6cqw; top:26.4cqh; font-size:calc(5.4cqw * var(--ts-fit-tagline,1)); }
+body.title-portrait .ts-subtitle { left:6cqw; top:31.2cqh; font-size:calc(3.2cqw * var(--ts-fit-sub,1)); }
+body.title-portrait .ts-stats { left:6cqw; top:35cqh; }
+body.title-portrait .ts-stats > div { padding:0 5cqw; }
+body.title-portrait .ts-stats > div:first-child { padding-left:0; padding-right:5cqw; }
+body.title-portrait .ts-stats > div:last-child { padding-right:0; padding-left:5cqw; }
+body.title-portrait .ts-stat-number { font-size:8.4cqw; }
+body.title-portrait .ts-stat-label { font-size:max(2.5cqw,9px); }
+body.title-portrait .title-screen { --tl:min(11cqw,7cqh); }
+body.title-portrait .ts-figure { --fwl:min(64cqw,calc(38cqh * .695)); left:auto; right:1.2cqw; top:42cqh; }
+body.title-portrait .ts-start { left:6cqw; top:auto; bottom:calc(3.2cqh + var(--tl) + 2cqh); width:88cqw; height:max(7cqh,48px); font-size:calc(max(4cqw,13px) * var(--ts-fit-start,1)); }
+body.title-portrait .title-screen > .logos { left:6cqw; top:auto; bottom:3.2cqh; gap:3.2cqw; }
+body.title-portrait .title-screen > .logos .logo-medallion { width:var(--tl); height:var(--tl); }
+@media (max-height:420px) and (orientation:landscape) { .ts-stat-label, .ts-subtitle, .title-screen > .tag { text-shadow:0 1px 4px #000; } }
+@media print { .title-screen > * { animation:none !important; } }
