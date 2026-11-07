@@ -85,6 +85,22 @@ really offline) each get their own clear message.
 The deck owner's new, longer wording could run over the footer (for example on the YMCA Ground activity slide). The text of
 the open slide now shrinks just enough to stay above the footer. Nothing is changed in the saved text.
 
+## 2026-11-08 — "Roger that" sound, Ammar Kitchenware sponsor, closing credits
+
+- **Zello slide sound:** the supplied radio clip (`assets/video/roger-that-military-radio-voice-vadi-sound-1-1-00-01.mp3`, 1.9 s) plays
+  about 0.4 s after the Zello (communication) slide turns on, once per arrival, never in the middle of the slide. Leaving the slide
+  stops it at once; if the browser refuses sound it stays silent. `?sound=off` turns it off. Code: `assets/js/slide-sounds.js`.
+- **Sponsors:** the Ammar Kitchenware logo (Café & Kitchen Essentials) is the 14th plaque on the sponsors wall, which is now
+  4 + 5 + 5 logos. Picture: `assets/images/sponsors/ammar-kitchenware.webp`.
+- **Closing credits:** on the last slide the old headline ("ONE RIDE. ONE TEAM. ONE COMMUNITY.") is replaced by CREDITS, typed one block
+  at a time in the same place: Presentation Designed & Created By (Mohammad Muslim), Event Software Developed By (Huzefa Tinwala),
+  Presentation Photography By (Juzer Abdeali, Ali Asgher Jetput, Adam Ghani), Communication Application Discovered By (Mohammad Muslim),
+  and last Overall Administration, Team Support & Guidance By (Hamza Rajkot), followed by "Together, We Made This Ride Possible.".
+  Each credit types, stays for a moment and clears before the next; the last one stays. It takes about 20 seconds. The text is never
+  altered while typing (it is revealed with a clip), so credits stay editable in Edit Mode and nothing half-typed can be saved. With
+  "reduce motion", in the editor, in print and with `?credits=static` all credits show at once in a small 2 x 3 grid instead.
+  Code: `assets/js/credits.js`; styles: end of `styles.css`.
+
 ## 2026-11-08 — cinematic intro on slide 2
 
 A 9.6-second animation (golden slit, the original round logo revealed, the logo moving left, the male cyclist speeding across with a

@@ -51,8 +51,8 @@ the deck now has 58 slides (it was 59 until the owner deleted `ymca-refreshments
   slide notes), and the key on the sample Vouch365 card is pixelated so that a working key is never
   published. Dividers read "SECTION 0X / 06", the footers list six sections (…Giveaways, Sponsors), and the
   agenda and recap use six cards in two rows of three (`.agenda-grid.six`).
-- **Valuable Sponsors (section 06, slides 55–56):** `section-sponsors` (divider) and `sponsors-wall`: 13 logos on
-  equal plaques in rows of 4, 5 and 4, inside a gold frame on a dark VIP background. The plaques are plain elements
+- **Valuable Sponsors (section 06, slides 55–56):** `section-sponsors` (divider) and `sponsors-wall`: 14 logos on
+  equal plaques in rows of 4, 5 and 5, inside a gold frame on a dark VIP background. The plaques are plain elements
   (class `sponsor-plaque`), NOT `.detail` points, so nothing waits for a click: they cascade in together within
   about a second (`sp-in`), then float slightly and a gloss sweeps over them (`sp-float`, `sp-gloss`; both are off
   with reduced motion). Logos live in `assets/images/sponsors/*.webp`, trimmed of empty margins and capped at 760 px.
@@ -217,6 +217,8 @@ assets/
   js/route-map.js       SVG route animation, playback, speed and seek controls
   js/title-screen.js    Opening title screen: cyclist rig, pointer tracking, Start/exit
   js/intro-video.js     Slide 2 cinematic intro (overlay + video), see "Slide 2 intro" below
+  js/slide-sounds.js    Zello slide: "Roger that" clip about 0.4 s after the slide opens (stops when leaving)
+  js/credits.js         Closing slide: credits typed block by block (clip reveal driven by --p; markup never altered)
   fonts/                Local heading and body fonts
   images/
     branding/           Division, event and Sehat logos
@@ -226,7 +228,7 @@ assets/
     slides/             Cover and rally backgrounds
     title/              Title screen: background, cyclist body, head, two irises
     closing/            Closing slide: background and team celebration picture
-  video/                second-slide-intro.mp4 (the slide 2 intro, 1280x720, 9.6 s, with sound)
+  video/                second-slide-intro.mp4 (the slide 2 intro, 1280x720, 9.6 s, with sound) and the Roger-that mp3
     stops/              27 numbered route/detail photographs
 scripts/build.mjs       Dependency-free assembly and validation
 .github/workflows/      GitHub Pages build and deployment workflow

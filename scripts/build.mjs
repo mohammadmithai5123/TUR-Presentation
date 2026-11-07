@@ -115,7 +115,7 @@ async function assertFile(filePath, description) {
 
 async function buildEditorExportPack() {
   const files = {};
-  const mime = { '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.svg':'image/svg+xml', '.gif':'image/gif', '.webp':'image/webp', '.ttf':'font/ttf', '.mp4':'video/mp4' };
+  const mime = { '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.svg':'image/svg+xml', '.gif':'image/gif', '.webp':'image/webp', '.ttf':'font/ttf', '.mp4':'video/mp4', '.mp3':'audio/mpeg' };
   let css = await readFile(path.join(root,'assets/css/styles.css'),'utf8');
   const required = new Set([...page.matchAll(/(?:src|href)="(assets\/[^"#?]+)"/g)].map(match => match[1]).filter(ref => mime[path.extname(ref)]));
   for (const match of css.matchAll(/url\(["']?([^"')]+)["']?\)/g)) {
@@ -128,6 +128,6 @@ async function buildEditorExportPack() {
     return files[key] ? `url("${files[key]}")` : match;
   });
   const scripts = {};
-  for (const name of ['editor-bootstrap.js','route-map.js','presentation.js','title-screen.js','intro-video.js','github-sync.js','editor.js']) scripts[name] = await readFile(path.join(root,'assets/js',name),'utf8');
+  for (const name of ['editor-bootstrap.js','route-map.js','presentation.js','title-screen.js','intro-video.js','slide-sounds.js','credits.js','github-sync.js','editor.js']) scripts[name] = await readFile(path.join(root,'assets/js',name),'utf8');
   await writeFile(path.join(root,'assets/js/editor-export-assets.js'), `window.turExportAssets=${JSON.stringify({shell,css,files,scripts}).replaceAll('<','\\u003c')};\n`);
 }

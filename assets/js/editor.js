@@ -284,7 +284,10 @@
   function cleanSlides() {
     return model.map((source,i) => {
       const slide = source.cloneNode(true);
-      slide.classList.remove('active', 'panorama-slide', 'intro-playing'); // runtime state, recomputed on load
+      slide.classList.remove('active', 'panorama-slide', 'intro-playing', 'cr-live'); // runtime state, recomputed on load
+      slide.querySelectorAll('.cr-caret').forEach(node => node.remove()); // credits typing: caret, shown block and reveal progress are runtime only
+      slide.querySelectorAll('.cr-block.on').forEach(node => node.classList.remove('on'));
+      slide.querySelectorAll('[style*="--p"]').forEach(node => { node.style.removeProperty('--p'); if (!node.getAttribute('style')) node.removeAttribute('style'); });
       slide.querySelectorAll('.intro-overlay').forEach(node => node.remove()); // the slide 2 intro overlay exists only while it plays
       slide.querySelectorAll('[style*="zoom"]').forEach(node => { node.style.removeProperty('zoom'); if (!node.getAttribute('style')) node.removeAttribute('style'); }); // auto-fit is runtime only
       slide.querySelectorAll('.editor-selected-element').forEach(node => node.classList.remove('editor-selected-element'));
@@ -322,8 +325,7 @@
       let html = pack.shell.replace('<!-- SLIDES -->', () => cleanHTML());
       html = html.replace('<link rel="stylesheet" href="assets/css/styles.css">', `<style>${pack.css.replace(/<\/style/gi,'<\\/style')}</style>`);
       html = html.replace(/(?:src|href)="(assets\/[^"#?]+)"/g,(match,path) => pack.files[path] ? match.replace(path,pack.files[path]) : match);
-      const introSrc = document.querySelector('#intro-video')?.getAttribute('src'); // a downloaded copy already carries the video inline
-      if (introSrc && introSrc.startsWith('data:')) html = html.replace(/src="assets\/video\/second-slide-intro\.mp4"/, () => `src="${introSrc}"`);
+      document.querySelectorAll('[data-asset]').forEach(el => { const inline = el.getAttribute('src'); if (inline && inline.startsWith('data:')) html = html.split(`src="${el.dataset.asset}"`).join(`src="${inline}"`); }); // a downloaded copy already carries the intro video and the sound inline
       html = html.replace(/<script src="assets\/js\/([^"/]+)"><\/script>/g,(match,name) => pack.scripts[name] ? `<script>${pack.scripts[name].replace(/<\/script/gi,'<\\/script')}</script>` : match);
       // Inline the export pack too, so downloaded copies remain fully editable and exportable.
       const portablePack = { ...pack, files: {} };
