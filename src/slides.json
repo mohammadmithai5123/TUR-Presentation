@@ -190,43 +190,13 @@
     "notes": "Section transition: Taheri Web Application. The software overview and its feature screens follow."
   },
   {
-    "id": "software-overview",
-    "file": "software-overview.html",
-    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
-  },
-  {
-    "id": "software-participants",
-    "file": "software-participants.html",
-    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
-  },
-  {
-    "id": "software-qr-card",
-    "file": "software-qr-card.html",
-    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
-  },
-  {
-    "id": "software-checkpoints",
-    "file": "software-checkpoints.html",
-    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
-  },
-  {
-    "id": "software-activity-tracking",
-    "file": "software-activity-tracking.html",
-    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
-  },
-  {
-    "id": "software-weight-results",
-    "file": "software-weight-results.html",
-    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
-  },
-  {
-    "id": "software-treasure-results",
-    "file": "software-treasure-results.html",
-    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
-  },
-  {
     "id": "software-dashboard",
     "file": "software-dashboard.html",
+    "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
+  },
+  {
+    "id": "software-volunteer-apps",
+    "file": "software-volunteer-apps.html",
     "notes": "Screenshots supplied by the event team. Displayed entries are the supplied application snapshot."
   },
   {

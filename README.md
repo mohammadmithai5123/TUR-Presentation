@@ -5,7 +5,7 @@ requirement; there are no third-party packages.
 
 ## Updated archive
 
-This project contains the merged 58-slide presentation. Extract it and open
+This project contains the merged 50-slide presentation. Extract it and open
 `index.html` to view it. See `OPEN-FIRST.txt` and `UPDATE-NOTES.md` for the
 changes. The hosted website below has not been updated by editing this archive.
 
@@ -14,12 +14,12 @@ changes. The hosted website below has not been updated by editing this archive.
 | Section | Slides | What it holds |
 |---|---|---|
 | Route Overview | 1–28 | Interactive title screen, agenda, animated route map and every checkpoint, ending with the closing ceremony at Taheri Masjid. |
-| 02 Activities | 29–38 | Divider, overview, cleaning activity, treasure hunt and giveaway criteria. |
-| 03 Taheri Web Application | 39–47 | Divider, software overview and the eight feature screens. |
-| 04 Communication Application | 48–52 | Divider, Zello overview, groups and channels, push-to-talk, internet requirement. |
-| 05 Giveaways | 53–54 | Divider, then one slide showing the jacket, the bag and the subscription key card every participant receives. |
-| 06 Valuable Sponsors | 55–56 | Divider, then one VIP-style wall with all 13 sponsor logos shown together. |
-| Close | 57–58 | Recap slide, then the "ONE RIDE. ONE TEAM. ONE COMMUNITY." team-celebration closing slide. |
+| 02 Activities | 29–37 | Divider, overview, cleaning activity and treasure hunt. |
+| 03 Taheri Web Application | 38–40 | Divider, then two compact slides: dashboard + participant entry + QR card + activity dashboards, and the checkpoint and activity volunteer applications. |
+| 04 Communication Application | 41–45 | Divider, Zello overview, groups and channels, push-to-talk, internet requirement. |
+| 05 Giveaways | 46–47 | Divider, then one slide showing the jacket, the bag and the subscription key card every participant receives. |
+| 06 Valuable Sponsors | 48–49 | Divider, then one VIP-style wall with all 13 sponsor logos shown together. |
+| Close | 50 | The "ONE RIDE. ONE TEAM. ONE COMMUNITY." team-celebration closing slide. |
 
 Each new section opens with its own divider slide. The footer of every slide in
 sections 02–06 shows the six sections with the current one highlighted. Slide

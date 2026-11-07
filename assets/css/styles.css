@@ -1368,3 +1368,48 @@ html:not(.fonts-loading) .closing-team.active .tc-confetti i { animation:tc-fall
 #editor-preview .closing-team *, #editor-preview .title-screen * { animation:none !important; }
 #editor-preview .tc-confetti { display:none; }
 @media print { .tc-confetti { display:none; } }
+
+/* ==========================================================================
+   Web application, compact: one dashboard slide (dashboard, participant entry + QR card, activity results) and one
+   slide for the two volunteer applications. Screenshots are plain pictures that open in the full-image viewer. The
+   three wide screenshots are cropped by CSS (not edited) to drop their empty dark lower part; the viewer shows them whole.
+   ========================================================================== */
+.slide.sw-board > h1 { top:8.2%; max-width:78%; font-size:3.4cqw; line-height:1.1; }
+.sw-row, .sw-stack { position:absolute; left:3.3%; right:3.4%; top:18.6%; }
+.sw-row { display:flex; justify-content:space-between; align-items:stretch; gap:1.6cqw; }
+.sw-stack { display:flex; flex-direction:column; gap:1.4cqw; }
+.sw-duo { display:flex; gap:1.6cqw; align-items:stretch; }
+.sw-card, .sw-app, .sw-notes { box-sizing:border-box; min-width:0; padding:.9cqw 1.2cqw 1.1cqw; background:var(--deck-card); border:1px solid var(--deck-card-line); border-top:3px solid var(--deck-gold); border-radius:.6cqw; box-shadow:0 4px 12px #0002; }
+.sw-card { display:flex; flex-direction:column; flex:none; }
+.sw-c1 { width:21.8cqw; } .sw-c2 { width:47cqw; } .sw-c3 { width:20.6cqw; }
+.sw-board h2 { margin:0 0 .7cqw; font-size:1.65cqw; line-height:1.15; color:var(--deck-gold); }
+.sw-board .sw-card h2 { font-size:1.5cqw; white-space:nowrap; }
+.sw-board p { margin:0; }
+.sw-shot { display:block; flex:none; border:1px solid #55725e; border-radius:.6cqw; background:#0a1913; box-shadow:0 8px 14px #0005; cursor:zoom-in; }
+.sw-tall, .sw-qr { height:30cqw; width:auto; }
+.sw-crop-a { width:23.5cqw; height:auto; aspect-ratio:1536 / 1036; object-fit:cover; object-position:50% 0; }
+.sw-crop-b { width:17.8cqw; height:auto; aspect-ratio:1536 / 1123; object-fit:cover; object-position:50% 0; }
+.sw-board .sw-note { margin-top:.8cqw; font-size:1.2cqw; line-height:1.35; color:var(--deck-soft); }
+.sw-board .sw-sub { margin:.6cqw 0 .45cqw; font-size:1.05cqw; font-weight:700; letter-spacing:.02em; color:var(--deck-ink); }
+.sw-board .sw-sub:first-of-type { margin-top:0; }
+.sw-points p { position:relative; padding-left:1.2cqw; font-size:1.2cqw; line-height:1.35; color:var(--deck-soft); }
+.sw-points p + p { margin-top:.55cqw; }
+.sw-points p::before { content:""; position:absolute; left:0; top:.55em; width:.45cqw; height:.45cqw; border-radius:50%; background:var(--deck-gold); }
+.sw-c2-body { display:flex; align-items:flex-start; gap:1.2cqw; }
+.sw-c2-left { width:23.5cqw; flex:none; }
+.sw-c2-left .sw-points { margin-top:.9cqw; }
+.sw-app { flex:1 1 0; display:grid; grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto 1fr; column-gap:1.6cqw; align-items:start; }
+.sw-app > .sw-shot { grid-row:1 / span 2; height:28cqw; }
+.sw-app .sw-points { align-self:start; }
+.sw-notes { display:grid; grid-template-columns:1fr 1fr; padding:0; overflow:hidden; }
+.sw-notes > div { padding:.9cqw 1.4cqw 1.1cqw; }
+.sw-notes > div + div { border-left:1px solid var(--deck-card-line); }
+.sw-notes h2 { margin-bottom:.4cqw; font-size:1.45cqw; }
+.sw-notes p { font-size:1.2cqw; line-height:1.4; color:var(--deck-soft); }
+html:not(.fonts-loading) .sw-board.active .sw-card, html:not(.fonts-loading) .sw-board.active .sw-app, html:not(.fonts-loading) .sw-board.active .sw-notes { animation:sw-rise .6s cubic-bezier(.22,.7,.25,1) backwards; }
+html:not(.fonts-loading) .sw-board.active .sw-card:nth-child(2), html:not(.fonts-loading) .sw-board.active .sw-app:nth-child(2) { animation-delay:.08s; }
+html:not(.fonts-loading) .sw-board.active .sw-card:nth-child(3), html:not(.fonts-loading) .sw-board.active .sw-notes { animation-delay:.16s; }
+@keyframes sw-rise { from { opacity:0; transform:translateY(1.2cqw); } to { opacity:1; transform:none; } }
+@media (prefers-reduced-motion:reduce) { .sw-board *, .sw-board { animation:none !important; } }
+#editor-preview .sw-board * { animation:none !important; }
+#editor-preview .sw-shot { cursor:pointer; }

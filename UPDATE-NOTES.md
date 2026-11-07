@@ -85,6 +85,20 @@ really offline) each get their own clear message.
 The deck owner's new, longer wording could run over the footer (for example on the YMCA Ground activity slide). The text of
 the open slide now shrinks just enough to stay above the footer. Nothing is changed in the saved text.
 
+## 2026-11-07 — Web Application slides combined (8 → 2)
+
+The eight software slides (overview, participants, QR card, checkpoint scanning, activity tracking, cleaning results, treasure-hunt
+results, dashboard) are now two compact slides after the "Taheri Web Application" divider:
+1. **Dashboard, participants & activity results** (`software-dashboard`): the event dashboard, participant entry with the QR card
+   (and three short points: save each cyclist's details and ID, generate a personalised QR card, scan it at every checkpoint and
+   activity), and the two activity dashboards (cleaning activity by weight, treasure hunt by clues).
+2. **Volunteer applications** (`software-volunteer-apps`): the checkpoint volunteer application and the activity volunteer
+   application side by side, each labelled with what it does, and a "How they scan / What is displayed" strip below.
+All pictures are the same screenshots as before. The three wide ones are cropped by CSS to hide their empty dark lower part;
+clicking any screenshot (or pressing Enter on it) opens the whole picture in the full-image viewer. Nothing needs a click to appear.
+The deck is now 50 slides. Footer counters (`NN/50`) in the slide files were renumbered, because the runtime writes the same
+numbers and the GitHub auto-save would otherwise treat every slide as changed.
+
 ## 2026-11-07 — new closing slide (team celebration)
 
 The last slide ("Thank you") now uses the supplied closing poster: dark teal and gold background, the group of six riders and
