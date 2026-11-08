@@ -257,7 +257,7 @@ window.deckNext = next;
 // Text can be longer than the layout expects (it is edited in the browser). Shrink the text block of the open slide,
 // a little at a time, until it ends above the footer. It uses CSS zoom on the block, is recalculated every time and
 // is never saved: the editor strips it from saved markup.
-const FIT_BLOCKS = ':scope > .copy, :scope > .text-copy, :scope > .activity-steps, :scope > .agenda-grid, :scope > .results, :scope > .intro-list, :scope > .giveaway-grid';
+const FIT_BLOCKS = ':scope > .copy, :scope > .text-copy, :scope > .activity-steps, :scope > .agenda-grid, :scope > .results, :scope > .intro-list, :scope > .giveaway-grid, :scope > .zl-wrap, :scope > .pair-stack, :scope > .sw-row, :scope > .sw-stack';
 function fitSlideText(slide) {
   const footer = slide?.querySelector(':scope > footer');
   if (!footer || !slide.isConnected) return;

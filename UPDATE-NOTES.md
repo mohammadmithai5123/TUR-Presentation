@@ -1,5 +1,14 @@
 # Presentation update notes
 
+## 2026-11-08 — ending point merged into one slide (43 slides)
+
+- Slides 24 and 25 (Taheri Masjid arrival photo and the cycle-return photo) are now **one slide, "Ending point – Taheri Masjid"**
+  (slide 24). Both photos are shown whole, side by side at the same height, each with its own heading and three points below.
+  The old "cycle return before closing" slide was removed and its speaker notes were merged into the new slide. The deck is 43 slides.
+- The auto-fit that shrinks text to the stage now also covers the two-photo slides, the software slides and the Zello slide, so a
+  longer heading typed in the editor can no longer push the footer off the slide.
+- The closing credits now restore each line's `style` attribute exactly when they reset (Chrome used to leave an empty `style=""`).
+
 ## 2026-11-05 — merged presentation (55 slides)
 
 The route briefing, the Activities deck, the Taheri Web Application deck and the

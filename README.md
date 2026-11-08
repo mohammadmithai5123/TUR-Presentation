@@ -5,7 +5,7 @@ requirement; there are no third-party packages.
 
 ## Updated archive
 
-This project contains the merged 44-slide presentation. Extract it and open
+This project contains the merged 43-slide presentation. Extract it and open
 `index.html` to view it. See `OPEN-FIRST.txt` and `UPDATE-NOTES.md` for the
 changes. The hosted website below has not been updated by editing this archive.
 
@@ -13,13 +13,13 @@ changes. The hosted website below has not been updated by editing this archive.
 
 | Section | Slides | What it holds |
 |---|---|---|
-| Route Overview | 1–26 | Interactive title screen, agenda, animated route map and every checkpoint. The five route journeys are flow charts (all spots at once, with arrows); Al Nadi and YMCA each use one combined slide. |
-| 02 Activities | 27–34 | Divider, cleaning activity and treasure hunt. |
-| 03 Taheri Web Application | 35–37 | Divider, then two compact slides: dashboard + participant entry + QR card + activity dashboards, and the checkpoint and activity volunteer applications. |
-| 04 Communication Application | 38–39 | Divider, then one Zello slide: overview, groups and channels, push-to-talk and internet requirement. |
-| 05 Giveaways | 40–41 | Divider, then one slide showing the jacket, the bag and the subscription key card every participant receives. |
-| 06 Valuable Sponsors | 42–43 | Divider, then one VIP-style wall with all 14 sponsor logos shown together. |
-| Close | 44 | The "ONE RIDE. ONE TEAM. ONE COMMUNITY." team-celebration closing slide. |
+| Route Overview | 1–25 | Interactive title screen, agenda, animated route map and every checkpoint. The five route journeys are flow charts (all spots at once, with arrows); Al Nadi and YMCA each use one combined slide. |
+| 02 Activities | 26–33 | Divider, cleaning activity and treasure hunt. |
+| 03 Taheri Web Application | 34–36 | Divider, then two compact slides: dashboard + participant entry + QR card + activity dashboards, and the checkpoint and activity volunteer applications. |
+| 04 Communication Application | 37–38 | Divider, then one Zello slide: overview, groups and channels, push-to-talk and internet requirement. |
+| 05 Giveaways | 39–40 | Divider, then one slide showing the jacket, the bag and the subscription key card every participant receives. |
+| 06 Valuable Sponsors | 41–42 | Divider, then one VIP-style wall with all 14 sponsor logos shown together. |
+| Close | 43 | The "ONE RIDE. ONE TEAM. ONE COMMUNITY." team-celebration closing slide. |
 
 Each new section opens with its own divider slide. The footer of every slide in
 sections 02–06 shows the six sections with the current one highlighted. Slide

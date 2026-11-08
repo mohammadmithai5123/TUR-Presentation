@@ -22,7 +22,11 @@
     const r = run; run = null;
     r.timers.forEach(clearTimeout); clearInterval(r.watch);
     r.caret.remove();
-    r.lines.forEach((line) => { line.style.removeProperty('--p'); if (!line.getAttribute('style')) line.removeAttribute('style'); });
+    r.lines.forEach((line) => {                                   // put each line's style attribute back exactly as it was (even an empty style="")
+      const before = r.styles.get(line);
+      line.getAttribute('style');                                 // Chrome: read first, or removing the attribute leaves an empty style="" behind
+      if (before === null) line.removeAttribute('style'); else line.setAttribute('style', before);
+    });
     r.blocks.forEach((block) => block.classList.remove('on'));
     r.slide.classList.remove('cr-live');
   }
@@ -96,10 +100,11 @@
     const caret = document.createElement('i'); caret.className = 'cr-caret'; caret.style.display = 'none';
     credits.append(caret);
     const lines = [...credits.querySelectorAll('.cr-role, .cr-name, .cr-closing')];
+    const styles = new Map(lines.map((line) => [line, line.getAttribute('style')]));
     slide.classList.add('cr-live');
     lines.forEach((line) => line.style.setProperty('--p', '0'));
     blocks.forEach((block) => block.classList.remove('on'));
-    const r = run = { slide, credits, blocks, lines, caret, closing: credits.querySelector('.cr-closing'), timers: [], watch: 0, finished: false };
+    const r = run = { slide, credits, blocks, lines, styles, caret, closing: credits.querySelector('.cr-closing'), timers: [], watch: 0, finished: false };
     r.watch = setInterval(() => { if (document.hidden || editorOpen()) cancel(); }, 250);
     sequence(r);
   }

@@ -1533,3 +1533,7 @@ html:not(.fonts-loading) .zello-slide.active .zl-card:nth-child(4) { animation-d
 .cr-caret { position:absolute; width:.2cqw; border-radius:99px; background:var(--deck-gold); box-shadow:0 0 .8cqw #ebbb65aa; pointer-events:none; animation:cr-blink .9s steps(1,end) infinite; }
 @keyframes cr-blink { 0% { opacity:1; } 50% { opacity:0; } }
 @media print { .cr-caret { display:none; } }
+/* Ending point (arch + cycle return): both photos whole on one row, a heading and three points under each */
+.pair-fit .pair-col h2 { font-size:1.8cqw; margin-bottom:.6cqw; }
+.pair-fit .pair-stack-points { gap:.55cqw; }
+.pair-fit .pair-stack-points p { padding:.55cqw 1.1cqw; font-size:1.3cqw; line-height:1.3; }

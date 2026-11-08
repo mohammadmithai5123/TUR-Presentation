@@ -11,9 +11,9 @@ TAHERI UNITY RIDE — MERGED PRESENTATION
    F opens fullscreen; M toggles the lens; N shows or hides the speaker notes.
 5. The route journeys show every spot at once as a flow chart; click a photo to see it whole.
 
-44 slides in six sections, in this order:
-  Route Overview (1-26), Activities (27-34), Taheri Web Application (35-37),
-  Communication Application (38-39), Giveaways (40-41), Valuable Sponsors (42-43), then the closing slide (44).
+43 slides in six sections, in this order:
+  Route Overview (1-25), Activities (26-33), Taheri Web Application (34-36),
+  Communication Application (37-38), Giveaways (39-40), Valuable Sponsors (41-42), then the closing slide (43).
 Each of the last five sections opens with its own introduction slide.
 The "ONE RIDE. ONE TEAM. ONE COMMUNITY." team-celebration slide is the final slide of the whole deck.
 
