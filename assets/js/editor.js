@@ -284,10 +284,7 @@
   function cleanSlides() {
     return model.map((source,i) => {
       const slide = source.cloneNode(true);
-      slide.classList.remove('active', 'panorama-slide', 'intro-playing', 'cr-live'); // runtime state, recomputed on load
-      slide.querySelectorAll('.cr-caret').forEach(node => node.remove()); // credits typing: caret, shown block and reveal progress are runtime only
-      slide.querySelectorAll('.cr-block.on').forEach(node => node.classList.remove('on'));
-      slide.querySelectorAll('[style*="--p"]').forEach(node => { node.style.removeProperty('--p'); if (!node.getAttribute('style')) node.removeAttribute('style'); });
+      slide.classList.remove('active', 'panorama-slide', 'intro-playing'); // runtime state, recomputed on load
       slide.querySelectorAll('.intro-overlay').forEach(node => node.remove()); // the slide 2 intro overlay exists only while it plays
       slide.querySelectorAll('[style*="zoom"]').forEach(node => { node.style.removeProperty('zoom'); if (!node.getAttribute('style')) node.removeAttribute('style'); }); // auto-fit is runtime only
       slide.querySelectorAll('.editor-selected-element').forEach(node => node.classList.remove('editor-selected-element'));

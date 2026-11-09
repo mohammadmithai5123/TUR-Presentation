@@ -34,9 +34,8 @@ any normal Next plays a one-second exit and opens slide 2; Back/Home returns to 
 label and pictures are edited in Edit Mode like any other slide. See `UPDATE-NOTES.md` (2026-11-07) for the limits of the 2.5D
 approach and what artwork would be needed for full facial animation.
 
-## Closing credits, Zello sound
+## Zello sound
 
-The last slide types its CREDITS one block at a time (`assets/js/credits.js`); with reduced motion or `?credits=static` they show at once.
 The Zello slide plays a short "Roger that" radio clip when it turns on (`assets/js/slide-sounds.js`, `?sound=off` mutes it).
 Details in `UPDATE-NOTES.md` (2026-11-08).
 
@@ -87,7 +86,6 @@ assets/
     title-screen.js     Opening title screen: cyclist rig, Start/exit behaviour
     intro-video.js      Cinematic intro that plays on slide 2 when arriving from slide 1
     slide-sounds.js     "Roger that" sound when the Zello slide turns on
-    credits.js          Typed credits on the closing slide
     route-map.js        Animated route and map controls
 scripts/
   build.mjs             Validates and assembles the presentation

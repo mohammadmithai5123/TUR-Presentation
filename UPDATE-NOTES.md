@@ -1,5 +1,17 @@
 # Presentation update notes
 
+## 2026-11-09 — two new I. I. Chundrigar Road spots, members tags, credits removed
+
+- **Slide 15 (Jinnah House to Al Nadi):** a new **spot 5, I. I. Chundrigar Road** (photo "Page 15 spot 5") was added; Nadi Bridge became
+  spot 6. The route now has 6 spots.
+- **Slide 19 (Al Nadi to YMCA Ground):** a new **spot 2, I. I. Chundrigar Road** (photo "Page 19 spot 2") was added; Shaheen Complex became
+  spot 3 and YMCA Ground gate spot 4. The four spots now sit on one row.
+- **Members tags:** the three spots that had none (Shaheen Complex on slide 15, Nadi Bridge descent on slide 19, Cooperative Market on
+  slide 23) and the two new spots show **"Members: 2"**. The number 2 was chosen by the organiser; the original duty draft gives no count
+  for these spots, so change it in the editor if the real number differs.
+- **Closing slide:** the typed credits were removed. The slide is back to the "ONE RIDE. ONE TEAM. ONE COMMUNITY." headline with the tagline
+  "Together, we make it happen." (`credits.js` and its styles are gone). The Zello sound and the sponsor logo are unchanged.
+
 ## 2026-11-08 — ending point merged into one slide (43 slides)
 
 - Slides 24 and 25 (Taheri Masjid arrival photo and the cycle-return photo) are now **one slide, "Ending point – Taheri Masjid"**

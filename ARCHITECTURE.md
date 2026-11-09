@@ -218,7 +218,6 @@ assets/
   js/title-screen.js    Opening title screen: cyclist rig, pointer tracking, Start/exit
   js/intro-video.js     Slide 2 cinematic intro (overlay + video), see "Slide 2 intro" below
   js/slide-sounds.js    Zello slide: "Roger that" clip about 0.4 s after the slide opens (stops when leaving)
-  js/credits.js         Closing slide: credits typed block by block (clip reveal driven by --p; markup never altered)
   fonts/                Local heading and body fonts
   images/
     branding/           Division, event and Sehat logos
