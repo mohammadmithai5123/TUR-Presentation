@@ -1,5 +1,18 @@
 # Presentation update notes
 
+## 2026-11-09 (3) — radio voices, Access tab, Add bar / Delete element, three bars on slide 24
+
+- **Zello slide sound:** the "Roger that" clip was removed. The two voices added to `assets/video` now play one after the other when the slide
+  opens: the call "Checkpoint in-charge" and then the answer "Receiving, all clear" (renamed `radio-checkpoint-in-charge.mp3` and
+  `radio-receiving-all-clear.mp3`; the original names contained a `#`, which web addresses cannot carry). Leaving the slide cuts both.
+- **Access tab** in the bottom toolbar: tick boxes for Route Overview, Activities, Web Application, Communication, Giveaways and Sponsors.
+  A part that is switched off is skipped while presenting; the footer numbers and the slide list renumber by themselves (title, agenda and
+  closing slide always stay). Remembered in this browser. Show all resets it. The editor and the saved slides are not affected.
+- **Edit Mode:** new **Add bar** (a copy of the selected bar below it, or at the end of the list under a selected heading) and **Delete
+  element** (bars, text, images; the slide heading and footer are protected). Undo restores. A column with nothing left disappears.
+- **Slide 24 (Ending Point):** now three bars (the "Arrival & Closing Arrangements" bars) across the full width. The "Cycle return and final
+  scan" column was removed on request; its text is kept in the slide's speaker notes. Use Add bar to add more.
+
 ## 2026-11-09 (2) — U-shaped route flow, bigger I. I. Chundrigar Road photos
 
 - **The two new I. I. Chundrigar Road photos** (slide 15 spot 5, slide 19 spot 2) were small because they are portrait. They are now cropped to

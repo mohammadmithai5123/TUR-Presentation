@@ -26,6 +26,8 @@
       </aside>
       <main class="editor-workspace"><div id="editor-preview"></div><p class="editor-hint">Click text or an image to select it. All briefing details are visible here.</p></main>
       <aside class="editor-inspector"><h2>Selected element</h2><p id="editor-selected">Nothing selected</p>
+        <div class="editor-actions"><button id="editor-add-bar" type="button" disabled>Add bar</button><button id="editor-delete-el" type="button" disabled>Delete element</button></div>
+        <small class="editor-bar-help">Click a bar and press Add bar for another one below it (or click the heading above a list to add at its end). Delete element removes whatever is selected. Undo brings it back.</small>
         <label>Text<textarea id="editor-text" rows="5" disabled></textarea></label>
         <label>Font size<input id="editor-font" type="range" min="0.8" max="9" step="0.1" disabled><output id="editor-font-value"></output></label>
         <label>Text colour<input id="editor-color" type="color" value="#fff8e9" disabled></label>
@@ -132,7 +134,7 @@
     selected?.classList.remove('editor-selected-element');
     selected = null;
     $('selected').textContent = 'Nothing selected';
-    for (const id of ['text','font','color','image','alt','image-size','fit']) $(id).disabled = true;
+    for (const id of ['text','font','color','image','alt','image-size','fit','add-bar','delete-el']) $(id).disabled = true;
   }
   function render() {
     clearSelection();
@@ -181,16 +183,19 @@
   dialog.addEventListener('cancel', closeEditor);
   dialog.addEventListener('keydown', event => event.stopPropagation());
   $('slides').onchange = () => { current = +$('slides').value; render(); };
-  $('preview').onclick = event => {
-    event.preventDefault(); event.stopPropagation();
-    const target = event.target.closest('img,h1,h2,h3,p,small,em,.tag,.sub,.tagline,.cover-detail,.route-stop-name,.step-number,.image-note,.qr-note,.results span,.start-btn,footer span');
-    if (!target) return;
+  // A "bar" is one point in a list of points (the dark rounded boxes under a heading).
+  const NOT_BARS = '.tag,.tagline,.flow-num,.flow-name,.flow-members,.flow-count,.flow-end,.sub,.image-note,.qr-note,footer *';
+  const isBar = el => Boolean(el && el.tagName === 'P' && !el.matches(NOT_BARS) && el.parentElement && (el.matches('.detail') || el.parentElement.matches('[class*="points"],.text-copy,.copy') || el.parentElement.querySelectorAll(':scope > p').length > 1));
+  const listAfter = heading => /^H[2-6]$/.test(heading.tagName) ? [...heading.parentElement.children].find(node => node !== heading && node.matches('[class*="points"],.text-copy,.copy')) || null : null;
+  function selectElement(target) {
     clearSelection(); selected = target;
     target.classList.add('editor-selected-element');
     const isImage = target.tagName === 'IMG';
     $('selected').textContent = isImage ? 'Image' : 'Text';
     for (const id of ['image','alt','image-size','fit']) $(id).disabled = !isImage;
     for (const id of ['text','font','color']) $(id).disabled = isImage;
+    $('add-bar').disabled = !(isBar(target) || listAfter(target));
+    $('delete-el').disabled = target.matches('h1,footer,footer *');
     if (isImage) {
       $('image').value = ''; $('alt').value = target.alt;
       $('fit').value = getComputedStyle(target).objectFit === 'cover' ? 'cover' : 'contain';
@@ -202,6 +207,36 @@
       const rgb = getComputedStyle(target).color.match(/\d+/g);
       if (rgb) $('color').value = '#' + rgb.slice(0,3).map(v => (+v).toString(16).padStart(2,'0')).join('');
     }
+  }
+  $('preview').onclick = event => {
+    event.preventDefault(); event.stopPropagation();
+    const target = event.target.closest('img,h1,h2,h3,p,small,em,.tag,.sub,.tagline,.cover-detail,.route-stop-name,.step-number,.image-note,.qr-note,.results span,.start-btn,footer span');
+    if (!target) return;
+    selectElement(target);
+  };
+  $('add-bar').onclick = () => {
+    if (!selected) return;
+    let list, after = null, like = null;
+    if (isBar(selected)) { list = selected.parentElement; after = selected; like = selected; }
+    else if ((list = listAfter(selected))) like = [...list.children].filter(node => node.tagName === 'P').at(-1) || null;
+    else return;
+    checkpoint();
+    const bar = like ? like.cloneNode(false) : document.createElement('p');
+    bar.classList.remove('editor-selected-element', 'shown');
+    bar.textContent = 'Add details here.';
+    list.insertBefore(bar, after ? after.nextSibling : null);
+    window.fitSlideText?.(model[current]); listSlides();
+    selectElement(bar);
+    $('status').textContent = 'Bar added. Type its text in the Text box on the right.';
+  };
+  $('delete-el').onclick = () => {
+    if (!selected || selected.matches('h1,footer,footer *')) return;
+    checkpoint();
+    const target = selected, column = target.closest('.pair-col'), what = isBar(target) ? 'Bar' : target.tagName === 'IMG' ? 'Image' : 'Element';
+    clearSelection(); target.remove();
+    if (column && !column.children.length) column.remove();      // a column with nothing left goes too
+    window.fitSlideText?.(model[current]); listSlides();
+    $('status').textContent = `${what} deleted. Undo brings it back.`;
   };
   $('text').oninput = () => {
     if (!selected) return; checkpoint();

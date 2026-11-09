@@ -29,14 +29,30 @@ const routeStates = new Map(
     ]),
 );
 
-slides.forEach((slide, slideIndex) => {
-  const option = document.createElement("option");
-  option.value = slideIndex;
-option.textContent = `${slideIndex + 1}  ${readableSlideTitle(slide)}`;
-  jump.append(option);
-  const counter = slide.querySelector("footer b");
-  if (counter) counter.textContent = `${String(slideIndex + 1).padStart(2, "0")}/${slides.length}`;
-});
+// Access: parts of the presentation can be switched off from the "Access" tab. Switched-off slides are skipped when presenting and the
+// footer numbers and the slide list close the gap. With everything on, the numbers are 01/43, 02/43 ... as written in the slides.
+const skipped = new Set();
+function refreshNumbering() {
+  const shown = slides.filter((slide) => !skipped.has(slide));
+  jump.replaceChildren(...slides.flatMap((slide, slideIndex) => {
+    if (skipped.has(slide)) return [];
+    const option = document.createElement("option");
+    option.value = slideIndex;
+    option.textContent = `${shown.indexOf(slide) + 1}  ${readableSlideTitle(slide)}`;
+    return [option];
+  }));
+  slides.forEach((slide) => {
+    const counter = slide.querySelector("footer b");
+    if (counter && !skipped.has(slide)) counter.textContent = `${String(shown.indexOf(slide) + 1).padStart(2, "0")}/${shown.length}`;
+  });
+  jump.value = index;
+}
+function nearestVisible(slideIndex, direction) {
+  const ok = (k) => k >= 0 && k < slides.length && !skipped.has(slides[k]);
+  for (let k = slideIndex; k >= 0 && k < slides.length; k += direction) if (ok(k)) return k;
+  for (let k = slideIndex; k >= 0 && k < slides.length; k -= direction) if (ok(k)) return k;
+  return index;
+}
 
 // Only route-journey slides still step through their own stops. Every other slide shows all of its
 // points together as soon as it opens, so Next simply moves on to the next slide.
@@ -197,7 +213,8 @@ function show(slideIndex, requestedReveal = 0) {
   const currentRoute = routeStates.get(slides[index]);
   if (currentRoute?.busy) return false;
 
-  const nextIndex = Math.max(0, Math.min(slides.length - 1, slideIndex));
+  let nextIndex = Math.max(0, Math.min(slides.length - 1, slideIndex));
+  if (skipped.size) nextIndex = nearestVisible(nextIndex, nextIndex >= index ? 1 : -1);
   if (currentRoute && nextIndex !== index) resetRoute(currentRoute);
   index = nextIndex;
   const route = routeStates.get(slides[index]);
@@ -304,7 +321,8 @@ document.querySelector("#full").onclick = full;
 // keyboard) and fades away a few seconds later. Speaker notes are toggled with the N key.
 const controls = document.querySelector("#controls");
 let controlsTimer;
-const controlsHeld = () => { try { return controls.matches(":hover, :has(:focus-visible)"); } catch { return controls.matches(":hover, :focus-within"); } };
+let accessOpen = false;
+const controlsHeld = () => { if (accessOpen) return true; try { return controls.matches(":hover, :has(:focus-visible)"); } catch { return controls.matches(":hover, :focus-within"); } };
 const showControls = () => {
   controls.classList.remove("idle");
   clearTimeout(controlsTimer);
@@ -342,7 +360,7 @@ document.querySelector("#deck").addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (document.querySelector('#deck-editor')?.open) return;
   if (document.querySelector("#image-viewer").open) return;
-  if (event.target.closest("#controls")) return;
+  if (event.target.closest("#controls, #access-panel")) return;
   if (event.target.closest("select")) return;
   if (event.target.closest("button") && [" ", "Enter"].includes(event.key)) return;
   if ([" ", "ArrowRight", "Enter", "PageDown"].includes(event.key)) {
@@ -358,6 +376,71 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Home") show(0);
   if (event.key === "End") show(slides.length - 1);
 });
+
+// ---- Access tab: choose which parts of the presentation to show -------------------------------------------------------------
+// Parts: "Route Overview" (the route slides after the title and the agenda) and one part per section divider (Activities, Web Application,
+// Communication, Giveaways, Sponsors). The title, the agenda and the closing slide are always shown. The choice is kept in this browser.
+const ACCESS_STORE = "tur-access-hidden";
+const alwaysShown = (slide, slideIndex) => slideIndex === 0 || slideIndex === slides.length - 1 || slide.matches(".title-screen, .agenda, .closing");
+const sections = (() => {
+  const list = [{ key: "route", label: "Route Overview", slides: [] }];
+  slides.forEach((slide, slideIndex) => {
+    if (slide.matches(".section-divider")) { list.push({ key: slide.id, label: readableSlideTitle(slide), slides: [slide] }); return; }
+    if (!alwaysShown(slide, slideIndex)) list.at(-1).slides.push(slide);
+  });
+  return list.filter((section) => section.slides.length);
+})();
+let hiddenKeys = new Set();
+try { hiddenKeys = new Set(JSON.parse(localStorage.getItem(ACCESS_STORE) || "[]").filter((key) => sections.some((section) => section.key === key))); } catch {}
+const accessButton = document.createElement("button");
+accessButton.id = "access-btn"; accessButton.type = "button"; accessButton.textContent = "Access";
+accessButton.setAttribute("aria-expanded", "false"); accessButton.setAttribute("aria-controls", "access-panel");
+jump.after(accessButton);
+const accessPanel = document.createElement("div");
+accessPanel.id = "access-panel"; accessPanel.hidden = true; accessPanel.setAttribute("role", "group"); accessPanel.setAttribute("aria-label", "Access: choose what to present");
+accessPanel.innerHTML = '<strong>Access</strong><p class="access-help">Switch parts of the presentation off to skip them. The slide numbers adjust by themselves. The title, the agenda and the closing slide always stay.</p><div class="access-list"></div><div class="access-foot"><span class="access-count" aria-live="polite"></span><button type="button" class="access-all">Show all</button></div>';
+document.body.append(accessPanel);
+const accessBoxes = new Map();
+sections.forEach((section) => {
+  const row = document.createElement("label");
+  row.className = "access-row";
+  const box = document.createElement("input");
+  box.type = "checkbox"; box.dataset.key = section.key;
+  const name = document.createElement("span"); name.className = "access-name"; name.textContent = section.label;
+  const size = document.createElement("small"); size.textContent = `${section.slides.length} slide${section.slides.length === 1 ? "" : "s"}`;
+  row.append(box, name, size);
+  accessPanel.querySelector(".access-list").append(row);
+  accessBoxes.set(section.key, box);
+  box.addEventListener("change", () => {
+    if (box.checked) hiddenKeys.delete(section.key); else hiddenKeys.add(section.key);
+    applyAccess(); saveAccess();
+    if (skipped.has(slides[index])) show(index); else jump.value = index;   // the open slide was switched off: move on to the next one that is on
+  });
+});
+function saveAccess() {
+  try { if (hiddenKeys.size) localStorage.setItem(ACCESS_STORE, JSON.stringify([...hiddenKeys])); else localStorage.removeItem(ACCESS_STORE); } catch {}
+}
+function applyAccess() {
+  skipped.clear();
+  sections.forEach((section) => { if (hiddenKeys.has(section.key)) section.slides.forEach((slide) => skipped.add(slide)); });
+  accessBoxes.forEach((box, key) => { box.checked = !hiddenKeys.has(key); });
+  const off = sections.filter((section) => hiddenKeys.has(section.key)).length;
+  accessButton.textContent = off ? `Access · ${off} off` : "Access";
+  accessPanel.querySelector(".access-count").textContent = `Presenting ${slides.length - skipped.size} of ${slides.length} slides`;
+  refreshNumbering();
+}
+function setAccessOpen(open) {
+  accessOpen = open; accessPanel.hidden = !open;
+  accessButton.setAttribute("aria-expanded", String(open));
+  if (open) showControls();
+}
+accessButton.addEventListener("click", () => setAccessOpen(accessPanel.hidden));
+accessPanel.querySelector(".access-all").addEventListener("click", () => {
+  hiddenKeys.clear(); applyAccess(); saveAccess(); jump.value = index;
+});
+document.addEventListener("keydown", (event) => { if (event.key === "Escape" && accessOpen) { setAccessOpen(false); if (accessPanel.contains(document.activeElement)) accessButton.focus(); } });
+document.addEventListener("pointerdown", (event) => { if (accessOpen && !event.target.closest("#access-panel, #access-btn")) setAccessOpen(false); });
+applyAccess();
 
 show(Math.max(0, (+location.hash.slice(1) || 1) - 1));
 document.fonts?.ready.then(() => fitSlideText(slides[index])); // text measures differently once the fonts are in

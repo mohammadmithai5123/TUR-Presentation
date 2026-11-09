@@ -217,7 +217,7 @@ assets/
   js/route-map.js       SVG route animation, playback, speed and seek controls
   js/title-screen.js    Opening title screen: cyclist rig, pointer tracking, Start/exit
   js/intro-video.js     Slide 2 cinematic intro (overlay + video), see "Slide 2 intro" below
-  js/slide-sounds.js    Zello slide: "Roger that" clip about 0.4 s after the slide opens (stops when leaving)
+  js/slide-sounds.js    Zello slide: radio call + answer about 0.4 s after the slide opens (stops when leaving)
   fonts/                Local heading and body fonts
   images/
     branding/           Division, event and Sehat logos
@@ -227,7 +227,7 @@ assets/
     slides/             Cover and rally backgrounds
     title/              Title screen: background, cyclist body, head, two irises
     closing/            Closing slide: background and team celebration picture
-  video/                second-slide-intro.mp4 (the slide 2 intro, 1280x720, 9.6 s, with sound) and the Roger-that mp3
+  video/                second-slide-intro.mp4 (the slide 2 intro, 1280x720, 9.6 s, with sound) and the two radio voices (mp3)
     stops/              27 numbered route/detail photographs
 scripts/build.mjs       Dependency-free assembly and validation
 .github/workflows/      GitHub Pages build and deployment workflow

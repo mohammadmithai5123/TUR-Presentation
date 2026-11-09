@@ -36,8 +36,22 @@ approach and what artwork would be needed for full facial animation.
 
 ## Zello sound
 
-The Zello slide plays a short "Roger that" radio clip when it turns on (`assets/js/slide-sounds.js`, `?sound=off` mutes it).
-Details in `UPDATE-NOTES.md` (2026-11-08).
+The Zello slide plays a short radio exchange when it turns on: the call "Checkpoint in-charge" and then the answer "Receiving, all clear"
+(`assets/video/radio-checkpoint-in-charge.mp3`, `radio-receiving-all-clear.mp3`; code in `assets/js/slide-sounds.js`; `?sound=off` mutes it).
+Details in `UPDATE-NOTES.md` (2026-11-08 and 2026-11-09 (3)).
+
+## Access tab (what to present)
+
+The bottom toolbar has an **Access** tab. It lists the parts of the presentation (Route Overview, Activities, Web Application, Communication,
+Giveaways, Sponsors) with a tick box each. Switch a part off and its slides are skipped; the footer numbers (`NN/total`) and the slide list close
+the gap by themselves. The title, the agenda and the closing slide always stay. The choice is kept in this browser (`localStorage`), **Show all**
+brings everything back, Escape closes the panel. It only affects presenting: the editor and the saved slides always keep every slide.
+Code: end of `assets/js/presentation.js`; styles at the end of `assets/css/styles.css`.
+
+## Edit Mode: bars
+
+In Edit Mode click a bar (one point in a list) and press **Add bar** for a new bar below it, or click the heading above a list to add at the end of
+the list. **Delete element** removes whatever is selected (bars, text, images; not the slide heading or the footer). Undo brings it back.
 
 ## Slide 2 intro
 
@@ -85,7 +99,7 @@ assets/
     presentation.js     Navigation, notes, and image magnifier
     title-screen.js     Opening title screen: cyclist rig, Start/exit behaviour
     intro-video.js      Cinematic intro that plays on slide 2 when arriving from slide 1
-    slide-sounds.js     "Roger that" sound when the Zello slide turns on
+    slide-sounds.js     Radio exchange (checkpoint in-charge call + receiving answer) when the Zello slide turns on
     route-map.js        Animated route and map controls
 scripts/
   build.mjs             Validates and assembles the presentation

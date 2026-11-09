@@ -5,7 +5,8 @@ TAHERI UNITY RIDE — MERGED PRESENTATION
    The first slide is an interactive title screen: move the mouse and the cyclist follows it. Click START PRESENTATION
    (or press Enter) to begin; Back or Home returns to it. With "reduce motion" on, the cyclist stays still.
    Going from the title to slide 2 plays a short cinematic intro (about 10 seconds, with sound); click or press Space to skip it.
-   The Zello slide plays a short "Roger that" radio clip as it opens.
+   The Zello slide plays a short radio exchange (checkpoint in-charge call, then the answer) as it opens.
+   The "Access" tab in the bottom toolbar switches whole parts of the presentation off; the slide numbers adjust.
 3. Right Arrow / Next moves to the next slide; all points on a slide appear together. Back reverses.
 4. Move the mouse to show the bottom toolbar (it hides itself); use the slide dropdown to jump.
    F opens fullscreen; M toggles the lens; N shows or hides the speaker notes.
