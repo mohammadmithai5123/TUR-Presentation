@@ -1,5 +1,14 @@
 # Presentation update notes
 
+## 2026-11-09 (2) — U-shaped route flow, bigger I. I. Chundrigar Road photos
+
+- **The two new I. I. Chundrigar Road photos** (slide 15 spot 5, slide 19 spot 2) were small because they are portrait. They are now cropped to
+  the standard 4:3 shape (the middle of the picture with the flag guide, the riders and the building), so they have the same size as the
+  other photos.
+- **Routes with 5 or 6 spots are now a U** (slides 8, 15 and 23): the first row runs left to right, a U-turn arrow on the right leads down,
+  and the second row runs right to left with the arrows pointing left. The spots stay in travel order (spot 4 sits under spot 3).
+  Slide 19 (4 spots) stays on one row.
+
 ## 2026-11-09 — two new I. I. Chundrigar Road spots, members tags, credits removed
 
 - **Slide 15 (Jinnah House to Al Nadi):** a new **spot 5, I. I. Chundrigar Road** (photo "Page 15 spot 5") was added; Nadi Bridge became
