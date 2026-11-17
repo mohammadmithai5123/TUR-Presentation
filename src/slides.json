@@ -202,7 +202,12 @@
   {
     "id": "section-sponsors",
     "file": "section-sponsors.html",
-    "notes": "Section transition: Valuable Sponsors. The sponsor logos follow."
+    "notes": "Section transition: Valuable Sponsors. The title sponsor (Al Burhan Luggage) comes first, then the sponsor logos."
+  },
+  {
+    "id": "title-sponsor",
+    "file": "title-sponsor.html",
+    "notes": "Title sponsor of the event: Al Burhan Luggage (\"Taheri Unity Ride powered by Al Burhan Luggage\"). This is the first slide of the Sponsors section; the two sponsor walls follow. The logo sits on a white plaque; to change it, select it in Edit Mode and use Replace image."
   },
   {
     "id": "sponsors-wall",

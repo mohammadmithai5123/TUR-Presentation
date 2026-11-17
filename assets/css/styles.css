@@ -1544,3 +1544,8 @@ html:not(.fonts-loading) .zello-slide.active .zl-card:nth-child(4) { animation-d
 .sponsors-dense .sponsor-row { gap:1.8cqw; }
 .sponsors-dense .sponsor-plaque { width:16.4cqw; height:8.5cqw; border-radius:.8cqw; background:#fff; }
 .sponsors-dense .sponsor-plaque img { padding:.55cqw .9cqw; }
+
+/* Title sponsor slide: one big white plaque, centred in the gold frame */
+.sponsors-title .sponsor-wall { top:39.4%; }
+.sponsors-title .sponsor-plaque { width:27cqw; height:24.4cqw; border-radius:1.3cqw; background:#fff; box-shadow:0 0 0 .3cqw #0b1812, 0 0 0 .42cqw #e9bb72aa, 0 1.8cqw 4cqw #000a, 0 0 7cqw #e9bb7226; }
+.sponsors-title .sponsor-plaque img { padding:1.6cqw 1.8cqw; }

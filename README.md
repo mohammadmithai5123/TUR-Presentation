@@ -5,7 +5,7 @@ requirement; there are no third-party packages.
 
 ## Updated archive
 
-This project contains the merged 44-slide presentation. Extract it and open
+This project contains the merged 45-slide presentation. Extract it and open
 `index.html` to view it. See `OPEN-FIRST.txt` and `UPDATE-NOTES.md` for the
 changes. The hosted website below has not been updated by editing this archive.
 
@@ -18,8 +18,8 @@ changes. The hosted website below has not been updated by editing this archive.
 | 03 Taheri Web Application | 34–36 | Divider, then two compact slides: dashboard + participant entry + QR card + activity dashboards, and the checkpoint and activity volunteer applications. |
 | 04 Communication Application | 37–38 | Divider, then one Zello slide: overview, groups and channels, push-to-talk and internet requirement. |
 | 05 Giveaways | 39–40 | Divider, then one slide showing the jacket, the bag and the subscription key card every participant receives. |
-| 06 Valuable Sponsors | 41–43 | Divider, then two VIP-style walls: the first with 14 sponsor logos, the second with 19 more (all on white plaques). |
-| Close | 44 | The "ONE RIDE. ONE TEAM. ONE COMMUNITY." team-celebration closing slide. |
+| 06 Valuable Sponsors | 41–44 | Divider, then the title sponsor (Al Burhan Luggage, "Taheri Unity Ride powered by Al Burhan Luggage") on a slide of its own, then two VIP-style walls: the first with 14 sponsor logos, the second with 19 more (all on white plaques). |
+| Close | 45 | The "ONE RIDE. ONE TEAM. ONE COMMUNITY." team-celebration closing slide. |
 
 Each new section opens with its own divider slide. The footer of every slide in
 sections 02–06 shows the six sections with the current one highlighted. Slide

@@ -1,5 +1,12 @@
 # Presentation update notes
 
+## 2026-11-17 (4) — title sponsor slide (45 slides)
+
+- **New slide 42, "Our title sponsor of the event":** the first slide of the Sponsors section, right after the divider and before the two
+  sponsor walls. Tag "TITLE SPONSOR", the line "Taheri Unity Ride powered by Al Burhan Luggage.", and the Al Burhan Luggage logo on one big
+  white plaque inside the same gold frame as the walls. The logo is an ordinary picture (Replace image in Edit Mode). Slides after it moved
+  up by one (walls 43-44, closing slide 45); footer numbers, the Access tab and the slide list follow automatically (Sponsors part = 4 slides).
+
 ## 2026-11-17 (3) — title screen: background back, "POWERED BY" removed
 
 - **Slide 1 background restored:** the picture behind the cyclist (`assets/images/title/background.webp`) had been deleted in the browser

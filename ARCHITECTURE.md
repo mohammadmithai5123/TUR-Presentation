@@ -194,7 +194,7 @@ changes. Recorded issues below are observations, not completed fixes.
 
 ## Purpose and scope
 
-A static, editable 44-slide route and operations briefing for the Taheri Unity
+A static, editable 45-slide route and operations briefing for the Taheri Unity
 Ride. It covers registration, the start and finish, four checkpoints, route duty
 positions, cycle return, staffing reconciliation, and closing.
 
