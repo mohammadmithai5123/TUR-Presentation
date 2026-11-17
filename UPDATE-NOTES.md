@@ -1,5 +1,12 @@
 # Presentation update notes
 
+## 2026-11-17 (2) — title sponsor on the title screen
+
+- **"POWERED BY" + the Al Burhan Luggage logo** on slide 1 (title sponsor): a white card with the logo, next to the three logos at the bottom
+  left, with a gold "POWERED BY" label and a thin divider. It uses the same entrance and exit animation as the logos, keeps clear of the
+  START button and the cyclist, and has its own place in the stacked layout of phones and portrait screens. The label is ordinary text and
+  the logo is an ordinary picture, so both can be changed in Edit Mode (`assets/images/sponsors/al-burhan-luggage.webp`).
+
 ## 2026-11-17 — second sponsors wall (44 slides)
 
 - **New slide 43, "Our valuable sponsors (continued)":** 19 more sponsor logos supplied by the organiser (AIMS, KCA Italy, Saify Soda, Tapal
