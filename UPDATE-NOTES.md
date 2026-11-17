@@ -1,5 +1,15 @@
 # Presentation update notes
 
+## 2026-11-17 — second sponsors wall (44 slides)
+
+- **New slide 43, "Our valuable sponsors (continued)":** 19 more sponsor logos supplied by the organiser (AIMS, KCA Italy, Saify Soda, Tapal
+  Danedar, Nature Healthy Life, Laziz Kitchen, Jet Star Signs, Iceberg, Nerolac Excel Paint, Ezzy Impex, Kitchen Jewellery, SF, Shape & Style,
+  Latest Trends, Ronaq Kitchen Tools, Marvi Dental Care, Bharmal Associates, Burhani Flowers, MillPro Pakistan), in the order received, four
+  rows of plaques (5 / 5 / 5 / 4). Every logo sits on a **white plaque**; the pictures were cropped to their content and flattened on white
+  (`assets/images/sponsors/`). The closing slide is now slide 44; all footer numbers say /44.
+- **Food Therapy** was among the 20 pictures but is already on the first wall, so it is not shown twice.
+- The Access tab counts the new slide with the Sponsors part (3 slides). To swap a logo: Edit Mode, select it, Replace image.
+
 ## 2026-11-09 (3) — radio voices, Access tab, Add bar / Delete element, three bars on slide 24
 
 - **Zello slide sound:** the "Roger that" clip was removed. The two voices added to `assets/video` now play one after the other when the slide

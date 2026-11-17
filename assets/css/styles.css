@@ -1535,3 +1535,12 @@ html:not(.fonts-loading) .zello-slide.active .zl-card:nth-child(4) { animation-d
 #access-btn[aria-expanded="true"] { border-color:var(--deck-gold); }
 .editor-bar-help { display:block; margin:8px 0 12px; color:#b9cdbc; line-height:1.4; }
 @media print { #access-panel, #access-btn { display:none; } }
+
+/* Second sponsors wall: 19 logos on four rows of plaques (5 / 5 / 5 / 4), all on white */
+.sponsors-dense > .tag { top:3%; }
+.slide.sponsors.sponsors-dense > h1 { top:8.2%; max-width:78%; font-size:3.4cqw; line-height:1.1; }
+.sponsors-dense .sponsor-frame { top:18%; }
+.sponsors-dense .sponsor-wall { top:20.8%; gap:1.5cqw; }
+.sponsors-dense .sponsor-row { gap:1.8cqw; }
+.sponsors-dense .sponsor-plaque { width:16.4cqw; height:8.5cqw; border-radius:.8cqw; background:#fff; }
+.sponsors-dense .sponsor-plaque img { padding:.55cqw .9cqw; }

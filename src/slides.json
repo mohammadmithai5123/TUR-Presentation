@@ -210,6 +210,11 @@
     "notes": "Sponsor logos supplied by the organiser, shown together in the order received. The order is not a ranking. To change one, select its logo in Edit Mode and use Replace image."
   },
   {
+    "id": "sponsors-wall-2",
+    "file": "sponsors-wall-2.html",
+    "notes": "Second sponsors wall: 19 more sponsor logos supplied by the organiser, each cropped to its content and shown on a white plaque, in the order received. The order is not a ranking. Food Therapy was supplied again but is already on the first wall, so it is not repeated. To change one, select its logo in Edit Mode and use Replace image."
+  },
+  {
     "id": "one-ride-one-community",
     "file": "one-ride-one-community.html",
     "notes": "Closing banner after the operational briefing."
