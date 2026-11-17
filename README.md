@@ -31,8 +31,7 @@ Slide 1 is an interactive title screen (`src/slides/taheri-unity-ride.html`, beh
 follows the mouse with his eyes and head, breathes and blinks, and nods when you hover **START PRESENTATION**. Start, Enter or
 any normal Next plays a one-second exit and opens slide 2; Back/Home returns to the title. It is built from separate pictures in
 `assets/images/title/` (body, head, two irises, background); with reduced motion it stays still. Heading, subtitle, stats, button
-label and pictures are edited in Edit Mode like any other slide. The title sponsor ("POWERED BY Al Burhan Luggage", a logo on a white
-card) sits next to the three logos. See `UPDATE-NOTES.md` (2026-11-07) for the limits of the 2.5D
+label and pictures are edited in Edit Mode like any other slide. See `UPDATE-NOTES.md` (2026-11-07) for the limits of the 2.5D
 approach and what artwork would be needed for full facial animation.
 
 ## Zello sound

@@ -1240,11 +1240,6 @@ html:not(.fonts-loading) .slide.sponsors.active .sponsor-frame { animation:sp-fr
 
 .title-screen > .logos { left:6%; right:auto; top:83%; width:auto; height:auto; padding:0; gap:1.55cqw; justify-content:flex-start; }
 .title-screen > .logos .logo-medallion { width:5.9cqw; height:5.9cqw; }
-/* title sponsor: "POWERED BY" and the Al Burhan Luggage logo on a white card, on the same row as the three logos */
-.ts-powered { position:absolute; left:28%; top:max(80.1%, calc(69.9% + max(4.2cqw,44px) + .8cqw)); height:8.4cqw; display:flex; align-items:center; gap:1cqw; padding-left:1.6cqw; border-left:1px solid #ffffff2e; }
-.ts-powered-label { margin:0; width:max(6.4cqw,6em); flex:none; text-align:right; font-size:max(.95cqw,8px); line-height:1.5; font-weight:700; letter-spacing:.18em; color:#e9bb72; text-shadow:0 1px 6px #0008; }
-.ts-powered-card { box-sizing:border-box; height:100%; padding:.6cqw .9cqw; border-radius:.9cqw; background:#fff; border:1px solid #e9bb72; box-shadow:0 0 0 .2cqw #0b1812, 0 0 0 .28cqw #e9bb7277, 0 .9cqw 2cqw #000a; }
-.ts-powered-card img { display:block; height:100%; width:auto; }
 
 /* ---- character ---- */
 .ts-figure { --fw:37.1; --fwl:calc(var(--fw) * 1cqw); --u:calc(var(--fwl) / 923); position:absolute; left:50.6%; top:2%; width:var(--fwl); aspect-ratio:923 / 1328; pointer-events:none; }
@@ -1270,7 +1265,6 @@ html:not(.fonts-loading) .title-screen.active > .ts-subtitle { animation:ts-rise
 html:not(.fonts-loading) .title-screen.active .ts-stats > div { animation:ts-rise .55s cubic-bezier(.22,.7,.25,1) calc(1.18s + var(--i,0) * .09s) backwards; }
 html:not(.fonts-loading) .title-screen.active > .ts-start { animation:ts-rise .6s cubic-bezier(.22,.7,.25,1) 1.4s backwards; }
 html:not(.fonts-loading) .title-screen.active .logos .logo-medallion { animation:ts-pop .55s cubic-bezier(.2,1.3,.4,1) calc(1.5s + var(--i,0) * .09s) backwards; }
-html:not(.fonts-loading) .title-screen.active > .ts-powered { animation:ts-rise .6s cubic-bezier(.22,.7,.25,1) 1.62s backwards; }
 html:not(.fonts-loading) .title-screen.active > .ts-figure { animation:ts-figure-in 1.05s cubic-bezier(.2,.8,.2,1) .5s backwards; }
 .ts-stats > div:nth-child(1), .logos .logo-medallion:nth-child(1) { --i:0; } .ts-stats > div:nth-child(2), .logos .logo-medallion:nth-child(2) { --i:1; } .ts-stats > div:nth-child(3), .logos .logo-medallion:nth-child(3) { --i:2; }
 @keyframes ts-fade { from { opacity:0; } to { opacity:1; } }
@@ -1288,11 +1282,10 @@ html:not(.fonts-loading) .title-screen.active.leaving > .tagline,
 html:not(.fonts-loading) .title-screen.active.leaving > .ts-subtitle,
 html:not(.fonts-loading) .title-screen.active.leaving > .ts-stats,
 html:not(.fonts-loading) .title-screen.active.leaving > .ts-start,
-html:not(.fonts-loading) .title-screen.active.leaving > .ts-powered,
 html:not(.fonts-loading) .title-screen.active.leaving > .logos { animation:ts-out .5s cubic-bezier(.5,0,.8,.4) forwards; }
 html:not(.fonts-loading) .title-screen.active.leaving > h1 { animation-delay:.05s; }
 html:not(.fonts-loading) .title-screen.active.leaving > .ts-stats, html:not(.fonts-loading) .title-screen.active.leaving > .ts-subtitle { animation-delay:.1s; }
-html:not(.fonts-loading) .title-screen.active.leaving > .ts-start, html:not(.fonts-loading) .title-screen.active.leaving > .logos, html:not(.fonts-loading) .title-screen.active.leaving > .ts-powered { animation-delay:.15s; }
+html:not(.fonts-loading) .title-screen.active.leaving > .ts-start, html:not(.fonts-loading) .title-screen.active.leaving > .logos { animation-delay:.15s; }
 html:not(.fonts-loading) .title-screen.active.leaving > .ts-figure { animation:ts-figure-out .85s cubic-bezier(.5,0,.8,.4) .12s forwards; }
 @keyframes ts-out { to { opacity:0; transform:translateX(-3cqw); } }
 @keyframes ts-figure-out { to { opacity:0; transform:translateX(6cqw); } }
@@ -1318,8 +1311,6 @@ body.title-portrait .ts-figure { --fwl:min(64cqw,calc(38cqh * .695)); left:auto;
 body.title-portrait .ts-start { left:6cqw; top:auto; bottom:calc(3.2cqh + var(--tl) + 2cqh); width:88cqw; height:max(7cqh,48px); font-size:calc(max(4cqw,13px) * var(--ts-fit-start,1)); }
 body.title-portrait .title-screen > .logos { left:6cqw; top:auto; bottom:3.2cqh; gap:3.2cqw; }
 body.title-portrait .title-screen > .logos .logo-medallion { width:var(--tl); height:var(--tl); }
-body.title-portrait .ts-powered { left:auto; right:6cqw; top:auto; bottom:3.2cqh; height:calc(var(--tl) + 1.4cqh); gap:2.2cqw; padding-left:0; border-left:0; }
-body.title-portrait .ts-powered-label { width:auto; font-size:max(2.3cqw,8px); }
 @media (max-height:420px) and (orientation:landscape) { .ts-stat-label, .ts-subtitle, .title-screen > .tag { text-shadow:0 1px 4px #000; } }
 @media print { .title-screen > * { animation:none !important; } }
 
